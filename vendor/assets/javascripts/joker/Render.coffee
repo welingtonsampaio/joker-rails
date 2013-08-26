@@ -27,8 +27,6 @@ class Joker.Render extends Joker.Core
 
   defaultMethod  : undefined
 
-  renderContainer: undefined
-
   ###
   Constructor method
   ###
@@ -46,9 +44,33 @@ class Joker.Render extends Joker.Core
   link_click: (e)->
     @debug "Evento de clique disparados para o elemento: ", e.currentTarget
     el = e.currentTarget
-    target = if el.dataset.render? then $("[data-yield-for=#{el.dataset.render}]") else @renderContainer
-    method = if el.dataset.method? then el.dataset.method else @defaultMethod
+    target = if el.dataset.yieldFor? then $("[data-yield-for=#{el.dataset.render}]") else @get_render_container()
+    type   = if el.dataset.method? then el.dataset.method else @defaultMethod
+    @load
+      url   : el.getAttribute('href')
+      method: type
+      target: target.selector
     false
+
+  ###
+  Metodo que faz o laod do conteudo html
+  @param {Object} obj
+  @param {Boolean} add_push Informe se é para a
+  ###
+  load: (obj, add_push = true)->
+    new Joker.Ajax
+      url   : obj.url
+      method: obj.method
+      callbacks:
+        success: (data, textStatus, jqXHR)=>
+          history.pushState obj, "asd", obj.url if add_push
+          $(obj.target).empty().html(data)
+
+  ###
+  Retorna o container default
+  ###
+  get_render_container: ->
+    @jQuery "[data-yield]"
 
   ###
   Sets the values ​​of the standard rendering engine
@@ -56,7 +78,6 @@ class Joker.Render extends Joker.Core
   set_defaults: ->
     @debug "Definindo as configuracoes padroes"
     @defaultMethod   = "GET"
-    @renderContainer = @jQuery "[data-yield]"
 
   ###
   Sets all events from the elements
@@ -65,6 +86,7 @@ class Joker.Render extends Joker.Core
     @unset_events()
     @debug "Setando os eventos"
     @jQuery(document).on('click.render.joker', '[data-render]', @jQuery.proxy(@link_click,@))
+    window.onpopstate = (config)=> @load config.state, false
 
   ###
   Removes all events from the elements with

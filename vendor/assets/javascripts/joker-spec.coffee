@@ -40,9 +40,9 @@ jasmineInit = ->
 
   execJasmine()
 
-  setTimeout( ->
-    $('body > *').not('.jasmine_reporter').remove()
-  , 500)
+#  setTimeout( ->
+#    $('body > *').not('.jasmine_reporter').remove()
+#  , 500)
 
 jQuery ->
   setTimeout jasmineInit, 100

@@ -3,6 +3,7 @@
  *= require joker/JokerUtils
  *= require joker/Debug
  *= require joker/Core
- *= require joker/UrlParser
+ *= require joker/Ajax
  *= require joker/Render
+ *= require joker/Model
  */

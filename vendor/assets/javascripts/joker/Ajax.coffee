@@ -30,7 +30,11 @@ class Joker.Ajax extends Joker.Core
     be executed at the end of its creation
     @type {Boolean}
     ###
-    autoExecute: true
+    autoExec: true
+    ###
+    Verifica
+    ###
+    cacheable: false
     ###
     Indicates whether the object should use
     a loader to stop, until the completion
@@ -75,38 +79,38 @@ class Joker.Ajax extends Joker.Core
       error     : (jqXHR, textStatus, errorThrown)->
       success   : (data, textStatus, jqXHR)->
 
-
-
-  construtor: (settings)->
+  constructor: (settings)->
+    super
     @settings = $.extend true, {}, @settings, settings
+    @debug "Construindo o ajax com as configuracoes: ", @settings
     @exec() if @settings.autoExec == true
-
 
   ###
   Executa a requisicao javascript
   ###
   exec: ->
-    $.ajax
+    @debug "Exec Ajax"
+    @jQuery.ajax
       contentType: @settings.contentType
       url        : @settings.url
       type       : @settings.method
       data       : @get_data()
-      dataType   : @settings.dataType
       beforeSend : @settings.callbacks.beforeSend
       complete   : @settings.callbacks.complete
-      error      : (jqXHR, textStatus, errorThrown)->
-        Lol.Loader.remove()
-        _this.settings.callbacks.error(jqXHR, textStatus, errorThrown)
-      success    : (data, textStatus, jqXHR)->
-        Lol.Loader.remove()
-        _this.settings.callbacks.success(data, textStatus, jqXHR)
+      error      : (jqXHR, textStatus, errorThrown)=>
+        @debug "Error: ", jqXHR, textStatus, errorThrown
+        @settings.callbacks.error(jqXHR, textStatus, errorThrown)
+      success    : (data, textStatus, jqXHR)=>
+        @debug "Success: ", data, textStatus, jqXHR
+        @settings.callbacks.success(data, textStatus, jqXHR)
 
+  ###
+  Converte a data em string params
+  @return {String}
+  ###
   get_data: ->
     return $.param(@settings.data) if typeof @settings.data == "object"
     ""
-
-  set_events: ->
-    $.delegate('a[data-render]', 'click', $.proxy(@link_click,@))
 
 
 # rails application and using csrf-token

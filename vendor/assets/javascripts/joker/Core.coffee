@@ -70,6 +70,8 @@ class Joker.Core
     @verify_jquery()
     @generate_id()
 
+  accessor: (name)->
+    @constructor[name]
 
   ###
   Checks if there is library of jQuery,
