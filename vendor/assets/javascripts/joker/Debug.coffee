@@ -26,6 +26,11 @@ Responsible for handling debug messages
 ###
 Joker.Debug =
   ###
+  Console object responsible for printing the debug message
+  @type {Object}
+  ###
+  console: window.console
+  ###
   Configuration default debug
   @type {Object}
   ###
@@ -41,7 +46,7 @@ Joker.Debug =
   ###
   print: ( params )->
     params = $.extend true, {}, @paramsDefault, params
-    if (params.debug or Joker.debug) and window.console?
+    if (params.debug or Joker.debug) and @console?
       message = ["#{params.prefix} #{params.objectId} - #{params.index}"]
       message.push params.messages[value] for value of params.messages
-      console.log message
+      @console.debug message

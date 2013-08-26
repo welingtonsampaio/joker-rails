@@ -30,53 +30,77 @@ Create a new instance of Core.
 class Joker.Core
   ###
   ID of identification of object
-  @type String      hash @see JokerUtils.uniqid
+  @see JokerUtils.uniqid
+  @type {String}
   ###
   id          : null
   ###
   Atual Index of prints Debuging
+  @type {Integer}
   ###
   debugIndex  : 1
   ###
   Prefix debug message
+  @type {String}
   ###
   debugPrefix : "Joker_Core"
   ###
+  The reference pattern help, default: jQuery
+  @static
+  @type {Object)
+  ###
+  @jQuery: window.jQuery
+  ###
+  Sets the class name
+  @type {String}
+  ###
+  name: "Core"
+  ###
   All settings
+  @type {Object}
   ###
   settings:
     debug: false
+
+  ###
+  constructor method
+  ###
+  constructor: ->
+    @jQuery = Joker.Core.jQuery
+    @verify_jquery()
+    @generate_id()
+
+
   ###
   Checks if there is library of jQuery,
   returns false if there
   @exception If there jQuery
-  @return Boolean
+  @return {Boolean}
   ###
   verify_jquery: ->
-    if jQuery == undefined
-      throw 'Required jQuery library'
-      false
-    else
-      true
+    throw 'Required jQuery library' unless @jQuery?
+    true
   ###
   Responsible for generating a unique
   id for the object in question
-  @return String Id generated
+  @return {String} Id generated
   ###
   generate_id: ->
     @id = JokerUtils.uniqid()
     JokerUtils.add_object @
+    @id
   ###
   Destroy the object and cleaning of Utils
   @see JokerUtils.remove_object()
-  @return Boolean
+  @return {Boolean}
   ###
   destroy: ->
     JokerUtils.remove_object @id
+    delete @
   ###
   Print messages of debug
-  @param (Mixin) ... All params are printed
-  @return (Integer) Next index of message
+  @param {Mixin} ... All params are printed
+  @return {Integer} Next index of message
   ###
   debug: ->
     Joker.Debug.print
