@@ -1,5 +1,6 @@
 #= require jasmine/jasmine
 #= require jasmine/jasmine-html
+#= require_tree ./spec/support
 #= require_tree ./spec
 #= require_self
 

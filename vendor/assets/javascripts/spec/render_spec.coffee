@@ -11,7 +11,7 @@ describe "Joker.Render", ->
   afterEach ->
     Joker.debug = false
     $("#spec_container").empty()
-#    history.replaceState {}, "asd", '/'
+    history.replaceState {}, "asd", '/'
 
   it "must be an instance of Core", ->
     expect( Joker.Render.__super__.name ).toEqual "Core"
@@ -20,7 +20,7 @@ describe "Joker.Render", ->
     expect( Joker.Render.get_instance() ).toEqual Joker.Render.get_instance()
 
   it "should append content1.html to data-yield", ->
-    a = $ "<a />", text: "link1", "data-render":true, href: "/spec/content1.html", id: "myLink1"
+    a = $ "<a />", text: "link1", "data-render":true, href: "/assets/spec/support/content1.html", id: "myLink1"
     a.appendTo container
     render.link_click({currentTarget: a[0]})
     waitsFor ->
@@ -28,7 +28,7 @@ describe "Joker.Render", ->
     , "The content should be rendered", 250
 
   it "should append content2.html to data-yield", ->
-    a = $ "<a />", text: "link2", "data-render":true, href: "/spec/content2.html", id: "myLink2"
+    a = $ "<a />", text: "link2", "data-render":true, href: "/assets/spec/support/content2.html", id: "myLink2"
     a.appendTo container
     render.link_click({currentTarget: a[0]})
     waitsFor ->

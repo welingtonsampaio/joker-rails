@@ -27,18 +27,24 @@ class Joker.Model extends Joker.Core
   @HAS_ONE                : 'has_one'
   @HAS_AND_BELONGS_TO_MANY: 'has_and_belongs_to_many'
 
+  @primaryKey   : "id"
   @resourceName : undefined
   @fields       : []
   @associations : []
 
-  @encode      : (names...)->
+  @encode: (names...)->
     @fields.push {name: name} for name in names
 
 
-  @association : (model, type)->
+  @association: (model, type)->
     @associations.push
       model: model
       type : type
+
+  @timestamp: ->
+    @encode "created_at", "updated_at"
+
+
 
   debugPrefix : "Joker_Model"
   name        : "Model"
@@ -80,11 +86,3 @@ class Joker.Model extends Joker.Core
   Metodo executado apos disparado o save do elemento
   ###
   after_save: ->
-
-class window.User extends Joker.Model
-  @resourceName: "user"
-  @encode "name","login","password"
-  @association(Address, )
-
-  t: ->
-    @accessor "resourceName"
