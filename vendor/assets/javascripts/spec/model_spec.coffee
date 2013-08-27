@@ -15,7 +15,12 @@ describe "Joker.Model", ->
     beforeEach ->
       user = new User
 
-    it "deve ter", ->
+    xit "deve poder requisitar uma lista de usuarios", ->
+      u = User.all().exec()
+
+
+    xit "deve poder requisitar um usuario atraves do ID", ->
+
 
 
 
