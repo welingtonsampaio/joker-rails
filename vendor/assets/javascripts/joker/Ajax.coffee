@@ -96,7 +96,9 @@ class Joker.Ajax extends Joker.Core
       type       : @settings.method
       data       : @get_data()
       beforeSend : @settings.callbacks.beforeSend
-      complete   : @settings.callbacks.complete
+      complete   : (jqXHR, textStatus)=>
+        @settings.callbacks.complete jqXHR, textStatus
+        @destroy()
       error      : (jqXHR, textStatus, errorThrown)=>
         @debug "Error: ", jqXHR, textStatus, errorThrown
         @settings.callbacks.error(jqXHR, textStatus, errorThrown)

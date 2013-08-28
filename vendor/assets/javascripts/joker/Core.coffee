@@ -27,13 +27,32 @@ Create a new instance of Core.
 @return {Core}    Returns a new Core.
 @type   {Object}
 ###
-class Joker.Core
+class Joker.Core extends Object
+  ###
+  Criador de getters e setters, tendo como
+  padrao o nome do attributo com "_" na
+  frente do nome para armazenamento
+  @param {String} name of attribute
+  ###
+  @attr_accesor: (attribute, params={})->
+    @prototype[attribute+"Old"] = @prototype[attribute] if @constructor.prototype.hasOwnProperty(attribute)
+    if Object.has(params,"container")
+      @prototype[params.container] = new Object unless Object.has(@prototype,params.container)
+      container = @prototype[params.container]
+    else
+      container = @prototype
+    @prototype.debug container      , params
+    @prototype[attribute] = (value)->
+      container["_"+attribute] = value if value?
+      container["_"+attribute]
+    container["_"+attribute] = params.default if Object.has params, "default"
+
   ###
   ID of identification of object
   @see JokerUtils.uniqid
   @type {String}
   ###
-  id          : null
+  objectId    : null
   ###
   Atual Index of prints Debuging
   @type {Integer}
@@ -88,16 +107,16 @@ class Joker.Core
   @return {String} Id generated
   ###
   generate_id: ->
-    @id = JokerUtils.uniqid()
+    @objectId = JokerUtils.uniqid()
     JokerUtils.add_object @
-    @id
+    @objectId
   ###
   Destroy the object and cleaning of Utils
   @see JokerUtils.remove_object()
   @return {Boolean}
   ###
   destroy: ->
-    JokerUtils.remove_object @id
+    JokerUtils.remove_object @objectId
     delete @
   ###
   Print messages of debug
@@ -108,7 +127,7 @@ class Joker.Core
     Joker.Debug.print
       debug    : @settings.debug
       prefix   : @debugPrefix
-      objectId : @id
+      objectId : @objectId
       index    : @debugIndex
       messages : arguments
     @debugIndex += 1

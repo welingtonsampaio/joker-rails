@@ -10,16 +10,16 @@ describe "JokerUtils", ->
 
   it "should be able to add an object to collection", ->
     expect( JokerUtils.add_object ).toThrow()
-    expect( JokerUtils.add_object({id:"1"}) ).toBeTruthy()
+    expect( JokerUtils.add_object({objectId:"1"}) ).toBeTruthy()
 
   it "should be able to add and then retrieve an object from the collection", ->
-    JokerUtils.add_object({id:"1"})
+    JokerUtils.add_object({objectId:"1"})
     expect( JokerUtils.get_object ).toThrow()
     expect( JokerUtils.get_object("1") ).toBeTruthy()
     expect( JokerUtils.get_object("1") ).toEqual( jasmine.any(Object) )
 
   it "should be able to remove an object from the collection", ->
-    JokerUtils.add_object({id:"1"})
+    JokerUtils.add_object({objectId:"1"})
     expect( JokerUtils.remove_object("1") ).toBeTruthy()
     expect( JokerUtils.remove_object("1")).not.toBeTruthy()
 
@@ -35,6 +35,6 @@ describe "JokerUtils", ->
     expect( JokerUtils.is_empty("       ") ).toBeTruthy()
 
   it "should check if there is an element in the collection", ->
-    JokerUtils.add_object({id:"1"})
+    JokerUtils.add_object({objectId:"1"})
     expect( JokerUtils.has_object("test") ).not.toBeTruthy()
     expect( JokerUtils.has_object("1") ).toBeTruthy()

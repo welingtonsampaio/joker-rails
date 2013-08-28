@@ -69,8 +69,8 @@ For details please refer to: http://jokerjs.zaez.net
   @return {Object}
   ###
   add_object: (obj)->
-    throw "This object does not have the id attribute" unless obj.hasOwnProperty("id")
-    @_object_id[obj.id] = obj
+    throw "This object does not have the id attribute" unless obj.hasOwnProperty("objectId")
+    @_object_id[obj.objectId] = obj
     obj
 
   ###

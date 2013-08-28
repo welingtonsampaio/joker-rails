@@ -36,10 +36,13 @@ jasmineInit = ->
   window.onload = ->
     currentWindowOnload() if (currentWindowOnload)
 
-  execJasmine = ->
-    jasmineEnv.execute()
+  oldCallback = jasmineEnv.currentRunner().finishCallback
+  jasmineEnv.currentRunner().finishCallback = ->
+    oldCallback.apply(this, arguments)
+    $('body > *').not('.jasmine_reporter').remove()
+    console.clear()
 
-  execJasmine()
+  jasmineEnv.execute()
 
 #  setTimeout( ->
 #    $('body > *').not('.jasmine_reporter').remove()
