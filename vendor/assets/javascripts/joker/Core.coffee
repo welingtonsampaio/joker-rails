@@ -29,25 +29,6 @@ Create a new instance of Core.
 ###
 class Joker.Core extends Object
   ###
-  Criador de getters e setters, tendo como
-  padrao o nome do attributo com "_" na
-  frente do nome para armazenamento
-  @param {String} name of attribute
-  ###
-  @attr_accesor: (attribute, params={})->
-    @prototype[attribute+"Old"] = @prototype[attribute] if @constructor.prototype.hasOwnProperty(attribute)
-    if Object.has(params,"container")
-      @prototype[params.container] = new Object unless Object.has(@prototype,params.container)
-      container = @prototype[params.container]
-    else
-      container = @prototype
-    @prototype.debug container      , params
-    @prototype[attribute] = (value)->
-      container["_"+attribute] = value if value?
-      container["_"+attribute]
-    container["_"+attribute] = params.default if Object.has params, "default"
-
-  ###
   ID of identification of object
   @see JokerUtils.uniqid
   @type {String}
@@ -86,8 +67,8 @@ class Joker.Core extends Object
   ###
   constructor: ->
     @jQuery = Joker.Core.jQuery
-    @verify_jquery()
-    @generate_id()
+    @verifyJquery()
+    @generateId()
 
   accessor: (name)->
     @constructor[name]
@@ -98,7 +79,7 @@ class Joker.Core extends Object
   @exception If there jQuery
   @return {Boolean}
   ###
-  verify_jquery: ->
+  verifyJquery: ->
     throw 'Required jQuery library' unless @jQuery?
     true
   ###
@@ -106,9 +87,9 @@ class Joker.Core extends Object
   id for the object in question
   @return {String} Id generated
   ###
-  generate_id: ->
+  generateId: ->
     @objectId = JokerUtils.uniqid()
-    JokerUtils.add_object @
+    JokerUtils.addObject @
     @objectId
   ###
   Destroy the object and cleaning of Utils
@@ -116,7 +97,7 @@ class Joker.Core extends Object
   @return {Boolean}
   ###
   destroy: ->
-    JokerUtils.remove_object @objectId
+    JokerUtils.removeObject @objectId
     delete @
   ###
   Print messages of debug

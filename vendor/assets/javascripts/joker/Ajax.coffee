@@ -32,10 +32,6 @@ class Joker.Ajax extends Joker.Core
     ###
     autoExec: true
     ###
-    Verifica
-    ###
-    cacheable: false
-    ###
     Indicates whether the object should use
     a loader to stop, until the completion
     of the request

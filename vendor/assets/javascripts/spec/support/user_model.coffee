@@ -9,3 +9,4 @@ class window.User extends Joker.Model
   #  @association(Address, null)
   @timestamp()
 
+

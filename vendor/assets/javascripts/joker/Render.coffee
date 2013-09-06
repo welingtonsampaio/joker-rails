@@ -33,18 +33,18 @@ class Joker.Render extends Joker.Core
   constructor: ->
     super
     @debug "Inicializando o Render"
-    @set_defaults()
-    @set_events()
+    @setDefaults()
+    @setEvents()
 
   ###
   Event triggered when a link to "render" is triggered
   @param {Event}
   @return {Boolean} false
   ###
-  link_click: (e)->
+  linkClick: (e)->
     @debug "Evento de clique disparados para o elemento: ", e.currentTarget
     el = e.currentTarget
-    target = if el.dataset.yieldFor? then $("[data-yield-for=#{el.dataset.render}]") else @get_render_container()
+    target = if el.dataset.yieldFor? then $("[data-yield-for=#{el.dataset.render}]") else @getRenderContainer()
     type   = if el.dataset.method? then el.dataset.method else @defaultMethod
     @load
       url   : el.getAttribute('href')
@@ -69,21 +69,21 @@ class Joker.Render extends Joker.Core
   ###
   Retorna o container default
   ###
-  get_render_container: ->
+  getRenderContainer: ->
     @jQuery "[data-yield]"
 
   ###
   Sets the values ​​of the standard rendering engine
   ###
-  set_defaults: ->
+  setDefaults: ->
     @debug "Definindo as configuracoes padroes"
     @defaultMethod   = "GET"
 
   ###
   Sets all events from the elements
   ###
-  set_events: ->
-    @unset_events()
+  setEvents: ->
+    @unsetEvents()
     @debug "Setando os eventos"
     @jQuery(document).on('click.render.joker', '[data-render]', @jQuery.proxy(@link_click,@))
     window.onpopstate = (config)=> @load config.state, false
@@ -92,7 +92,7 @@ class Joker.Render extends Joker.Core
   Removes all events from the elements with
   namespace .render
   ###
-  unset_events: ->
+  unsetEvents: ->
     @debug "Removendo os eventos"
     @jQuery(document).off '.render'
 
@@ -105,6 +105,6 @@ class Joker.Render extends Joker.Core
   Retorna a variavel unica para a instacia do objeto
   @return [Joker.Render]
   ###
-  @get_instance: ->
+  @getInstance: ->
     Joker.Render.instance =  new Joker.Render() unless Joker.Render.instance?
     Joker.Render.instance

@@ -77,8 +77,6 @@ class Joker.Model extends Joker.Core
   ###
   @encode: (names...)->
     for name in names
-      @attr_accesor name,
-        container: "attributes"
       @fields[name] =
         name: name
 
@@ -110,36 +108,37 @@ class Joker.Model extends Joker.Core
   @param {Object} data, json format
   @return {Joker.Model} this model
   ###
-  @from_json: (data)->
+  @fromJSON: (data)->
     throw "É necessario passar um objeto no formato json para funcionar corretamente" unless data?
     model = new @()
     model.debug "Configurando o modelo a partir de um objet json: ", data
     for key, value of data
-      if model.has_attribute(key) or key == @primaryKey
-        model[key](value)
-      else if model.has_association key
+      if model.hasAttribute(key) or key == @primaryKey
+        model.set key, value
+      else if model.hasAssociation key
 
       else
         throw "A chave '{key}' não é um atributo existente no modelo <{model}:{object_id}>".assign(key:key,model:model.constructor.name, object_id:model.objectId)
     model
 
   ###
-  Modificador da referencia para a chave
-  primaria
-  @param {String} key
+  Este metodo é responsavel por realizar o parser
+  do formulario que contem campos com o prefixo
+  "resourceName" definido no modelo
+  @implemented to static
+  @return {Object} form serializado
   ###
-  @primary_key: (key)->
-    delete @prototype[@primaryKey]
-    delete @prototype.attributes["_id"]
-    @primaryKey = key
-    @attr_accesor key,
-      container: "attributes"
+  @fromForm: ->
 
-
-
+  @find: (id)->
+    new Joker.Ajax
+      url: @prefixUri+@uri
+      useLoader: false
+      type:
 
   debugPrefix : "Joker_Model"
   name        : "Model"
+  attributes  : new Object()
 
   constructor: (settings={})->
     super
@@ -162,7 +161,7 @@ class Joker.Model extends Joker.Core
   @param {String} name of attribute
   @return {Boolean}
   ###
-  has_attribute: (name)->
+  hasAttribute: (name)->
     Object.has @accessor("fields"), name
 
   ###
@@ -171,7 +170,7 @@ class Joker.Model extends Joker.Core
   @param {String} name of association
   @return {Boolean}
   ###
-  has_association: (name)->
+  hasAssociation: (name)->
     Object.has @accessor("associations"), name
 
   ###
@@ -179,7 +178,7 @@ class Joker.Model extends Joker.Core
   no banco de dados ou nao
   @return {Boolean}
   ###
-  is_new: ->
+  isNew: ->
     not Object.has @attributes, "_"+@accessor("primaryKey")
 
   ###
@@ -203,28 +202,26 @@ class Joker.Model extends Joker.Core
   save: ->
     @debug "salvando..."
 
-  ###
-  Este metodo é responsavel por realizar o parser
-  do formulario que contem campos com o prefixo
-  "resourceName" definido no modelo
-  @implemented to static
-  @return {Object} form serializado
-  ###
-  from_form: ->
+  get: (name)->
+    @attributes[name]
+
+  set: (name, value)->
+    @attributes[name] = value
+    @
 
   ###
   Converte o objeto em json puro
   @see {Joker.Model.to_object}
   @return {String}
   ###
-  to_json: ->
+  toJSON: ->
     JSON.stringify(@to_object())
 
   ###
   Converte as informacoes do modelo em objeto
   @return {Object}
   ###
-  to_object: ->
+  toObject: ->
     obj = new Object()
     obj[@accessor("primaryKey")] = @[@accessor("primaryKey")]() if Object.has(@attributes, "_"+@accessor("primaryKey"))
     Object.keys(@accessor("fields")).each (indice)=>
@@ -235,25 +232,25 @@ class Joker.Model extends Joker.Core
       obj[indice.model.resourceName] = @[indice.model.resourceName]().to_obj() if Object.has(@attributes, indice)
     obj
 
-  # Callbacks
+  # Filters
 
   ###
   Metodo executado antes de disparar o destroy
   @return {Boolean}
   ###
-  before_destroy: ->
+  beforeDestroy: ->
     true
   ###
   Metodo executado apos o destroy do elemento
   ###
-  after_destroy : ->
+  afterDestroy : ->
   ###
   Metodo executado antes de disparar o save
   @return {Boolean}
   ###
-  before_save: ->
+  beforeSave: ->
     true
   ###
   Metodo executado apos disparado o save do elemento
   ###
-  after_save: ->
+  afterSave: ->

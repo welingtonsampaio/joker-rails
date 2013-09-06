@@ -52,7 +52,7 @@ For details please refer to: http://jokerjs.zaez.net
   @param {Mixin} obj
   @return {String}
   ###
-  to_string: (obj)->
+  toString: (obj)->
     new String(obj)
 
   # Add references objects
@@ -68,8 +68,8 @@ For details please refer to: http://jokerjs.zaez.net
   @param {Object} obj
   @return {Object}
   ###
-  add_object: (obj)->
-    throw "This object does not have the id attribute" unless obj.hasOwnProperty("objectId")
+  addObject: (obj)->
+    throw "This object does not have the id attribute" unless Object.has obj, "objectId"
     @_object_id[obj.objectId] = obj
     obj
 
@@ -78,8 +78,8 @@ For details please refer to: http://jokerjs.zaez.net
   @param {String} id
   @return {Object}
   ###
-  get_object: (id)->
-    throw "This id does not belong to collection" unless @has_object(id)
+  getObject: (id)->
+    throw "This id does not belong to collection" unless @hasObject(id)
     @_object_id[id]
 
   ###
@@ -88,25 +88,25 @@ For details please refer to: http://jokerjs.zaez.net
   @param {String} id
   @return {Boolean}
   ###
-  has_object: (id)->
-    @_object_id.hasOwnProperty(id)
+  hasObject: (id)->
+    Object.has @_object_id, id
 
   ###
   Removes an object from the collection.
   @param {String} id
   @return {Boolean}
   ###
-  remove_object: (id)->
-    return false unless @has_object(id)
+  removeObject: (id)->
+    return false unless @hasObject(id)
     @_object_id[id] = null
     delete @_object_id[id]
-    not @_object_id.hasOwnProperty(id)
+    not @hasObject(id)
 
   ###
   Redirects the page to another url.
   @param {String} url
   ###
-  redirect_to: (url)->
+  redirectTo: (url)->
     window.location = url
 
   ###
@@ -114,7 +114,7 @@ For details please refer to: http://jokerjs.zaez.net
   @param {String | Mixin} pStrText
   @return {Boolean}
   ###
-  is_empty: (pStrText)->
+  isEmpty: (pStrText)->
     return true if pStrText == null or pStrText == undefined
     newString = ""
     for char in pStrText

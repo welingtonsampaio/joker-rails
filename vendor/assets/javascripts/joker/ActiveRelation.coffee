@@ -23,30 +23,6 @@ For details please refer to: http://jokerjs.zaez.net
 ###
 class Joker.ActiveRelation extends Joker.Core
 
-  @HAS_MANY               : 'has_many'
-  @HAS_ONE                : 'has_one'
-  @HAS_AND_BELONGS_TO_MANY: 'has_and_belongs_to_many'
-
-  @primaryKey   : "id"
-  @resourceName : undefined
-  @uri          : undefined
-  @fields       : []
-  @associations : []
-
-  @encode: (names...)->
-    @fields.push {name: name} for name in names
-
-
-  @association: (model, type)->
-    @associations.push
-      model: model
-      type : type
-
-  @timestamp: ->
-    @encode "created_at", "updated_at"
-
-
-
   debugPrefix : "Joker_ActiveRelation"
   name        : "ActiveRelation"
 
@@ -55,6 +31,9 @@ class Joker.ActiveRelation extends Joker.Core
     super
     @settings = $.extend true, {}, @settings, settings
     @debug "Construindo o modelo com as configuracoes: ", @settings
+
+  get: ->
+
 
   toString: ->
 

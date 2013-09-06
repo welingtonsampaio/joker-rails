@@ -4,7 +4,7 @@ describe "Joker.Render", ->
 
   beforeEach ->
     Joker.debug = true
-    render = Joker.Render.get_instance()
+    render = Joker.Render.getInstance()
     container = $ "<div />", "data-yield": true
     $("#spec_container").append container
 
@@ -17,12 +17,12 @@ describe "Joker.Render", ->
     expect( Joker.Render.__super__.name ).toEqual "Core"
 
   it "should generate just a single instance of Render through the static method get_instance", ->
-    expect( Joker.Render.get_instance() ).toEqual Joker.Render.get_instance()
+    expect( Joker.Render.getInstance() ).toEqual Joker.Render.getInstance()
 
   it "should append content1.html to data-yield", ->
     a = $ "<a />", text: "link1", "data-render":true, href: "/assets/spec/support/content1.html", id: "myLink1"
     a.appendTo container
-    render.link_click({currentTarget: a[0]})
+    render.linkClick({currentTarget: a[0]})
     waitsFor ->
       container.html() == "<h1>Title 1</h1>"
     , "The content should be rendered", 250
@@ -30,7 +30,7 @@ describe "Joker.Render", ->
   it "should append content2.html to data-yield", ->
     a = $ "<a />", text: "link2", "data-render":true, href: "/assets/spec/support/content2.html", id: "myLink2"
     a.appendTo container
-    render.link_click({currentTarget: a[0]})
+    render.linkClick({currentTarget: a[0]})
     waitsFor ->
       container.html() == "<h2>Title 2</h2>"
     , "The content should be rendered", 250
