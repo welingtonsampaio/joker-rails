@@ -1,3 +1,5 @@
+#= require support/sinon-1.7.3
+#= require joker
 describe "Joker.Core", ->
   core = null
 
@@ -8,25 +10,27 @@ describe "Joker.Core", ->
     core.destroy() if core?
 
   it "should be able to verify the existence of the jQuery object", ->
-    expect( core.verifyJquery() ).toBeTruthy()
+    expect( core.verifyJquery() ).to.be.true
     core.jQuery = null
-    expect( core.verifyJquery ).toThrow()
+    expect( core.verifyJquery ).throw
 
   it "should at startup add the object to the collection JokerUtils", ->
-    expect( JokerUtils.getObject(core.objectId) ).toBeTruthy()
-    expect( JokerUtils.getObject(core.objectId) ).toEqual core
+    expect( JokerUtils.getObject(core.objectId) ).to.be.ok
+    expect( JokerUtils.getObject(core.objectId) ).to.equal core
 
   it "should have a method to remove the object from the collection", ->
     id = core.id
     core.destroy()
-    expect( JokerUtils.hasObject(id) ).not.toBeTruthy()
+    expect( JokerUtils.hasObject(id) ).to.be.false
 
   it "should be able to print debug messages", ->
-    myConsole = jasmine.createSpyObj('console', ["log","warn","debug"])
-    Joker.Debug.console = myConsole
+    debug =
+      debug: ->
+#    Joker.Debug.console = debug
+    spy = sinon.spy Joker.Debug.console, 'debug'
     core.debug "Test"
-    expect( myConsole.debug ).not.toHaveBeenCalled()
+    expect( spy.calledOnce ).to.not.be.ok
     core.settings.debug = true
     core.debug "Test"
-    expect( myConsole.debug ).toHaveBeenCalled()
-    Joker.Debug.console = window.console
+    expect( spy.calledOnce ).to.be.true
+    spy.restore()

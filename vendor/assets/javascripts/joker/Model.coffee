@@ -134,7 +134,7 @@ class Joker.Model extends Joker.Core
     new Joker.Ajax
       url: @prefixUri+@uri
       useLoader: false
-      type:
+      type:            "a"
 
   debugPrefix : "Joker_Model"
   name        : "Model"

@@ -1,3 +1,6 @@
+#= require support/sinon-1.7.3
+#= require joker
+
 describe "Joker.Model", ->
 
   beforeEach ->
@@ -7,7 +10,7 @@ describe "Joker.Model", ->
     Joker.debug = no
 
   it "deve ser uma heranca de Joker.Core", ->
-    expect( Joker.Model.__super__.name ).toEqual "Core"
+    expect( Joker.Model.__super__.name ).to.equal "Core"
 
   describe "User Model Example - support", ->
     user = null
