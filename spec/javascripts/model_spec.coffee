@@ -1,5 +1,6 @@
 #= require support/sinon-1.7.3
 #= require joker
+#= require support/user_model
 
 describe "Joker.Model", ->
 
@@ -10,7 +11,7 @@ describe "Joker.Model", ->
     Joker.debug = no
 
   it "deve ser uma heranca de Joker.Core", ->
-    expect( Joker.Model.__super__.name ).to.equal "Core"
+    expect( Joker.Model.$super.className ).to.equal "Joker_Core"
 
   describe "User Model Example - support", ->
     user = null
@@ -18,8 +19,8 @@ describe "Joker.Model", ->
     beforeEach ->
       user = new User
 
-    xit "deve poder requisitar uma lista de usuarios", ->
-      u = User.all().exec()
+    it "deve poder requisitar uma lista de usuarios", ->
+      u = User.all()
 
 
     xit "deve poder requisitar um usuario atraves do ID", ->

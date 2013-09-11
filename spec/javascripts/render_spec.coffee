@@ -15,7 +15,7 @@ describe "Joker.Render", ->
     $("body").empty()
 
   it "must be an instance of Core", ->
-    expect( Joker.Render.__super__.name ).to.equal "Core"
+    expect( Joker.Ajax.$super.className ).to.equal "Joker_Core"
 
   it "should generate just a single instance of Render through the static method get_instance", ->
     expect( Joker.Render.getInstance() ).to.equal Joker.Render.getInstance()
