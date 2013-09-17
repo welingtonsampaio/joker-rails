@@ -21,151 +21,91 @@ For details please refer to: http://jokerjs.zaez.net
 ###
 
 ###
-Joker.Render = Class [Joker.Core], ->
-  debugPrefix   = "Joker_Render"
-  defaultMethod = "GET"
-  {
-    $statics :
-      instance: undefined
-      getInstance: ->
-        Joker.Render.instance =  new Joker.Render() unless Joker.Render.instance?
-        Joker.Render.instance
-    ###
-    Constructor method
-    ###
-    constructor: ->
-      Joker.Ajax.$super.call this
-      @debug "Inicializando o Render"
-      @setEvents()
-      @
+class Joker.Render extends Joker.Core
 
-    ###
-    Event triggered when a link to "render" is triggered
-    @param {Event}
-    @return {Boolean} false
-    ###
-    linkClick: (e)->
-      @debug "Evento de clique disparados para o elemento: ", e.currentTarget
-      el = e.currentTarget
-      target = if el.dataset.yieldFor? then @libSupport("[data-yield-for=#{el.dataset.render}]") else @getRenderContainer()
-      type   = if el.dataset.method? then el.dataset.method else defaultMethod
-      @load
-        url   : el.getAttribute('href')
-        method: type
-        target: target.selector
-      false
+  @debugPrefix: "Joker_Render"
+  @className  : "Joker_Render"
 
-    ###
-    Metodo que faz o laod do conteudo html
-    @param {Object} obj
-    @param {Boolean} add_push Informe se é para a
-    ###
-    load: (obj, add_push = true)->
-      new Joker.Ajax
-        url   : obj.url
-        method: obj.method
-        callbacks:
-          success: (data, textStatus, jqXHR)=>
-            history.pushState obj, "asd", obj.url if add_push
-            @libSupport(obj.target).empty().html(data)
+  defaultMethod  : undefined
 
-    ###
-    Retorna o container default
-    ###
-    getRenderContainer: ->
-      @libSupport "[data-yield]"
+  ###
+  Constructor method
+  ###
+  constructor: ->
+    super
+    @debug "Inicializando o Render"
+    @setDefaults()
+    @setEvents()
 
-    ###
-    Sets all events from the elements
-    ###
-    setEvents: ->
-      @unsetEvents()
-      @debug "Setando os eventos"
-      @libSupport(document).on('click.render.joker', '[data-render]', @libSupport.proxy(@link_click,@))
-      window.onpopstate = (config)=> @load config.state, false
+  ###
+  Event triggered when a link to "render" is triggered
+  @param {Event}
+  @returns {Boolean} false
+  ###
+  linkClick: (e)->
+    @debug "Evento de clique disparados para o elemento: ", e.currentTarget
+    el = e.currentTarget
+    target = if el.dataset.yieldFor? then @libSupport("[data-yield-for=#{el.dataset.render}]") else @getRenderContainer()
+    type   = if el.dataset.method? then el.dataset.method else @defaultMethod
+    @load
+      url   : el.getAttribute('href')
+      method: type
+      target: target.selector
+    false
 
-    ###
-    Removes all events from the elements with
-    namespace .render
-    ###
-    unsetEvents: ->
-      @debug "Removendo os eventos"
-      @libSupport(document).off '.render'
+  ###
+  Metodo que faz o laod do conteudo html
+  @param {Object} obj
+  @param {Boolean} add_push Informe se é para a
+  ###
+  load: (obj, add_push = true)->
+    new Joker.Ajax
+      url   : obj.url
+      method: obj.method
+      callbacks:
+        success: (data, textStatus, jqXHR)=>
+          history.pushState obj, "asd", obj.url if add_push
+          $(obj.target).empty().html(data)
 
-  }
-#class Joker.Render extends Joker.Core
-#
-#  ###
-#  Constructor method
-#  ###
-#  constructor: ->
-#    super
-#    @debug "Inicializando o Render"
-#    @setDefaults()
-#    @setEvents()
-#
-#  ###
-#  Event triggered when a link to "render" is triggered
-#  @param {Event}
-#  @return {Boolean} false
-#  ###
-#  linkClick: (e)->
-#    @debug "Evento de clique disparados para o elemento: ", e.currentTarget
-#    el = e.currentTarget
-#    target = if el.dataset.yieldFor? then $("[data-yield-for=#{el.dataset.render}]") else @getRenderContainer()
-#    type   = if el.dataset.method? then el.dataset.method else @defaultMethod
-#    @load
-#      url   : el.getAttribute('href')
-#      method: type
-#      target: target.selector
-#    false
-#
-#  ###
-#  Metodo que faz o laod do conteudo html
-#  @param {Object} obj
-#  @param {Boolean} add_push Informe se é para a
-#  ###
-#  load: (obj, add_push = true)->
-#    new Joker.Ajax
-#      url   : obj.url
-#      method: obj.method
-#      callbacks:
-#        success: (data, textStatus, jqXHR)=>
-#          history.pushState obj, "asd", obj.url if add_push
-#          $(obj.target).empty().html(data)
-#
-#  ###
-#  Retorna o container default
-#  ###
-#  getRenderContainer: ->
-#    @jQuery "[data-yield]"
-#
-#  ###
-#  Sets all events from the elements
-#  ###
-#  setEvents: ->
-#    @unsetEvents()
-#    @debug "Setando os eventos"
-#    @jQuery(document).on('click.render.joker', '[data-render]', @jQuery.proxy(@link_click,@))
-#    window.onpopstate = (config)=> @load config.state, false
-#
-#  ###
-#  Removes all events from the elements with
-#  namespace .render
-#  ###
-#  unsetEvents: ->
-#    @debug "Removendo os eventos"
-#    @jQuery(document).off '.render'
-#
-#  ###
-#  @type [Joker.Render]
-#  ###
-#  @instance  : undefined
-#
-#  ###
-#  Retorna a variavel unica para a instacia do objeto
-#  @return [Joker.Render]
-#  ###
-#  @getInstance: ->
-#    Joker.Render.instance =  new Joker.Render() unless Joker.Render.instance?
-#    Joker.Render.instance
+  ###
+  Retorna o container default
+  ###
+  getRenderContainer: ->
+    @libSupport "[data-yield]"
+
+  ###
+  Sets the values ​​of the standard rendering engine
+  ###
+  setDefaults: ->
+    @debug "Definindo as configuracoes padroes"
+    @defaultMethod   = "GET"
+
+  ###
+  Sets all events from the elements
+  ###
+  setEvents: ->
+    @unsetEvents()
+    @debug "Setando os eventos"
+    @libSupport(document).on('click.render.joker', '[data-render]', @libSupport.proxy(@link_click,@))
+    window.onpopstate = (config)=> @load config.state, false
+
+  ###
+  Removes all events from the elements with
+  namespace .render
+  ###
+  unsetEvents: ->
+    @debug "Removendo os eventos"
+    @libSupport(document).off '.render'
+
+  ###
+  @type [Joker.Render]
+  ###
+  @instance  : undefined
+
+  ###
+  Retorna a variavel unica para a instacia do objeto
+  @returns [Joker.Render]
+  ###
+  @getInstance: ->
+    Joker.Render.instance =  new Joker.Render() unless Joker.Render.instance?
+    Joker.Render.instance

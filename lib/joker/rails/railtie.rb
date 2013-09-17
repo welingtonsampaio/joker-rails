@@ -3,6 +3,7 @@
 module Joker
   module Rails
     class Railtie < ::Rails::Railtie
+      #paths["config/routes"].prepend Joker::Rails::ROUTES_PATH
       initializer "JokerRails.railtie" do |app|
         app.assets.prepend_path "#{Joker::Rails::VENDOR_PATH}/images"
         app.assets.prepend_path "#{Joker::Rails::VENDOR_PATH}/javascripts"

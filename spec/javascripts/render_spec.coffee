@@ -5,17 +5,12 @@ describe "Joker.Render", ->
   container = null
 
   beforeEach ->
-    Joker.debug = true
     render = Joker.Render.getInstance()
-    container = $ "<div />", "data-yield": true
-    $("body").append container
-
-  afterEach ->
-    Joker.debug = false
-    $("body").empty()
+    container = Joker.Core.libSupport "<div />", "data-yield": true
+    Joker.Core.libSupport("body").empty().append container
 
   it "must be an instance of Core", ->
-    expect( Joker.Ajax.$super.className ).to.equal "Joker_Core"
+    expect( Joker.Render.__super__.accessor("className") ).to.equal "Joker_Core"
 
   it "should generate just a single instance of Render through the static method get_instance", ->
     expect( Joker.Render.getInstance() ).to.equal Joker.Render.getInstance()

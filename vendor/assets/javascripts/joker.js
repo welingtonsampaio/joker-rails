@@ -6,6 +6,6 @@
  *= require joker/Core
  *= require joker/Ajax
  *= require joker/Render
- *= require joker/ActiveRelation
+ *= require joker/ActiveResource
  *= require joker/Model
  */

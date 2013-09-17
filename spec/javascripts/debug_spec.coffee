@@ -4,7 +4,6 @@ describe "Joker.Debug", ->
 
   afterEach ->
     Joker.debug = false
-    Joker.Debug.console = window.console
 
   it "should have an attribute that contains the default parameters for debug", ->
     expect( Joker.Debug.paramsDefault ).to.be.an( "Object" )

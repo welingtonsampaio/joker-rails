@@ -29,7 +29,7 @@ For details please refer to: http://jokerjs.zaez.net
     JokerUtils.uniqid();            // a30285b160c14
     JokerUtils.uniqid('foo');       // fooa30285b1cd361
     JokerUtils.uniqid('bar', true); // bara20285b23dfd1.31879087
-  @return {String}
+  @returns {String}
   ###
   uniqid: (prefix='', more_entropy)->
     formatSeed = (seed, reqWidth)->
@@ -50,7 +50,7 @@ For details please refer to: http://jokerjs.zaez.net
   ###
   Convert to string
   @param {Mixin} obj
-  @return {String}
+  @returns {String}
   ###
   toString: (obj)->
     new String(obj)
@@ -66,7 +66,7 @@ For details please refer to: http://jokerjs.zaez.net
   ###
   Adds an object to the collection Lol.
   @param {Object} obj
-  @return {Object}
+  @returns {Object}
   ###
   addObject: (obj)->
     throw "This object does not have the id attribute" unless Object.has obj, "objectId"
@@ -76,7 +76,7 @@ For details please refer to: http://jokerjs.zaez.net
   ###
   Retrieves an object from the collection.
   @param {String} id
-  @return {Object}
+  @returns {Object}
   ###
   getObject: (id)->
     throw "This id does not belong to collection" unless @hasObject(id)
@@ -86,7 +86,7 @@ For details please refer to: http://jokerjs.zaez.net
   Checks if the specified id is present in
   the collection of objects
   @param {String} id
-  @return {Boolean}
+  @returns {Boolean}
   ###
   hasObject: (id)->
     Object.has @_object_id, id
@@ -94,7 +94,7 @@ For details please refer to: http://jokerjs.zaez.net
   ###
   Removes an object from the collection.
   @param {String} id
-  @return {Boolean}
+  @returns {Boolean}
   ###
   removeObject: (id)->
     return false unless @hasObject(id)
@@ -112,7 +112,7 @@ For details please refer to: http://jokerjs.zaez.net
   ###
   Verify empty state of an string. Including spaces
   @param {String | Mixin} pStrText
-  @return {Boolean}
+  @returns {Boolean}
   ###
   isEmpty: (pStrText)->
     return true if pStrText == null or pStrText == undefined

@@ -48,7 +48,7 @@ class Joker.UrlParser extends Joker.Core
 
   ###
   Retorna a variavel unica para a instacia do objeto
-  @return [Joker.UrlParser]
+  @returns [Joker.UrlParser]
   ###
   @get_instance: ->
     Joker.UrlParser.instance = Joker.UrlParser.instance || new Joker.UrlParser

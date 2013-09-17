@@ -1,12 +1,13 @@
 
-window.User = Class [Joker.Model], ->
+class window.User extends Joker.Model
+  @fields = new Object
+  @resourceName: "user"
+  @uri         : "/users"
+  @prefixUri   : "/assets/support"
 
-  resourceName= "user"
-  uri         = "assets/support/users"
 
-
-#  @encode "name", "lastname", "email"
-  #  @association(Address, null)
-#  @timestamp()
+  @encode "name", "lastname", "email"
+  @association(Address, @HAS_ONE)
+  @timestamp()
 
 

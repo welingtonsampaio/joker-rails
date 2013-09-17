@@ -11,7 +11,7 @@ describe "Joker.Core", ->
 
   it "should be able to verify the existence of the jQuery object", ->
     expect( core.verifyLibSupport() ).to.be.true
-    core.jQuery = null
+    core.libSupport = null
     expect( core.verifyLibSupport ).throw
 
   it "should at startup add the object to the collection JokerUtils", ->
@@ -29,11 +29,8 @@ describe "Joker.Core", ->
 #    Joker.Debug.console = debug
     spy = sinon.spy Joker.Debug.console, 'debug'
     core.debug "Test"
-    console.log core.settings()
-    expect( spy.called ).to.not.be.ok
-    core.settings debug: true
-    console.log core.settings()
+    expect( spy.calledOnce ).to.not.be.ok
+    core.settings.debug = true
     core.debug "Test"
-    console.log core.settings()
-    expect( spy.called ).to.be.true
+    expect( spy.calledOnce ).to.be.true
     spy.restore()
