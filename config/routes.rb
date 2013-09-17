@@ -1,3 +1,10 @@
-Konacha::Engine.routes.draw do
-  Joker::Rails::Engine.routes
+if defined?(Konacha)
+  Konacha::Engine.routes.clear!
+  Konacha::Engine.routes.draw do
+    get "/users.json" => "users#users"
+    get "/users/:id.json" => "users#get_user"
+    get '/iframe/*name' => 'specs#iframe', :format => false, :as => :iframe
+    root :to    => 'specs#parent'
+    get '*path' => 'specs#parent', :format => false
+  end
 end
