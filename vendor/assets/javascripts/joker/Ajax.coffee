@@ -21,15 +21,21 @@ For details please refer to: http://jokerjs.zaez.net
 ###
 
 ###
-Joker.Ajax = Class [Joker.Core], ->
-  debugPrefix= "Joker_Ajax"
-  settings=
+class Joker.Ajax extends Joker.Core
+
+  debugPrefix: "Joker_Ajax"
+  settings:
     ###
     Indicates whether the object should
     be executed at the end of its creation
     @type {Boolean}
     ###
     autoExec: true
+    ###
+    indica se o
+    @type {Boolean}
+    ###
+    useLoader  : true
     ###
     Indicates whether the object should use
     a loader to stop, until the completion
@@ -73,60 +79,45 @@ Joker.Ajax = Class [Joker.Core], ->
       complete  : (jqXHR, textStatus)->
       error     : (jqXHR, textStatus, errorThrown)->
       success   : (data, textStatus, jqXHR)->
-  {
-    $statics:
-      ###
-      The reference pattern help, default: jQuery
-      @static
-      @type {Object)
-      ###
-      libSupport: window.jQuery
-      ###
-      Sets the class name
-      @type {String}
-      ###
-      className: "Joker_Ajax"
 
-    constructor: (params)->
-      Joker.Ajax.$super.call this
-      @settings params, settings
-      @debug "Construindo o ajax com as configuracoes: ", @data
-      @exec() if @data.autoExec == true
-      @
+  constructor: (settings)->
+    super
+    @settings = $.extend true, {}, @settings, settings
+    @debug "Construindo o ajax com as configuracoes: ", @settings
+    @exec() if @settings.autoExec == true
 
-    ###
-    Executa a requisicao javascript
-    ###
-    exec: ->
-      @debug "Exec Ajax"
-      @libSupport.ajax
-        contentType: @data.contentType
-        url        : @data.url
-        type       : @data.method
-        data       : @get_data()
-        beforeSend : @data.callbacks.beforeSend
-        complete   : (jqXHR, textStatus)=>
-          @debug "Ajax complete"
-          @data.callbacks.complete jqXHR, textStatus
-          @destroy()
-        error      : (jqXHR, textStatus, errorThrown)=>
-          @debug "Error: ", jqXHR, textStatus, errorThrown
-          @data.callbacks.error(jqXHR, textStatus, errorThrown)
-        success    : (data, textStatus, jqXHR)=>
-          @debug "Success: ", data, textStatus, jqXHR
-          @data.callbacks.success(data, textStatus, jqXHR)
+  ###
+  Executa a requisicao javascript
+  ###
+  exec: ->
+    @debug "Exec Ajax"
+    @jQuery.ajax
+      contentType: @settings.contentType
+      url        : @settings.url
+      type       : @settings.method
+      data       : @get_data()
+      beforeSend : @settings.callbacks.beforeSend
+      complete   : (jqXHR, textStatus)=>
+        @settings.callbacks.complete jqXHR, textStatus
+        @destroy()
+      error      : (jqXHR, textStatus, errorThrown)=>
+        @debug "Error: ", jqXHR, textStatus, errorThrown
+        @settings.callbacks.error(jqXHR, textStatus, errorThrown)
+      success    : (data, textStatus, jqXHR)=>
+        @debug "Success: ", data, textStatus, jqXHR
+        @settings.callbacks.success(data, textStatus, jqXHR)
 
-    ###
-    Converte a data em string params
-    @return {String}
-    ###
-    get_data: ->
-      return @libSupport.param(@data.data) if typeof @data.data == "object"
-      ""
-  }
+  ###
+  Converte a data em string params
+  @return {String}
+  ###
+  get_data: ->
+    return $.param(@settings.data) if typeof @settings.data == "object"
+    ""
+
 
 # rails application and using csrf-token
-Joker.Core.libSupport ->
-  Joker.Core.libSupport(document).ajaxSend (e, xhr, options)->
-    token = Joker.Core.libSupport("meta[name='csrf-token']").attr "content"
+jQuery ->
+  jQuery(document).ajaxSend (e, xhr, options)->
+    token = $("meta[name='csrf-token']").attr "content"
     xhr.setRequestHeader("X-CSRF-Token", token)

@@ -1,12 +1,12 @@
 
-window.User = Class [Joker.Model], ->
+class window.User extends Joker.Model
 
-  resourceName= "user"
-  uri         = "assets/support/users"
+  @resourceName: "user"
+  @uri         : "assets/spec/support/users"
 
 
-#  @encode "name", "lastname", "email"
+  @encode "name", "lastname", "email"
   #  @association(Address, null)
-#  @timestamp()
+  @timestamp()
 
 
