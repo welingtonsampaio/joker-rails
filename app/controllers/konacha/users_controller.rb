@@ -8,6 +8,30 @@ module Konacha
 
     def users
       users = all_users
+
+      if params[:orderBy].present?
+        order_by = Base64.decode64 params[:orderBy]
+        orders_by = order_by.split ", "
+        orders_by.reverse.each do |order|
+          users.sort! { |i1, i2| i1[order.split(" ").first.to_sym] <=> i2[order.split(" ").first.to_sym] }
+          users.reverse! if order.split(" ").last == "DESC"
+        end
+      end
+
+      if params[:group].present?
+        group_str = Base64.decode64 params[:group]
+        groups    = group_str.split ", "
+        groups.reverse.each do |group|
+          _group = []
+          users.delete_if do |user|
+            _group << user[group.to_sym]
+            _group.count(user[group.to_sym]) > 1
+          end
+        end
+      end
+
+
+
       page  = params[:page].present? ? params[:page].to_i : 1
       limit = params[:limit].present? ? params[:limit].to_i : 0
       _return = {}
@@ -148,7 +172,7 @@ module Konacha
           },
           {
               id: 22,
-              name: "Benedetto",
+              name: "Benjamin",
               lastname: "Bahman",
               email: "Benedetto@Bahman.com"
           },

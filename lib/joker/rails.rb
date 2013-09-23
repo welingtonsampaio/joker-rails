@@ -6,6 +6,6 @@ module Joker
     ROUTES_PATH = File.expand_path("../../../config/routes.rb", __FILE__)
   end
 end
-require 'joker/rails/engine' #if ::Rails.version >= '3.1'
+require 'joker/rails/engine' if ::Rails.version >= '3.1'
 require 'joker/rails/railtie'
 require "joker/rails/version"

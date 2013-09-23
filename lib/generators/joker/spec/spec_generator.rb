@@ -31,13 +31,8 @@ DESC
       def get_konacha_template
         <<TEMPLATE
 if defined?(Konacha)
-  module #{Rails.application.class.parent_name}
-    class Application < Rails::Application
-
-    end
-  end
   Konacha.configure do |config|
-    config.spec_dir     = Pathname.new("#{File.expand_path(Joker::Rails::SPEC_PATH)}").relative_path_from Rails.root
+    config.spec_dir     = Pathname.new("#{File.expand_path(Joker::Rails::SPEC_PATH)}/javascripts").relative_path_from Rails.root
   end
 end
 TEMPLATE
