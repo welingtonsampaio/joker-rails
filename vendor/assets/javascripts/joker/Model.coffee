@@ -111,30 +111,16 @@ class Joker.Model extends Joker.Core
   @returns {Joker.Model} this model
   ###
   @fromJSON: (data)->
-    throw "É necessario passar um objeto no formato json para funcionar corretamente" unless data?
-    if Object.has(data, @resourceName) and Object.isObject( data[@resourceName] )
-      data = data[@resourceName]
     model = new @()
-    model.debug "Configurando o modelo a partir de um objet json: ", data
-    for key, value of data
-      if key == @primaryKey
-        model.id value
-      else if model.hasAttribute(key)
-        model.set key, value
-      else if model.hasAssociation key
-        model.debug "Criando a associacao", value, key, @associations[key]
-        if @associations[key].type == @HAS_ONE
-          model.set key, @associations[key].model.fromJSON(value)
-
-      else
-        throw "A chave '{key}' não é um atributo existente no modelo <{model}:{object_id}>".assign(key:key,model:model.constructor.name, object_id:model.objectId)
+    model = model.fromJSON data
+    console.log model
     model
 
-  ###
-  Verifica se existe um formulario disponivel para
-  importacão seguindo as diretrizes o JokerJS
-  @returns Boolean
-  ###
+    ###
+    Verifica se existe um formulario disponivel para
+    importacão seguindo as diretrizes o JokerJS
+    @returns Boolean
+    ###
   @hasFormImport: ->
     @libSupport("[data-jokermodel=#{@resourceName.camelize()}]").length > 0
 
@@ -206,6 +192,42 @@ class Joker.Model extends Joker.Core
     Object.has @accessor("fields"), name
 
   ###
+  Seta todos os novos valores para o objeto
+  atraves de um objeto JSON
+  @param ObjectJSON data
+  @returns Joker.Model
+
+  @example
+
+    u = new Model();
+    u.fromJSON({
+      name: "John",
+      lastname: "Smith"
+    });
+    u.get("name"); // John
+
+  ###
+  fromJSON: (data)->
+    throw "É necessario passar um objeto no formato json para funcionar corretamente" unless data?
+    if Object.has(data, @accessor('resourceName')) and Object.isObject( data[@accessor('resourceName')] )
+      data = data[@accessor('resourceName')]
+    @debug "Configurando o modelo a partir de um objet json: ", data
+    for key, value of data
+      if key == @accessor('primaryKey')
+        @id value
+      else if @hasAttribute(key)
+        @set key, value
+      else if @hasAssociation key
+        @debug "Criando a associacao", value, key, @accessor('associations')[key]
+        if @accessor('associations')[key].type == @accessor('HAS_ONE')
+          @set key, @accessor('associations')[key].model.fromJSON(value)
+        throw "É necessario passar um objeto no formato json para funcionar corretamente" unless data?
+      else
+        throw "A chave '{key}' não é um atributo existente no modelo <{model}:{object_id}>".assign(key:key,model:model.constructor.name, object_id:model.objectId)
+    @
+
+
+  ###
   Verifica se existe uma associacao com o nome
   informado na colecao de assiciacoes
   @param {String} name of association
@@ -243,6 +265,28 @@ class Joker.Model extends Joker.Core
   save: ->
     @debug "salvando..."
 
+    # testando se o registro é valido segundo os validadores pre cadastrados
+    unless @validate()
+      @debug "Este registro possui campos invalidos"
+      return false
+
+    # testando se o registro é um novo registro
+    if @isNew()
+      console.log @toJSON()
+      new Joker.Ajax
+        url      : "#{@accessor('prefixUri')}#{@accessor('uri')}.json"
+        useLoader: true
+        async    : false
+        data     : @toObject()
+        method   : "POST"
+        callbacks:
+          error     : (jqXHR, textStatus, errorThrown)=>
+            @debug "Ocorreu um erro ao gravar os dados"
+          success   : (data, textStatus, jqXHR)=>
+            @fromJSON(data)
+      return @
+
+
   ###
   Metodo responsavel por retornar os valores
   atribuidos ao modelo.
@@ -267,7 +311,7 @@ class Joker.Model extends Joker.Core
   @returns {String}
   ###
   toJSON: ->
-    JSON.stringify(@to_object())
+    JSON.stringify(@toObject())
 
   ###
   Converte as informacoes do modelo em objeto
@@ -275,14 +319,23 @@ class Joker.Model extends Joker.Core
   ###
   toObject: ->
     obj = new Object()
-    obj[@accessor("primaryKey")] = @[@accessor("primaryKey")]() if Object.has(@attributes, "_"+@accessor("primaryKey"))
+    obj[@accessor("primaryKey")] = @[@accessor("primaryKey")]() if Object.has(@attributes, @accessor("primaryKey"))
     Object.keys(@accessor("fields")).each (indice)=>
-      obj[indice] = @[indice]() if Object.has(@attributes, "_"+indice)
+      obj[indice] = @get(indice) if Object.has(@attributes, indice)
     Object.keys(@accessor("associations")).each (indice)=>
       # desenvolver each para associacao composta, has_many e has_and_belongs_to_many
       # associacao simples has_one
       obj[indice.model.resourceName] = @[indice.model.resourceName]().to_obj() if Object.has(@attributes, indice)
     obj
+
+  ###
+  Verifica atraves as regras cadastradas se os
+  valores dos campos sao validos
+  @returns Boolean verdadeiro se valido
+  ###
+  validate: ->
+    @debug "Nao implementado..."
+    true
 
   # Filters
 

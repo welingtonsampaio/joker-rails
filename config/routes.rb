@@ -4,7 +4,7 @@ if defined?(Konacha)
     get "/users.json" => "users#users"
     get "/users/:id.json" => "users#get_user"
     put "/users/:id.json" => "users#get_user"
-    post "/users.json" => "users#users"
+    post "/users.json" => "users#create"
     delete "/users/:id.json" => "users#users"
     get '/iframe/*name' => 'specs#iframe', :format => false, :as => :iframe
     root :to    => 'specs#parent'

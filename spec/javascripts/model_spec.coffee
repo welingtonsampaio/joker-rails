@@ -136,6 +136,27 @@ describe "Joker.Model", ->
       expect( user.get('id')       ).to.equal 1
       expect( user.get('email')    ).to.equal "John@smith.com"
 
+    it "deve retornar false caso o Id solicitado nao exista", ->
+      user = User.find(99)
+      expect( user ).to.be.false
+
+  describe "User requisicao REST para o rails", ->
+
+    it "deve poder salvar um objeto casa ele nao seja persistido", ->
+      Joker.debug = true
+      user = User.fromJSON
+        name: "John"
+        lastname: "Smith"
+        email: "john@smith.com"
+      Joker.debug = false
+      user2 = User.find 1
+      expect( user.isNew()     ).to.be.true
+      expect( user.save()      ).to.be.ok
+      expect( user.id()        ).to.be.eql user2.id()
+      expect( user.get('name') ).to.be.eql user2.get('name')
+
+    it "deve poder atualizar o registro"
+
 
 
 

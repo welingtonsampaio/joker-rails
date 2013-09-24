@@ -3,7 +3,17 @@ module Konacha
 
     def get_user
       user = {user: all_users.find { |i| i[:id] == params[:id].to_i }}
-      render json: user
+      render :status => 400, json: {error: "not found"} unless user[:user]
+      render json: user if user[:user]
+    end
+
+    def create
+      if params.include? :name and params.include? :lastname
+        user = {user: all_users.find { |i| i[:id] == 1 }}
+        render json: user
+      else
+        render :status => 400, json: {error: "invalid data"}
+      end
     end
 
     def users
