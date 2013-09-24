@@ -45,7 +45,10 @@ class Joker.Render extends Joker.Core
   linkClick: (e)->
     @debug "Evento de clique disparados para o elemento: ", e.currentTarget
     el = e.currentTarget
-    target = if el.dataset.yieldFor? then @libSupport("[data-yield-for=#{el.dataset.render}]") else @getRenderContainer()
+    target = if Object.isString(el.dataset.render) and el.dataset.render != "true"
+      @libSupport("[data-yield-for=#{el.dataset.render}]")
+    else
+      @getRenderContainer()
     type   = if el.dataset.method? then el.dataset.method else @defaultMethod
     @load
       url   : el.getAttribute('href')
@@ -86,7 +89,7 @@ class Joker.Render extends Joker.Core
   setEvents: ->
     @unsetEvents()
     @debug "Setando os eventos"
-    @libSupport(document).on('click.render.joker', '[data-render]', @libSupport.proxy(@link_click,@))
+    @libSupport(document).on('click', '[data-render]', @libSupport.proxy(@linkClick,@))
     window.onpopstate = (config)=> @load config.state, false
 
   ###

@@ -189,7 +189,7 @@ class Joker.ActiveResource extends Joker.Core
     if Object.isString condition
       @conditions.where.push condition.assign assigns
     else if Object.isObject condition
-      for value, key in condition
+      for key, value of condition
         @where "#{key} = '{key}'", key: value
     else
       throw "O objeto enviado deve ser uma String ou Object, tipo: {type}".assign type: typeof condition
@@ -207,14 +207,16 @@ class Joker.ActiveResource extends Joker.Core
     group( [ "lastname", "age" ] )
 
   ###
-  group: (group...)->
-    if Object.isString group
-      @conditions.group.push group
-    else if Object.isArray group
-      for value in group
+  group: (item, order...)->
+    if Object.isString item
+      @conditions.group.push item
+    else if Object.isArray item
+      for value in item
         @group value
     else
       throw "O objeto enviado deve ser uma String ou Array, tipo: {type}".assign type: typeof group
+    for value in order
+      @group value
     @
 
   ###

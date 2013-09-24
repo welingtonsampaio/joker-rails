@@ -4,8 +4,6 @@
 #= require support/user_model
 describe "Joker.ActiveResource", ->
 
-
-
   it "deve ser uma herenca de Joker.Core", ->
     expect( Joker.ActiveResource.__super__.accessor("className") ).to.equal "Joker_Core"
 
@@ -37,4 +35,19 @@ describe "Joker.ActiveResource", ->
     users2.each (u2)->
       users1.each (u1)->
         expect( u2.get('name') ).to.not.equal u1.get('name')
+
+  it "deve poder agrupar os registros retornados, atraves do metodo 'group'", ->
+    users = User.all().group("name", "lastname")
+    expect( users.conditions.group ).to.include "name"
+    expect( users.conditions.group ).to.include "lastname"
+
+  it "deve poder consultar os registros retornados, atraves do metodo 'where'", ->
+    users = User.all().where( name: "John" )
+    expect( users.conditions.where ).to.include "name = 'John'"
+
+    users = User.all().where( "lastname = 'Smith'" )
+    expect( users.conditions.where ).to.include "lastname = 'Smith'"
+
+    users = User.all().where( "birthdate = '{date}'", date: "01-01-1951" )
+    expect( users.conditions.where ).to.include "birthdate = '01-01-1951'"
 
