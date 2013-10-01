@@ -112,9 +112,7 @@ class Joker.Model extends Joker.Core
   ###
   @fromJSON: (data)->
     model = new @()
-    model = model.fromJSON data
-    console.log model
-    model
+    model.fromJSON data
 
     ###
     Verifica se existe um formulario disponivel para
@@ -209,8 +207,11 @@ class Joker.Model extends Joker.Core
   ###
   fromJSON: (data)->
     throw "É necessario passar um objeto no formato json para funcionar corretamente" unless data?
+    console.log @accessor('resourceName'), data
     if Object.has(data, @accessor('resourceName')) and Object.isObject( data[@accessor('resourceName')] )
       data = data[@accessor('resourceName')]
+    if Object.has(data, @accessor('resourceName').pluralize()) and Object.isObject( data[@accessor('resourceName').pluralize()] )
+      data = data[@accessor('resourceName').pluralize()]
     @debug "Configurando o modelo a partir de um objet json: ", data
     for key, value of data
       if key == @accessor('primaryKey')
@@ -223,7 +224,7 @@ class Joker.Model extends Joker.Core
           @set key, @accessor('associations')[key].model.fromJSON(value)
         throw "É necessario passar um objeto no formato json para funcionar corretamente" unless data?
       else
-        throw "A chave '{key}' não é um atributo existente no modelo <{model}:{object_id}>".assign(key:key,model:model.constructor.name, object_id:model.objectId)
+        throw "A chave '{key}' não é um atributo existente no modelo <{model}:{object_id}>".assign(key:key, model: @accessor('name'), object_id: @objectId)
     @
 
 
@@ -264,6 +265,8 @@ class Joker.Model extends Joker.Core
   ###
   save: ->
     @debug "salvando..."
+    data = new Object
+    data[@accessor('resourceName')] = @toObject()
 
     # testando se o registro é valido segundo os validadores pre cadastrados
     unless @validate()
@@ -272,13 +275,25 @@ class Joker.Model extends Joker.Core
 
     # testando se o registro é um novo registro
     if @isNew()
-      console.log @toJSON()
       new Joker.Ajax
         url      : "#{@accessor('prefixUri')}#{@accessor('uri')}.json"
         useLoader: true
         async    : false
-        data     : @toObject()
+        data     : data
         method   : "POST"
+        callbacks:
+          error     : (jqXHR, textStatus, errorThrown)=>
+            @debug "Ocorreu um erro ao gravar os dados"
+          success   : (data, textStatus, jqXHR)=>
+            @fromJSON(data)
+      return @
+    else
+      new Joker.Ajax
+        url      : "#{@accessor('prefixUri')}#{@accessor('uri')}/#{@id()}.json"
+        useLoader: true
+        async    : false
+        data     : data
+        method   : "PUT"
         callbacks:
           error     : (jqXHR, textStatus, errorThrown)=>
             @debug "Ocorreu um erro ao gravar os dados"

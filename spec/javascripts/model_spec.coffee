@@ -46,6 +46,7 @@ describe "Joker.Model", ->
   it "deve poder configurar os campos 'created_at' e 'updated_at', através do metodo 'timestamp'", ->
     class Test extends Joker.Model
       @fields = new Object()
+      @resourceName = "test"
       @timestamp()
     test = Test.fromJSON
       created_at: Date.now()
@@ -119,7 +120,6 @@ describe "Joker.Model", ->
 
     it "deve criar um objeto usuario e junto adicionar o Address", ->
       user = User.fromJSON params1
-      console.log user.get('address')
       expect( user.get('address').get('address') ).to.equal params1.address.address
 
 
@@ -143,19 +143,21 @@ describe "Joker.Model", ->
   describe "User requisicao REST para o rails", ->
 
     it "deve poder salvar um objeto casa ele nao seja persistido", ->
-      Joker.debug = true
       user = User.fromJSON
         name: "John"
         lastname: "Smith"
         email: "john@smith.com"
-      Joker.debug = false
       user2 = User.find 1
       expect( user.isNew()     ).to.be.true
       expect( user.save()      ).to.be.ok
       expect( user.id()        ).to.be.eql user2.id()
       expect( user.get('name') ).to.be.eql user2.get('name')
 
-    it "deve poder atualizar o registro"
+    it "deve poder atualizar o registro existente", ->
+      user1 = User.find 1
+      user2 = User.find 1
+      user1.set('name', "New Name").save()
+      expect( user1.get('name') ).to.not.be.eql user2.get('name')
 
 
 

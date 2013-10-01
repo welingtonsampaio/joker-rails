@@ -8,8 +8,17 @@ module Konacha
     end
 
     def create
-      if params.include? :name and params.include? :lastname
+      if params.include? :user and params[:user].include? :name and params[:user].include? :lastname
         user = {user: all_users.find { |i| i[:id] == 1 }}
+        render json: user
+      else
+        render :status => 400, json: {error: "invalid data"}
+      end
+    end
+
+    def update
+      if params.include? :user and params[:user].include? :name and params[:user].include? :lastname
+        user = {user: all_users.find { |i| i[:id] == params[:id].to_i }.merge(params[:user])}
         render json: user
       else
         render :status => 400, json: {error: "invalid data"}
