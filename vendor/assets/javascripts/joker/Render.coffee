@@ -50,10 +50,12 @@ class Joker.Render extends Joker.Core
     else
       @getRenderContainer()
     type   = if el.dataset.method? then el.dataset.method else @defaultMethod
+    title  = if el.dataset.title?  then el.dataset.title  else document.title
     @load
       url   : el.getAttribute('href')
       method: type
       target: target.selector
+      title : title
     false
 
   ###
@@ -67,7 +69,7 @@ class Joker.Render extends Joker.Core
       method: obj.method
       callbacks:
         success: (data, textStatus, jqXHR)=>
-          history.pushState obj, "asd", obj.url if add_push
+          history.pushState obj, obj.title, obj.url if add_push
           $(obj.target).empty().html(data)
 
   ###

@@ -5,7 +5,6 @@
  *= require joker/Debug
  *= require joker/Core
  *= require joker/Ajax
+ *= require joker/Window
  *= require joker/Render
- *= require joker/ActiveResource
- *= require joker/Model
  */
