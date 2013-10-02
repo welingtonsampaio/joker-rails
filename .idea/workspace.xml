@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e5d730f1-234b-417e-809a-aa95a6ab2c8c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/ico/apple-touch-icon-114-precomposed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/ico/apple-touch-icon-144-precomposed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/ico/apple-touch-icon-57-precomposed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/ico/apple-touch-icon-72-precomposed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/carousel.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/ico/favicon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/grid.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/jumbotron-narrow.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/jumbotron.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/justified-nav.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/navbar-fixed.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/navbar-static.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/navbar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/non-responsive.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/offcanvas.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/sign-in.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/starter-template.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/sticky-footer-navbar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/sticky-footer.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/screenshots/theme.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CNAME" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_config.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/affix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/affix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/alert.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/alert.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/alerts.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/application.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/badges.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/bootstrap.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/breadcrumbs.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/browserstack.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/button-groups.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/button.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/button.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/buttons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/carousel/carousel.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/carousel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/carousel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/carousel.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/close.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/code.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/collapse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/collapse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/component-animations.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customize.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/customizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_layouts/default.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/css/docs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/dropdowns.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/filesaver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/footer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/forms.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getting-started.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/glyphicons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/grid/grid.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/grid.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/header.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/holder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_layouts/home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/html5shiv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/carousel/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/grid/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/jumbotron/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/jumbotron-narrow/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/justified-nav/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/navbar/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/navbar-fixed-top/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/navbar-static-top/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/non-responsive/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/offcanvas/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/signin/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/starter-template/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/sticky-footer/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/sticky-footer-navbar/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/theme/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/input-groups.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/vendor/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/jszip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/jumbotron-narrow/jumbotron-narrow.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/jumbotron/jumbotron.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/jumbotron.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/justified-nav/justified-nav.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/labels.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/less.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/list-group.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/media.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/mixins.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/modals.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/nav-components.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/nav-css.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/nav-customize.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/nav-getting-started.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/nav-javascript.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/nav-main.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/navbar-fixed-top/navbar-fixed-top.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/navbar-static-top/navbar-static-top.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/navbar/navbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/navbar.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/navs.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/non-responsive/non-responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/normalize.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/offcanvas/offcanvas.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/offcanvas/offcanvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/old-bs-docs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/pager.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/pagination.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/panels.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/phantom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/phantom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/popover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/popover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/popovers.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/print.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/progress-bars.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/css/pygments-manni.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/vendor/qunit.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/vendor/qunit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/raw-files.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/respond.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/responsive-utilities.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/scaffolding.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/scrollspy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/scrollspy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/signin/signin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/starter-template/starter-template.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/sticky-footer-navbar/sticky-footer-navbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/sticky-footer/sticky-footer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tab.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/tab.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/tables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/theme/theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/theme.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/thumbnails.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tooltip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/tooltip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/tooltip.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/transition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/unit/transition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/type.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/uglify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/utilities.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/variables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/wells.less" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Rakefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/konacha/users_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/joker-rails.gemspec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/generators/joker/spec/POST_INSTALL" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/generators/joker/spec/spec_generator.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/joker/rails.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/joker/rails/active_record.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/joker/rails/engine.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/joker/rails/railtie.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/joker/rails/version.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/ajax_spec.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/core_spec.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/debug_spec.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/jokerutils_spec.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/render_spec.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/support/address_model.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/support/content1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/support/content2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/support/sinon-1.7.3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/javascripts/support/user_model.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker/Ajax.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker/Core.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker/Debug.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker/JokerUtils.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker/Render.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker/Window.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/javascripts/joker/support/sugar.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
+    <ignored path="joker-rails.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380675563981" ignored="false" />
+    <file path="/.gitignore" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377462802118" ignored="false" />
+    <file path="/joker-spec.js" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377463144499" ignored="false" />
+    <file path="/joker-spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377652825418" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/Gemfile" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378734033471" ignored="false" />
+    <file path="/Gemfile" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378701042215" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/app/views/layouts/application.html.erb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377472398731" ignored="false" />
+    <file path="/application.html.erb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377470325773" ignored="false" />
+    <file path="/railtie.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377470515465" ignored="false" />
+    <file path="/joker.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377472005244" ignored="false" />
+    <file path="/jokerutils.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377476536272" ignored="false" />
+    <file path="/JokerUtils.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377483815546" ignored="false" />
+    <file path="/debug_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378709477477" ignored="false" />
+    <file path="/Debug.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377478497844" ignored="false" />
+    <file path="/jokerutils_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378709849045" ignored="false" />
+    <file path="/joker_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377484454719" ignored="false" />
+    <file path="/Joker.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377484177402" ignored="false" />
+    <file path="/Render.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379377785537" ignored="false" />
+    <file path="/render_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378733508410" ignored="false" />
+    <file path="/Core.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379377794923" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/public/spec/content2.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377565834295" ignored="false" />
+    <file path="/Model.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379989572915" ignored="false" />
+    <file path="/model_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379989006864" ignored="false" />
+    <file path="/users.json" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377656602173" ignored="false" />
+    <file path="/user_model.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379377769429" ignored="false" />
+    <file path="/ActiveRelation.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1377652413855" ignored="false" />
+    <file path="/core_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378708995541" ignored="false" />
+    <file path="/Ajax.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379377792303" ignored="false" />
+    <file path="/joker-rails.gemspec" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378700780292" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/config/initializers/teaspoon.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378691148227" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/Guardfile" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378697988486" ignored="false" />
+    <file path="/temp.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378691781398" ignored="false" />
+    <file path="/Guardfile" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378697706339" ignored="false" />
+    <file path="/rails.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378691846476" ignored="false" />
+    <file path="/joker.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378694216328" ignored="false" />
+    <file path="/install_generator.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378703789627" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378734143290" ignored="false" />
+    <file path="/spec_generator.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378734961463" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/spec/javascripts/spec_helper.js" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378698428994" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/spec/teaspoon_env.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378698534748" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/config/initializers/konacha.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378734033471" ignored="false" />
+    <file path="/konacha.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378704338339" ignored="false" />
+    <file path="/a.dummy" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378702803439" ignored="false" />
+    <file path="$USER_HOME$/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/konacha-3.0.0/lib/konacha/server.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378702543189" ignored="false" />
+    <file path="/server.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378702441026" ignored="false" />
+    <file path="$USER_HOME$/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/konacha-3.0.0/app/views/konacha/specs/parent.html.erb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378704288587" ignored="false" />
+    <file path="$USER_HOME$/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/konacha-3.0.0/app/models/konacha/spec.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378703369973" ignored="false" />
+    <file path="/spec.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378703359972" ignored="false" />
+    <file path="/parent.html.erb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378703656670" ignored="false" />
+    <file path="/ajax_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379377630729" ignored="false" />
+    <file path="/POST_INSTALL" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378733083574" ignored="false" />
+    <file path="/README.md" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1378734841585" ignored="false" />
+    <file path="/active_resource_spec.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379474499533" ignored="false" />
+    <file path="/users_controller.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380066581033" ignored="false" />
+    <file path="/routes.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1379988558436" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/app/controllers/users_controller.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380068385128" ignored="false" />
+    <file path="$PROJECT_DIR$/../../myapp/app/controllers/application_controller.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380068378551" ignored="false" />
+    <file path="/application_controller.rb" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380067682784" ignored="false" />
+    <file path="/header.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380678340140" ignored="false" />
+    <file path="/index.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380678541438" ignored="false" />
+    <file path="/getting-started.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380685033925" ignored="false" />
+    <file path="/nav-main.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683334346" ignored="false" />
+    <file path="/home.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380678913799" ignored="false" />
+    <file path="/docs.css" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683908561" ignored="false" />
+    <file path="/_config.yml" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380682319482" ignored="false" />
+    <file path="/a.rxml" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683170925" ignored="false" />
+    <file path="/a.coffee" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683173600" ignored="false" />
+    <file path="/a.css" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683179485" ignored="false" />
+    <file path="/a.feature" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683181262" ignored="false" />
+    <file path="/a.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683194000" ignored="false" />
+    <file path="/a.js" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683204360" ignored="false" />
+    <file path="/a.less" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683215568" ignored="false" />
+    <file path="/a.sql" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683242172" ignored="false" />
+    <file path="/a.xml" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683244268" ignored="false" />
+    <file path="/nav-getting-started.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380683775245" ignored="false" />
+    <file path="/default.html" changelist="e5d730f1-234b-417e-809a-aa95a6ab2c8c" time="1380684114095" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="joker-rails" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_layouts/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="35" selection-start="888" selection-end="888" vertical-scroll-proportion="0.33333334">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docs.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/docs.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="319" column="38" selection-start="5941" selection-end="5941" vertical-scroll-proportion="-17.76">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_config.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="0" selection-start="547" selection-end="547" vertical-scroll-proportion="0.33333334">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="0.33333334">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getting-started.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/getting-started.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="96" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.62952244">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav-main.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_includes/nav-main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="13" selection-start="1084" selection-end="1084" vertical-scroll-proportion="-13.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="-13.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav-getting-started.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_includes/nav-getting-started.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="18" selection-start="89" selection-end="113" vertical-scroll-proportion="-1.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/spec/javascripts/active_resource_spec.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/konacha/users_controller.rb" />
+        <option value="$PROJECT_DIR$/vendor/assets/javascripts/joker/Model.coffee" />
+        <option value="$PROJECT_DIR$/spec/javascripts/model_spec.coffee" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/_includes/header.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/_includes/footer.html" />
+        <option value="$PROJECT_DIR$/_layouts/home.html" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_includes/nav-main.html" />
+        <option value="$PROJECT_DIR$/_includes/nav-getting-started.html" />
+        <option value="$PROJECT_DIR$/_layouts/default.html" />
+        <option value="$PROJECT_DIR$/assets/css/docs.css" />
+        <option value="$PROJECT_DIR$/getting-started.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1440" />
+    <option name="height" value="874" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joker-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_includes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Yaml" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../myapp" />
+    <property name="FullScreen" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/spec/javascripts" />
+      <recent name="$PROJECT_DIR$/lib/joker/rails" />
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/spec" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spec" />
+      <recent name="$PROJECT_DIR$/spec/javascripts" />
+      <recent name="$PROJECT_DIR$/lib/generators/joker/install/templates" />
+      <recent name="$PROJECT_DIR$/lib/generators/joker" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
+      <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
+      <module name="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="ANSICON" value="" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*.feature" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_TAGS_FILTER" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="TEST_NAME_FILTER" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_ARGS" VALUE="--color -r features" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="VERBOSE_OPTION" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5d730f1-234b-417e-809a-aa95a6ab2c8c" name="Default" comment="" />
+      <created>1377462766852</created>
+      <updated>1377462766852</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1440" height="874" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2984218" sideWeight="0.67137355" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32862645" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/examples/carousel/carousel.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/carousel/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_gh_pages/components/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="70.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="48" selection-start="295" selection-end="295" vertical-scroll-proportion="0.2170767">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="52" selection-start="788" selection-end="788" vertical-scroll-proportion="0.41244572">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="547" selection-end="547" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/css/bootstrap-theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="76" selection-start="407" selection-end="407" vertical-scroll-proportion="0.14914773">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="35" selection-start="888" selection-end="888" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/nav-main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="1084" selection-end="1084" vertical-scroll-proportion="-13.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/nav-getting-started.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="89" selection-end="113" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/docs.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="319" column="38" selection-start="5941" selection-end="5941" vertical-scroll-proportion="-17.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="-13.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getting-started.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="96" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.62952244">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
