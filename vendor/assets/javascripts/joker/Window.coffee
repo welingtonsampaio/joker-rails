@@ -23,40 +23,84 @@ For details please refer to: http://jokerjs.zaez.net
 ###
 class Joker.Window extends Joker.Core
 
-  data: undefined
+  ###
+  Contem a posicao atual da janela no
+  eixo X no momento da movimentacao
+  @type Float
+  ###
   containerX: undefined
+
+  ###
+  Contem a posicao atual da janela no
+  eixo Y no momento da movimentacao
+  @type Float
+  ###
   containerY: undefined
+
+  ###
+  Configuracoes de entrada do objeto
+  @type Object
+  ###
+  data: undefined
+
+  ###
+  Define a janela esta liberada para
+  modificacao de lugar
+  @type Boolean
+  ###
   drag: undefined
+
+  ###
+  Contem a posicao atual do mouse no
+  eixo X no dispatch do evento
+  @type Float
+  ###
   mouseX: undefined
+
+  ###
+  Contem a posicao atual do mouse no
+  eixo Y no dispatch do evento
+  @type Float
+  ###
   mouseY: undefined
+
+  ###
+  Objeto responsavel por guardar as classes
+  do corpo do html, durante o evento de move
+  @type CSSStyleDeclaration
+  ###
   originBodyCss: undefined
 
   constructor: (params={})->
     super
     @data = @libSupport.extend true, {}, @accessor('defaultParams'), params
-    @getContent()
+    @createWidget()
 
+  ###
+  ###
+  destroy: ->
+    @container.off ".widget"
+    @container.remove()
+    super
 
-  createWidget: (html)->
-    title     = @accessor('patterns').title.assign title: @config.title
-    content   = @accessor('patterns').content.assign content: html
+  ###
+  ###
+  createWidget: ->
+    title     = @accessor('patterns').title.assign title: @data.title
+    content   = @accessor('patterns').content.assign content: @data.content
     @container = $ @accessor('patterns').container.assign {title: title}, {content: content}, {id: @objectId}
     @container.appendTo "body"
     @setEvents()
 
+  ###
+  ###
   defineToActive: ->
     $('.widget').not(@container).removeClass 'active'
     @container.addClass 'active'
     true
 
-  getContent: ->
-    $.ajax
-      url  : @config.url
-      data : "format=js"
-      async: false
-      success: (data)=>
-        @createWidget data
-
+  ###
+  ###
   moveContainer: (e)->
     return true unless @drag
     newX = @containerX + (e.clientX - @mouseX)
@@ -72,13 +116,17 @@ class Joker.Window extends Joker.Core
       left: newX
       top : newY
 
+  ###
+  ###
   setEvents: ->
     $(@container).on "mousedown.widget", "div.title",  $.proxy( @startDrag, @ )
     $(@container).on "mouseup.widget",   "div.title",  $.proxy( @stopDrag, @ )
     $( document ).on "mousemove.widget",               $.proxy( @moveContainer, @ )
-    $(@container).on "click.widget",     "span.close", $.proxy( @close, @ )
+    $(@container).on "click.widget",     "span.close", $.proxy( @destroy, @ )
     $(@container).on "click.widget",                   $.proxy( @defineToActive, @ )
 
+  ###
+  ###
   startDrag: (e)->
     @drag = true
     @mouseX = e.clientX
@@ -97,6 +145,8 @@ class Joker.Window extends Joker.Core
     @defineToActive()
     true
 
+  ###
+  ###
   stopDrag: ->
     @drag = false
     document.getElementsByTagName("body")[0].style = @originBodyCss
@@ -116,11 +166,11 @@ class Joker.Window extends Joker.Core
   ###
   @defaultParams:
     ###
-    Informa a url a ser requisitada para o sistema
+    Conteudo HTML a ser adicionado ao window
     Requer sobreescrita
     @type String
     ###
-    url: null
+    content: null
     ###
     Define qual o titulo da janela a ser renderizada
     Requer sobreescrita
@@ -178,7 +228,7 @@ class Joker.Window extends Joker.Core
     @type String
     ###
     container: """
-               <div id="{id}" class="widget">
+               <div id="{id}" class="widget" style="position: absolute">
                {title}
                {content}
                </div>

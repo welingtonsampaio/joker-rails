@@ -17,6 +17,10 @@ module Joker
           require 'joker/rails/active_record'
         end
       end
+
+      initializer "joker_rails.view_helpers" do
+        ::ActionView::Base.send :include, Joker::Rails::ActionView::Helpers
+      end
     end
   end
 end
