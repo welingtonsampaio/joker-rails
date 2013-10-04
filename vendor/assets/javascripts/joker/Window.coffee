@@ -74,9 +74,13 @@ class Joker.Window extends Joker.Core
   constructor: (params={})->
     super
     @data = @libSupport.extend true, {}, @accessor('defaultParams'), params
-    @createWidget()
+    @create()
 
   ###
+  Metodo responsavel por remover a janela
+  seguindo o padrao de remover primeiramento
+  os eventos e depois o DOMObject, depois ele
+  executa o metodo pai
   ###
   destroy: ->
     @container.off ".widget"
@@ -84,8 +88,10 @@ class Joker.Window extends Joker.Core
     super
 
   ###
+  Cria a janela atribuindo o conteudo
+  Requer titulo e conteudo
   ###
-  createWidget: ->
+  create: ->
     title     = @accessor('patterns').title.assign title: @data.title
     content   = @accessor('patterns').content.assign content: @data.content
     @container = $ @accessor('patterns').container.assign {title: title}, {content: content}, {id: @objectId}
@@ -93,6 +99,7 @@ class Joker.Window extends Joker.Core
     @setEvents()
 
   ###
+
   ###
   defineToActive: ->
     $('.widget').not(@container).removeClass 'active'
@@ -156,6 +163,8 @@ class Joker.Window extends Joker.Core
 
   @debugPrefix: "Joker_Window"
   @className  : "Joker_Window"
+
+  indexes: new Object
 
   ###
   parametros default que todas as janelas devem

@@ -6,6 +6,7 @@ module Joker::Rails
       def set_default_to_js_format
         "content_only" if params[:format] == "js"
       end
+
     end
   end
 end

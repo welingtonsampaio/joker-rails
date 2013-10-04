@@ -14,6 +14,7 @@ module Joker
     end
   end
 end
+
 require 'joker/rails/engine' if ::Rails.version >= '3.1'
 require 'joker/rails/railtie'
 require "joker/rails/version"
