@@ -8,7 +8,8 @@ module Joker::Rails
       def window_create(title='', name = nil, uri = nil, html_options = nil, &block)
         default = {
             data: {
-                jrender_title: title
+                jrender_title: title,
+                jwindow: true
             }
         }
         if block_given?

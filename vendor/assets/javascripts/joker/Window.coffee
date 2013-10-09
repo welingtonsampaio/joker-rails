@@ -99,7 +99,10 @@ class Joker.Window extends Joker.Core
     @setEvents()
 
   ###
-
+  Define a janela para ativo, automaticamente todas
+  as outras janelas serão desativadas
+  Faz o gerenciamento de até 1000 janelas
+  @returns Boolean true
   ###
   defineToActive: ->
     $('.widget').not(@container).removeClass 'active'
