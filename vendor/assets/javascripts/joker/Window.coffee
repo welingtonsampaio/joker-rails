@@ -75,6 +75,10 @@ class Joker.Window extends Joker.Core
     super
     @data = @libSupport.extend true, {}, @accessor('defaultParams'), params
     @create()
+    @setEvents()
+    @accessor("addToCollection")(@)
+    @accessor("refreshIndexes" )( )
+    @
 
   ###
   Metodo responsavel por remover a janela
@@ -96,7 +100,6 @@ class Joker.Window extends Joker.Core
     content   = @accessor('patterns').content.assign content: @data.content
     @container = $ @accessor('patterns').container.assign {title: title}, {content: content}, {id: @objectId}
     @container.appendTo "body"
-    @setEvents()
 
   ###
   Define a janela para ativo, automaticamente todas
@@ -107,9 +110,13 @@ class Joker.Window extends Joker.Core
   defineToActive: ->
     $('.widget').not(@container).removeClass 'active'
     @container.addClass 'active'
+    @accessor("defineToBiggerIndex")( @ )
     true
 
   ###
+  Faz as modificacoes de posicionamento da janela
+  @param Object e | e.clientX
+                  | e.clientY
   ###
   moveContainer: (e)->
     return true unless @drag
@@ -127,15 +134,20 @@ class Joker.Window extends Joker.Core
       top : newY
 
   ###
+  Seta os eventos direcionados aos  objetos
   ###
   setEvents: ->
-    $(@container).on "mousedown.widget", "div.title",  $.proxy( @startDrag, @ )
-    $(@container).on "mouseup.widget",   "div.title",  $.proxy( @stopDrag, @ )
-    $( document ).on "mousemove.widget",               $.proxy( @moveContainer, @ )
-    $(@container).on "click.widget",     "span.close", $.proxy( @destroy, @ )
-    $(@container).on "click.widget",                   $.proxy( @defineToActive, @ )
+    $(@container).on "mousedown.jwindow", "div.jwindow-title",  $.proxy( @startDrag, @ )
+    $(@container).on "mouseup.jwindow",   "div.jwindow-title",  $.proxy( @stopDrag, @ )
+    $( document ).on "mousemove.jwindow",                       $.proxy( @moveContainer, @ )
+    $(@container).on "click.jwindow",     "span.close",         $.proxy( @destroy, @ )
+    $(@container).on "click.jwindow",                           $.proxy( @defineToActive, @ )
 
   ###
+  Inicia o evento de movimentacao
+  @param DOMEvent e | e.clientX
+                    | e.clientY
+  @returns Boolean true
   ###
   startDrag: (e)->
     @drag = true
@@ -156,6 +168,8 @@ class Joker.Window extends Joker.Core
     true
 
   ###
+  Para o evento de movimentacao
+  @returns Boolean true
   ###
   stopDrag: ->
     @drag = false
@@ -166,8 +180,8 @@ class Joker.Window extends Joker.Core
 
   @debugPrefix: "Joker_Window"
   @className  : "Joker_Window"
-
-  indexes: new Object
+  @defaultIndex: 1009
+  @indexes: new Array()
 
   ###
   parametros default que todas as janelas devem
@@ -210,7 +224,7 @@ class Joker.Window extends Joker.Core
     Define a borda do topo
     @type Integer
     ###
-    top   : 48
+    top   : 0
     ###
     Define a borda da direita
     @type Integer
@@ -240,7 +254,7 @@ class Joker.Window extends Joker.Core
     @type String
     ###
     container: """
-               <div id="{id}" class="widget" style="position: absolute">
+               <div id="{id}" class="jwindow" style="position: absolute">
                {title}
                {content}
                </div>
@@ -251,7 +265,7 @@ class Joker.Window extends Joker.Core
     @type String
     ###
     title: """
-           <div class="title">
+           <div class="jwindow-title">
            <h3>{title}</h3>
            <span class="close">&times;</span>
            </div>
@@ -261,7 +275,41 @@ class Joker.Window extends Joker.Core
     @type String
     ###
     content: """
-             <div class="content">
+             <div class="jwindow-content">
              {content}
              </div>
              """
+
+  ###
+  Adiciona uma nova janela a colecao de
+  janelas do sistema
+  @param Joker.Window win
+  ###
+  @addToCollection: (win)->
+    Window.indexes.push
+      id: win.objectId
+      object: win
+
+  ###
+  Define o objeto informado para ultimo
+  @param Joker.Window win
+  ###
+  @defineToBiggerIndex: (win)->
+    index = null
+    Window.indexes.find (n, i)->
+      index = i if n.id == win.objectId
+      n.id == win.objectId
+    Window.indexes.removeAt index
+    Window.indexes.compact()
+    Window.indexes.push
+      id: win.objectId
+      object: win
+    Window.refreshIndexes()
+
+  ###
+  Atualiza a lista de janelas, recolocando o
+  index conforme a ordem da lista
+  ###
+  @refreshIndexes: ->
+    Window.indexes.each (n,i)->
+      n.object.container.css "z-index", Window.defaultIndex + i

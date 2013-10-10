@@ -42,6 +42,9 @@ class Joker.Animation extends Joker.Core
     @appendAnimation(data)     if Object.isObject data
     @createAllAnimations()
 
+  ###
+  Metodo responsável por
+  ###
   appendAllAnimations: (datas)->
     datas.each (data)=>
       @appendAnimation data

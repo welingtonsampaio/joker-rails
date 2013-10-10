@@ -728,3 +728,6 @@ $easeInOutBack  : cubic-bezier(0.680, -0.550, 0.265, 1.550);
   @include prefix-property(animation-fill-mode, $value);
 }
 
+@mixin user-select( $value ) {
+  @include prefix-property(user-select, $value);
+}

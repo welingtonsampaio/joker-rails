@@ -1,4 +1,3 @@
-
 // ==================================================
 //
 //          Mixins variaveis de controle
@@ -96,8 +95,21 @@ $fx-wiggle: true !default;
 //
 // ==================================================
 
-
 // ====== Alerts ====== \\
 $alert-top: 40px !default;
 $alert-right: 40px !default;
 $alert-min-width: 300px !default;
+
+
+// ====== Window ====== \\
+$window-background: white !default;
+$window-border: 1px solid #4b5257 !default;
+$window-box-shadow-color: #4b5257 !default;
+$window-content-padding: 10px !default;
+$window-index: 1009 !default;
+$window-title-background: #4b5257 !default;
+$window-title-color: white !default;
+$window-title-font-size: 14px !default;
+$window-title-padding: 12px 60px 12px 12px !default;
+
+

@@ -1,0 +1,46 @@
+div.jwindow {
+
+  position: absolute;
+  z-index: $window-index;
+  background-color: $window-background;
+  border: $window-border;
+  box-shadow: 0 0 5px rgba($window-box-shadow-color, 0.3);
+  @include transition(box-shadow 200ms linear);
+  min-width: 260px;
+
+  &.active { box-shadow: 0 0 10px rgba($window-box-shadow-color, 0.6); }
+
+  &.alpha { opacity: 0.8; }
+
+  .jwindow-title {
+    @include user-select(none);
+    cursor: default;
+    background: $window-title-background;
+    color: $window-title-color;
+    padding: $window-title-padding;
+    h3 {
+      font-size: $window-title-font-size;
+      margin: 0;
+      line-height: 1em;
+    }
+    span.close {
+      position: absolute;
+      top: 0;
+      right: 3px;
+      color: white;
+      text-shadow: none;
+      font-weight: normal;
+      font-size: 22px;
+      opacity: 0.1;
+      line-height: 36px;
+      padding: 0 7px;
+      @include transition(opacity 150ms linear);
+      &:hover { opacity: 0.8; }
+    }
+  }
+
+  .jwindow-content {
+    padding: $window-content-padding;
+  }
+
+}

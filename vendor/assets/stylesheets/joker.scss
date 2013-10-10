@@ -3,8 +3,8 @@
 //      Requireds files
 //
 // ============================================
-@import "mixins";
-@import "variables";
+@import "joker/mixins";
+@import "joker/variables";
 
 
 // ============================================
@@ -14,9 +14,10 @@
 // ============================================
 
 // Animations datas
-@import "animations_delay";
-@import "animations";
+@import "joker/animations_delay";
+@import "joker/animations";
 
 // Alerts and Notices objects
-@import "alerts";
+@import "joker/alerts";
+@import "joker/window";
 
