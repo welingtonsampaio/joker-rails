@@ -1,0 +1,10 @@
+$animation-atual     : 0;
+@while $animation-atual <= $animation-count {
+  .animate#{$animation-atual} {
+    @include animation-duration(800ms);
+    @include animation-delay( $animation-initdelay + ($animation-delaytime * $animation-atual)  );
+    @include animation-timing-function(ease);
+    @include animation-fill-mode(both);
+  }
+  $animation-atual: $animation-atual + 1;
+}

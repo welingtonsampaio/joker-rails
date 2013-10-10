@@ -1,5 +1,6 @@
 #= require support/sinon-1.7.3
 #= require joker
+#= require support/css
 describe "Joker.Render", ->
   render = null
   container = null

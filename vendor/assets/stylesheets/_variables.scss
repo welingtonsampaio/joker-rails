@@ -1,0 +1,103 @@
+
+// ==================================================
+//
+//          Mixins variaveis de controle
+//
+// ==================================================
+
+// Default Browser Support
+$defaultWebkitSupport: true !default;
+$defaultFirefoxSupport: true !default;
+$defaultExplorerSupport: true !default;
+$defaultOperaSupport: true !default;
+
+
+// ==================================================
+//
+//          Animations e DelayAnimations
+//
+// ==================================================
+
+// Tempo para execucao de cada animacao
+$animation-time: 1s !default;
+
+// DelayTime para outras animacoes
+$animation-delaytime: 200ms !default;
+// Delay inicial para animacoes
+$animation-initdelay: 0ms !default;
+// Total de delays disponiveis default: 0 - 7
+$animation-count    : 8 !default;
+
+// Define quais animacoes deverao ser importadas
+$fx-flash: true !default;
+$fx-shake: true !default;
+$fx-bounce: true !default;
+$fx-tada: true !default;
+$fx-swing: true !default;
+$fx-wobble: true !default;
+$fx-pulse: true !default;
+$fx-flip: true !default;
+$fx-flipInX: true !default;
+$fx-flipOutX: true !default;
+$fx-flipInY: true !default;
+$fx-flipOutY: true !default;
+$fx-fadeIn: true !default;
+$fx-fadeInUp: true !default;
+$fx-fadeInDown: true !default;
+$fx-fadeInLeft: true !default;
+$fx-fadeInRight: true !default;
+$fx-fadeInBig: true !default;
+$fx-fadeInUpBig: true !default;
+$fx-fadeInDownBig: true !default;
+$fx-fadeInLeftBig: true !default;
+$fx-fadeInRightBig: true !default;
+$fx-fadeOut: true !default;
+$fx-fadeOutUp: true !default;
+$fx-fadeOutDown: true !default;
+$fx-fadeOutLeft: true !default;
+$fx-fadeOutRight: true !default;
+$fx-fadeOutBig: true !default;
+$fx-fadeOutUpBig: true !default;
+$fx-fadeOutDownBig: true !default;
+$fx-fadeOutLeftBig: true !default;
+$fx-fadeOutRightBig: true !default;
+$fx-bounceIn: true !default;
+$fx-bounceInUp: true !default;
+$fx-bounceInDown: true !default;
+$fx-bounceInLeft: true !default;
+$fx-bounceInRight: true !default;
+$fx-bounceOut: true !default;
+$fx-bounceOutUp: true !default;
+$fx-bounceOutDown: true !default;
+$fx-bounceOutLeft: true !default;
+$fx-bounceOutRight: true !default;
+$fx-rotateIn: true !default;
+$fx-rotateInUpLeft: true !default;
+$fx-rotateInDownLeft: true !default;
+$fx-rotateInUpRight: true !default;
+$fx-rotateInDownRight: true !default;
+$fx-rotateOut: true !default;
+$fx-rotateOutUpLeft: true !default;
+$fx-rotateOutDownLeft: true !default;
+$fx-rotateOutUpRight: true !default;
+$fx-rotateOutDownRight: true !default;
+$fx-hinge: true !default;
+$fx-rollIn: true !default;
+$fx-rollOut: true !default;
+$fx-lightSpeedIn: true !default;
+$fx-lightSpeedOut: true !default;
+$fx-wiggle: true !default;
+
+
+
+// ==================================================
+//
+//          Components
+//
+// ==================================================
+
+
+// ====== Alerts ====== \\
+$alert-top: 40px !default;
+$alert-right: 40px !default;
+$alert-min-width: 300px !default;

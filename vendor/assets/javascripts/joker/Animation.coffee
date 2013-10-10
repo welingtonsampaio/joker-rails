@@ -27,21 +27,51 @@ Responsavel pelas animacoes em css afetuadas nos DOMElements
 ###
 class Joker.Animation extends Joker.Core
 
+  ###
+  Colecao de elementos que receberao os efeitos
+  em ordem
+  @type Array
+  ###
+  animations: undefined
 
 
   constructor: (data)->
     super
-    @createAlert()
-    @createAlertWindow()
-    @setEvents()
-    @setAutoClose() if @autoClose
+    @animations = []
+    @appendAllAnimations(data) if Object.isArray data
+    @appendAnimation(data)     if Object.isObject data
+    @createAllAnimations()
+
+  appendAllAnimations: (datas)->
+    datas.each (data)=>
+      @appendAnimation data
+
+  appendAnimation: (data)->
+    data = @libSupport.extend true, {}, @accessor("defaultData"), data
+    @debug "Realizando o append da animacao para o objeto: ", data
+    throw "Eh preciso informar o container" unless data.target?
+    @animations.push data
+
+  createAllAnimations: ->
+    @animations.each (animation,indice)=>
+      @createAnimation(@libSupport(animation.target), animation, indice)
+
+  createAnimation: (element, data, indice)->
+    @debug "Disparando o event de enter animation"
+    element.removeClass("animated animate#{indice} #{data.leaveEffect}")
+           .addClass(   "animated animate#{indice} #{data.enterEffect}")
+    if data.autoLeave
+      setTimeout( =>
+        @debug "Disparando o event de leave animation"
+        element.removeClass("animated animate#{indice} #{data.enterEffect}")
+               .addClass(   "animated animate#{indice} #{data.leaveEffect}")
+      , data.delayTime)
+
+
 
 
   @debugPrefix: "Joker_Animation"
   @className  : "Joker_Animation"
-
-  @defaultData:
-
 
   @FX_FLASH              : "flash"
   @FX_SHAKE              : "shake"
@@ -96,8 +126,15 @@ class Joker.Animation extends Joker.Core
   @FX_ROTATEOUTUPRIGHT   : "rotateOutUpRight"
   @FX_ROTATEOUTDOWNRIGHT : "rotateOutDownRight"
   @FX_HINGE              : "hinge"
-  @FX_HOLLIN             : "hollIn"
-  @FX_HOLLOUT            : "hollOut"
+  @FX_ROLLIN             : "rollIn"
+  @FX_ROLLOUT            : "rollOut"
   @FX_LIGHTSPEEDIN       : "lightSpeedIn"
   @FX_LIGHTSPEEDOUT      : "lightSpeedOut"
   @FX_WIGGLE             : "wiggle"
+
+  @defaultData:
+    target     : undefined
+    enterEffect: Animation.FX_FADEIN
+    autoLeave  : false
+    delayTime  : 7000
+    leaveEffect: Animation.FX_FADEOUT

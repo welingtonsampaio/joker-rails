@@ -4,6 +4,7 @@
  *= require joker/JokerUtils
  *= require joker/Debug
  *= require joker/Core
+ *= require joker/Animation
  *= require joker/Alert
  *= require joker/Ajax
  *= require joker/Window

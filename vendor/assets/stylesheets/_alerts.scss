@@ -1,0 +1,15 @@
+.alerts{
+
+  position: absolute;
+  top: $alert-top;
+  right: $alert-right;
+
+  .alert {
+
+    position: relative;
+    right: 10px;
+    min-width: $alert-min-width;
+
+  }
+
+}
