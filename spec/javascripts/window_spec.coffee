@@ -15,5 +15,36 @@ describe "Joker.Window", ->
       content: "Teste de conteudo"
       title: "Window 1"
     expect( document.getElementById( myWindow.objectId ) ).to.be.ok
+    myWindow.destroy()
 
+  it "deve poder criar mais de uma janela, e navegar entre elas", ->
+    myWindow1 = new Joker.Window
+      content: "Teste de conteudo 1"
+      title: "Window 1"
+    myWindow2 = new Joker.Window
+      content: "Teste de conteudo 2"
+      title: "Window 2"
+    el1 = document.getElementById( myWindow1.objectId )
+    el2 = document.getElementById( myWindow2.objectId )
+    expect( el1 ).to.be.ok
+    expect( el2 ).to.be.ok
+    expect( el1.style.zIndex ).to.be.equal Joker.Window.defaultIndex.toString()
+    expect( el2.style.zIndex ).to.be.equal (Joker.Window.defaultIndex + 1).toString()
+    myWindow1.container.click()
+    expect( el2.style.zIndex ).to.be.equal Joker.Window.defaultIndex.toString()
+    expect( el1.style.zIndex ).to.be.equal (Joker.Window.defaultIndex + 1).toString()
+    myWindow1.destroy()
+    myWindow2.destroy()
+
+
+  it "deve excluir o element da colecao e recolocar os indexes apos a chamada destroy", ->
+    myWindow1 = new Joker.Window
+      content: "Teste de conteudo 1"
+      title: "Window 1"
+    myWindow2 = new Joker.Window
+      content: "Teste de conteudo 2"
+      title: "Window 2"
+    el2 = document.getElementById( myWindow2.objectId )
+    myWindow1.destroy()
+    expect( el2.style.zIndex ).to.be.equal Joker.Window.defaultIndex.toString()
 

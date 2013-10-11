@@ -43,22 +43,43 @@ class Joker.Animation extends Joker.Core
     @createAllAnimations()
 
   ###
-  Metodo responsável por
+  Metodo responsável por percorrer os objetos
+  do construtor e enviar um a um para ser
+  gerado a animacao
+  @param Array datas
   ###
   appendAllAnimations: (datas)->
     datas.each (data)=>
       @appendAnimation data
 
+  ###
+  Responsavel por validar e extender as
+  configuracoes do padrao
+  @param Object data
+  ###
   appendAnimation: (data)->
     data = @libSupport.extend true, {}, @accessor("defaultData"), data
     @debug "Realizando o append da animacao para o objeto: ", data
     throw "Eh preciso informar o container" unless data.target?
     @animations.push data
 
+  ###
+  Metodo que percorre a colecao de animacoes
+  para ser criado animacao por animacao,
+  sendo que cada animacao será chamada em
+  cadeia respeitando o tempo de delay da
+  classe CSS
+  ###
   createAllAnimations: ->
     @animations.each (animation,indice)=>
       @createAnimation(@libSupport(animation.target), animation, indice)
 
+  ###
+  Responsavel por criar a animacao solicitada
+  @param DOMElement | JQueryElement element
+  @param Object data
+  @param Integer indice
+  ###
   createAnimation: (element, data, indice)->
     @debug "Disparando o event de enter animation"
     element.removeClass("animated animate#{indice} #{data.leaveEffect}")
@@ -135,9 +156,45 @@ class Joker.Animation extends Joker.Core
   @FX_LIGHTSPEEDOUT      : "lightSpeedOut"
   @FX_WIGGLE             : "wiggle"
 
+  ###
+  Configuracoes padrao, caso algum
+  objeto nao tenha configurado alguma
+  informacao
+  @type Object
+  ###
   @defaultData:
+    ###
+    Objeto que receberá a animacao
+    @type DOMElement | String | JQueryElement
+    ###
     target     : undefined
+    ###
+    Define qual o efeito deve ser
+    atribuido no star da animacao
+    @default 'fadeIn'
+    @type String
+    ###
     enterEffect: Animation.FX_FADEIN
+    ###
+    Define se deva ser utilizado automaticamente
+    um efeito de retirada do objeto apos
+    o delayTime
+    @default false
+    @type Boolean
+    ###
     autoLeave  : false
+    ###
+    Tempo de espera para disparar o efeito
+    de retirada do elemento
+    @default 7000
+    @param Integer
+    ###
     delayTime  : 7000
+    ###
+    Define qual o efeito deve ser
+    atribuido ao ser disparado o efeito
+    de retirada do elemento
+    @default 'fadeOut'
+    @type String
+    ###
     leaveEffect: Animation.FX_FADEOUT

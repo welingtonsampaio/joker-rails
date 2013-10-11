@@ -89,6 +89,8 @@ class Joker.Window extends Joker.Core
   destroy: ->
     @container.off ".widget"
     @container.remove()
+    @accessor("removeFromId")( @objectId )
+    @accessor("refreshIndexes")( )
     super
 
   ###
@@ -295,15 +297,8 @@ class Joker.Window extends Joker.Core
   @param Joker.Window win
   ###
   @defineToBiggerIndex: (win)->
-    index = null
-    Window.indexes.find (n, i)->
-      index = i if n.id == win.objectId
-      n.id == win.objectId
-    Window.indexes.removeAt index
-    Window.indexes.compact()
-    Window.indexes.push
-      id: win.objectId
-      object: win
+    Window.removeFromId win.objectId
+    Window.addToCollection win
     Window.refreshIndexes()
 
   ###
@@ -313,3 +308,12 @@ class Joker.Window extends Joker.Core
   @refreshIndexes: ->
     Window.indexes.each (n,i)->
       n.object.container.css "z-index", Window.defaultIndex + i
+
+  ###
+  Remove da colecao de elemento o elemento
+  com o ID passado por parametro
+  @param String id
+  ###
+  @removeFromId: (id)->
+    Window.indexes=Window.indexes.exclude (n)-> n.id == id
+    Window.indexes.compact()
