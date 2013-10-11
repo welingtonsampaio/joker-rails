@@ -29,50 +29,97 @@ de controle e informativos para o usuario.
 class Joker.Alert extends Joker.Core
 
 
+  alertWindow: undefined
+  data: undefined
 
-
-  constructor: (@message, @type=Joker.Alert.TYPE_INFO, @exclude=false, @delayTime=7000)->
+  ###
+  Constroi o alerta
+  @constructor
+  @param String | Object
+  @return Joker.Alert
+  ###
+  constructor: (data={})->
     super
+    if Object.isString data
+      str  = data
+      data =  {}
+      data["message"] = str
+    @data = @libSupport.extend true, {}, @accessor('defaultData'), data
     @createAlert()
-    @createAlertWindow()
     @setEvents()
-    @setAutoClose() if @autoClose
+    @setAutoClose() if @data.exclude
 
+  ###
+  Cria o objeto de alert no DOM
+  ###
   createAlert: ->
     @alertWindow = jQuery """
-                          <div class="alert #{@type} animate0 #{@animation}">
+                          <div class="alert #{@data.type}" id="#{@objectId}">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            #{@msg}
+                            #{@data.message}
                           </div>
                           """
-    @alertWindow.appendTo @accessor("getAlertConatiner")()
+    @alertWindow.appendTo @accessor("getAlertContainer")()
+    new Joker.Animation
+      target: @alertWindow
+      enterEffect: @data.enterAnimation
 
-  @debugPrefix: "Joker_Ajax"
-  @className  : "Joker_Ajax"
+  ###
+  Aplica o efeito de saida do elemento e
+  remove o objeto do DOM
+  ###
+  destroy: ->
+    new Joker.Animation
+      target: @alertWindow
+      enterEffect: @data.leaveAnimation
+    setTimeout =>
+      @alertWindow.remove()
+    ,800
+    clearTimeout(@t) if @t?
+    super
+
+  ###
+  Configura a auto remocao do objeto
+  ###
+  setAutoClose: ->
+    @t = setTimeout =>
+      @destroy()
+    , @data.delayTime
+
+  ###
+  Configura os eventos para este objeto
+  ###
+  setEvents: ->
+    jQuery("button", @alertWindow).on 'click', jQuery.proxy(@destroy, @)
+
+  @debugPrefix: "Joker_Alert"
+  @className  : "Joker_Alert"
 
   @TYPE_ERROR  : "alert-error"
   @TYPE_INFO   : "alert-info"
   @TYPE_SUCCESS: "alert-success"
   @TYPE_WANING : ""
 
-
   @alertContainer: undefined
-  defaultData:
+  @defaultData:
     message  : undefined
     type     : undefined
     exclude  : true
     delayTime: 7000
-    enterAnimation: "fadeInDown"
+    enterAnimation: Joker.Animation.FX_FADEINDOWN
+    leaveAnimation: Joker.Animation.FX_FADEOUTUP
+  @target: "body"
 
-  @createAlertConatiner: ->
-    @alertContainer = Joker.Core.libSupport """
-                                            <div class="alerts" id="alerts" />
-                                            """
+  @createAlertContainer: ->
+    Alert.alertContainer = Joker.Core.libSupport """
+                                                 <div class="alerts" id="alerts" />
+                                                 """
+    Alert.alertContainer.appendTo Alert.target
 
   @getAlertContainer: ->
-    return @alertContainer if @alertContainer?
-    @createAlertConatiner()
+    return Alert.alertContainer if Alert.alertContainer?
+    Alert.createAlertContainer()
 
 
   @setAlertContainer: (obj)->
-    @alertContainer = obj
+    Alert.alertContainer = obj

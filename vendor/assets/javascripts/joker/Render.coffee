@@ -37,40 +37,95 @@ class Joker.Render extends Joker.Core
     @setDefaults()
     @setEvents()
 
+
+  formatTitle: (title)->
+    title = "#{title} | #{Joker.appName}" if Joker.appName?
+    title
+
   ###
-  Event triggered when a link to "render" is triggered
-  @param {Event}
-  @returns {Boolean} false
+  Event triggered when a link to "jrender" is triggered
+  @param Event
+  @returns Boolean false
   ###
-  linkClick: (e)->
+  linkClickRender: (e)->
     @debug "Evento de clique disparados para o elemento: ", e.currentTarget
     el = e.currentTarget
-    target = if Object.isString(el.dataset.render) and el.dataset.render != "true"
-      @libSupport("[data-yield-for=#{el.dataset.render}]")
+    if Object.isString(el.dataset.render) and el.dataset.render != "true"
+      push   = false
+      target = @libSupport("[data-yield-for=#{el.dataset.render}]")
     else
-      @getRenderContainer()
-    type   = if el.dataset.method? then el.dataset.method else @defaultMethod
-    title  = if el.dataset.title?  then el.dataset.title  else document.title
+      push   = true
+      target = @getRenderContainer()
+    title  = if el.dataset.jrenderTitle?  then el.dataset.jrenderTitle  else document.title
+    @load(
+      script: """
+              _this = this;
+              xhr = new Joker.Ajax({
+                url: "#{el.getAttribute('href')}",
+                async: false,
+                callbacks: {
+                  success: function (data, textStatus, jqXHR) {
+                    _this.libSupport("#{target.selector}").empty().html(data);
+                  },
+                  error: function ( jqXHR, textStatus ) {
+                    console.log(jqXHR, textStatus);
+                    add_push = false;
+                    new Joker.Alert({
+                      message: "Ocorreu um erro ao solicitar a pagina: #{el.getAttribute('href')}",
+                      type: Joker.Alert.TYPE_ERROR
+                    });
+                  }
+                }
+              });
+              """
+      title: @formatTitle(title)
+      url  : el.getAttribute('href')
+    , push)
+    false
+
+  ###
+  Event triggered when a link to "jwindow" is triggered
+  @param Event
+  @returns Boolean false
+  ###
+  linkClickWindow: (e)->
+    el = @libSupport e.currentTarget
     @load
-      url   : el.getAttribute('href')
-      method: type
-      target: target.selector
-      title : title
+      script: """
+              _this = this;
+              xhr = new Joker.Ajax({
+                url: "#{el.attr 'href'}",
+                async: false,
+                callbacks: {
+                  success: function (data, textStatus, jqXHR) {
+                    new Joker.Window({
+                      content: data,
+                      title: "#{el.data "jrender-title"}"
+                    });
+                  },
+                  error: function ( jqXHR, textStatus ) {
+                    console.log(jqXHR, textStatus);
+                    add_push = false;
+                    new Joker.Alert({
+                      message: "Ocorreu um erro ao solicitar a pagina: #{el.attr 'href'}",
+                      type: Joker.Alert.TYPE_ERROR
+                    });
+                  }
+                }
+              });
+              """
+      title: @formatTitle(el.data "jrender-title")
+      url  : el.attr('href')
     false
 
   ###
   Metodo que faz o laod do conteudo html
-  @param {Object} obj
-  @param {Boolean} add_push Informe se é para a
+  @param Object obj
+  @param Boolean add_push
   ###
-  load: (obj, add_push = true)->
-    new Joker.Ajax
-      url   : obj.url
-      method: obj.method
-      callbacks:
-        success: (data, textStatus, jqXHR)=>
-          history.pushState obj, obj.title, obj.url if add_push
-          $(obj.target).empty().html(data)
+  load: (obj, add_push=true)->
+    eval obj.script
+    history.pushState obj, obj.title, obj.url if add_push
 
   ###
   Retorna o container default
@@ -78,12 +133,15 @@ class Joker.Render extends Joker.Core
   getRenderContainer: ->
     @libSupport "[data-yield]"
 
+  pushState: (obj)->
+    history.pushState obj, obj.title, obj.url
+
   ###
   Sets the values ​​of the standard rendering engine
   ###
   setDefaults: ->
     @debug "Definindo as configuracoes padroes"
-    @defaultMethod   = "GET"
+    @defaultMethod = "GET"
 
   ###
   Sets all events from the elements
@@ -91,7 +149,8 @@ class Joker.Render extends Joker.Core
   setEvents: ->
     @unsetEvents()
     @debug "Setando os eventos"
-    @libSupport(document).on('click', '[data-render]', @libSupport.proxy(@linkClick,@))
+    @libSupport(document).on('click.render', '[data-jrender]', @libSupport.proxy(@linkClickRender,@))
+    @libSupport(document).on('click.render', '[data-jwindow]', @libSupport.proxy(@linkClickWindow,@))
     window.onpopstate = (config)=> @load config.state, false
 
   ###

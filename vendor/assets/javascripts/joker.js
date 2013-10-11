@@ -9,4 +9,9 @@
  *= require joker/Ajax
  *= require joker/Window
  *= require joker/Render
+ *= require_self
  */
+
+(global || window).Joker.bootstrap = function() {
+  Joker.Render.getInstance();
+};

@@ -36,7 +36,6 @@ describe "Joker.Window", ->
     myWindow1.destroy()
     myWindow2.destroy()
 
-
   it "deve excluir o element da colecao e recolocar os indexes apos a chamada destroy", ->
     myWindow1 = new Joker.Window
       content: "Teste de conteudo 1"
@@ -47,4 +46,17 @@ describe "Joker.Window", ->
     el2 = document.getElementById( myWindow2.objectId )
     myWindow1.destroy()
     expect( el2.style.zIndex ).to.be.equal Joker.Window.defaultIndex.toString()
+
+  it "deve poder mover a janela utilizando o arastar do mouse", ->
+    myWindow1 = new Joker.Window
+      content: "Teste de conteudo 1"
+      title: "Window 1"
+    left = myWindow1.container[0].offsetLeft
+    top  = myWindow1.container[0].offsetTop
+    myWindow1.startDrag({clientX:left+5,clientY:top+5})
+    myWindow1.moveContainer({clientX:left+55,clientY:top+55})
+    myWindow1.stopDrag()
+    expect( left ).to.be.below myWindow1.container[0].offsetLeft
+    expect( top  ).to.be.below myWindow1.container[0].offsetTop
+
 

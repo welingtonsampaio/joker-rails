@@ -82,13 +82,13 @@ class Joker.Animation extends Joker.Core
   ###
   createAnimation: (element, data, indice)->
     @debug "Disparando o event de enter animation"
-    element.removeClass("animated animate#{indice} #{data.leaveEffect}")
-           .addClass(   "animated animate#{indice} #{data.enterEffect}")
+    element.removeClass("animate#{indice} #{data.leaveEffect}")
+           .addClass(   "animate#{indice} #{data.enterEffect}")
     if data.autoLeave
       setTimeout( =>
         @debug "Disparando o event de leave animation"
-        element.removeClass("animated animate#{indice} #{data.enterEffect}")
-               .addClass(   "animated animate#{indice} #{data.leaveEffect}")
+        element.removeClass("animate#{indice} #{data.enterEffect}")
+               .addClass(   "animate#{indice} #{data.leaveEffect}")
       , data.delayTime)
 
 

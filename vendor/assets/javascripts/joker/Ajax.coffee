@@ -22,9 +22,6 @@ For details please refer to: http://jokerjs.zaez.net
 
 ###
 class Joker.Ajax extends Joker.Core
-
-  @debugPrefix: "Joker_Ajax"
-  @className  : "Joker_Ajax"
   settings:
     ###
     Indicates whether the object should
@@ -115,6 +112,9 @@ class Joker.Ajax extends Joker.Core
   get_data: ->
     return @libSupport.param(@settings.data) if Object.isObject @settings.data
     ""
+
+  @debugPrefix: "Joker_Ajax"
+  @className  : "Joker_Ajax"
 
 
 # rails application and using csrf-token
