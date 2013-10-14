@@ -95,6 +95,30 @@ $fx-wiggle: true !default;
 //
 // ==================================================
 
+// ====== Navigation ====== \\
+$navigation-font-size: 14px !default;
+$navigation-class-container: main-nav !default;
+$navigation-background: #323d52 !default;
+$navigation-background-hover: lighten(#323d52, 5%) !default;
+$navigation-border-right: darken($navigation-background, 10%) !default;
+$navigation-border-left: lighten($navigation-background, 10%) !default;
+$navigation-color: white !default;
+$navigation-color-hover: #28b165 !default;
+$navigation-submenu-boxshadow: 1px 1px 2px rgba(0, 0, 0, 0.4) !default;
+
+$navigation-submenu-width: 16em !default;
+$navigation-submenu-background: #fafafa !default;
+$navigation-submenu-background-hover: #2ec673 !default;
+$navigation-submenu-border-top: darken($navigation-submenu-background, 5%) !default;
+$navigation-submenu-border-bottom: lighten($navigation-submenu-background, 5%) !default;
+$navigation-submenu-color: #333333 !default;
+$navigation-submenu-color-hover: white !default;
+
+$navigation-arrow-color: #cccccc !default;
+
+
+
+
 // ====== Alerts ====== \\
 $alert-top: 40px !default;
 $alert-right: 40px !default;

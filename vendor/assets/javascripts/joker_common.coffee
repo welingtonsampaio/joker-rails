@@ -1,1 +1,1 @@
-Joker.bootstrap()
+window.Joker.bootstrap()

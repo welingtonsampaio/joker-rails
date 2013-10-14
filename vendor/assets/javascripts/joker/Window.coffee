@@ -77,6 +77,7 @@ class Joker.Window extends Joker.Core
     @create()
     @setEvents()
     @accessor("addToCollection")(@)
+    @defineToActive()
     @accessor("refreshIndexes" )( )
     @
 
@@ -110,7 +111,7 @@ class Joker.Window extends Joker.Core
   @returns Boolean true
   ###
   defineToActive: ->
-    $('.widget').not(@container).removeClass 'active'
+    @libSupport('.jwindow').not(@container).removeClass 'active'
     @container.addClass 'active'
     @accessor("defineToBiggerIndex")( @ )
     true
@@ -157,7 +158,7 @@ class Joker.Window extends Joker.Core
     @mouseY = e.clientY
     @containerX = @container[0].getBoundingClientRect().left
     @containerY = @container[0].getBoundingClientRect().top
-    body = $("body")
+    body = @libSupport("body")
     @originBodyCss = body[0].style
     body.css({
       '-moz-user-select' : 'none',
@@ -175,7 +176,13 @@ class Joker.Window extends Joker.Core
   ###
   stopDrag: ->
     @drag = false
-    document.getElementsByTagName("body")[0].style = @originBodyCss
+    @libSupport('body').css({
+      '-moz-user-select' : 'inherit',
+      '-khtml-user-select' : 'inherit',
+      '-webkit-user-select' : 'inherit',
+      '-o-user-select' : 'inherit',
+      'user-select' : 'inherit'
+    });
     @container.removeClass 'alpha'
     true
 

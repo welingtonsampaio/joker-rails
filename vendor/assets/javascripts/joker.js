@@ -9,9 +9,11 @@
  *= require joker/Ajax
  *= require joker/Window
  *= require joker/Render
+ *= require joker/Navigation
  *= require_self
  */
 
-(global || window).Joker.bootstrap = function() {
+window.Joker.bootstrap = function() {
   Joker.Render.getInstance();
+  Joker.Navigation.init();
 };

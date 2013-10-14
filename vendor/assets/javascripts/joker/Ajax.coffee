@@ -111,7 +111,7 @@ class Joker.Ajax extends Joker.Core
   ###
   get_data: ->
     return @libSupport.param(@settings.data) if Object.isObject @settings.data
-    ""
+    @settings.data
 
   @debugPrefix: "Joker_Ajax"
   @className  : "Joker_Ajax"

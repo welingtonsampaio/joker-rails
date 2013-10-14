@@ -95,6 +95,7 @@ class Joker.Render extends Joker.Core
               _this = this;
               xhr = new Joker.Ajax({
                 url: "#{el.attr 'href'}",
+                data: "format=js",
                 async: false,
                 callbacks: {
                   success: function (data, textStatus, jqXHR) {
@@ -124,8 +125,9 @@ class Joker.Render extends Joker.Core
   @param Boolean add_push
   ###
   load: (obj, add_push=true)->
+    return undefined unless obj?
     eval obj.script
-    history.pushState obj, obj.title, obj.url if add_push
+    @pushState obj, obj.title, obj.url if add_push
 
   ###
   Retorna o container default

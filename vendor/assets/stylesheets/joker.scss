@@ -6,7 +6,6 @@
 @import "joker/mixins";
 @import "joker/variables";
 
-
 // ============================================
 //
 //      Components
@@ -17,7 +16,12 @@
 @import "joker/animations_delay";
 @import "joker/animations";
 
+// Navigation menu
+@import "joker/navigation";
+
 // Alerts and Notices objects
 @import "joker/alerts";
+
+// Window box
 @import "joker/window";
 
