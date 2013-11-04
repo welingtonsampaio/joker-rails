@@ -7,12 +7,8 @@ div.jwindow {
   box-shadow: 0 0 5px rgba($window-box-shadow-color, 0.3);
   @include transition(box-shadow 200ms linear);
   min-width: 260px;
-  @include prefix-property(filter, blur(1px));
 
-  &.active {
-    box-shadow: 0 0 10px rgba($window-box-shadow-color, 0.6);
-    @include prefix-property(filter, blur(0));
-  }
+  &.active { box-shadow: 0 0 10px rgba($window-box-shadow-color, 0.6); }
 
   &.alpha { opacity: 0.8; }
 
