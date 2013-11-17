@@ -1,0 +1,20 @@
+
+@if $modal-fx-side-fall {
+	
+	.md-effect-6.md-modal {
+		@include prefix-property(perspective, 1300px);
+	}
+
+	.md-effect-6 .md-content {
+		@include prefix-property(transform-style, preserve-3d);
+		@include transform(translate(30%) translateZ(600px) rotate(10deg));
+		opacity: 0;
+	}
+
+	.md-show.md-effect-6 .md-content {
+		@include transition(all 0.3s ease-in);
+		@include transform(translate(0%) translateZ(0) rotate(0deg));
+		opacity: 1;
+	}
+
+}

@@ -1,0 +1,21 @@
+
+@if $modal-fx-3d-sign {
+	
+	.md-effect-10.md-modal {
+		@include prefix-property(perspective, 1300px);
+	}
+
+	.md-effect-10 .md-content {
+		@include prefix-property(transform-style, preserve-3d);
+		@include transform(rotateX(-60deg));
+		@include prefix-property(transform-origin, 50% 0);
+		opacity: 0;
+		@include transition(all 0.3s);
+	}
+
+	.md-show.md-effect-10 .md-content {
+		@include transform(rotateX(0deg));
+		opacity: 1;
+	}
+
+}

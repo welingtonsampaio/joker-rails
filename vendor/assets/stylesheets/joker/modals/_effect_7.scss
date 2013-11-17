@@ -1,0 +1,22 @@
+
+@if $modal-fx-sticky-up {
+	
+	.md-effect-7{
+		top: 0;
+		@include transform(translateX(-50%));
+	}
+
+	.md-effect-7 .md-content {
+		@include transform(translateY(-200%));
+		@include transition(all .3s);
+		opacity: 0;
+	}
+
+	.md-show.md-effect-7 .md-content {
+		@include transform(translateY(0%));
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		opacity: 1;
+	}
+
+}

@@ -1,0 +1,21 @@
+
+@if $modal-fx-3d-rotate-in-left {
+	
+	.md-effect-15.md-modal {
+		@include prefix-property(perspective, 1300px);
+	}
+
+	.md-effect-15 .md-content {
+		@include prefix-property(transform-style, preserve-3d);
+		@include transform(translateZ(100px) translateX(-30%) rotateY(90deg));
+		@include prefix-property(transform-origin, 0 100%);
+		opacity: 0;
+		@include transition(all 0.3s);
+	}
+
+	.md-show.md-effect-15 .md-content {
+		@include transform(translateZ(0px) translateX(0%) rotateY(0deg));
+		opacity: 1;
+	}
+
+}

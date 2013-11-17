@@ -75,10 +75,12 @@ class Joker.Window extends Joker.Core
     super
     @data = @libSupport.extend true, {}, @accessor('defaultParams'), params
     @create()
+    @setCenter()
+    @setCenter()
     @setEvents()
     @accessor("addToCollection")(@)
     @defineToActive()
-    @accessor("refreshIndexes" )( )
+    @accessor("refreshIndexes" )()
     @
 
   ###
@@ -103,6 +105,7 @@ class Joker.Window extends Joker.Core
     content   = @accessor('patterns').content.assign content: @data.content
     @container = $ @accessor('patterns').container.assign {title: title}, {content: content}, {id: @objectId}
     @container.appendTo "body"
+
 
   ###
   Define a janela para ativo, automaticamente todas
@@ -135,6 +138,16 @@ class Joker.Window extends Joker.Core
     @container.addClass('alpha').css
       left: newX
       top : newY
+
+  ###
+  Coloca a janela no centro da area livre
+  ###
+  setCenter: ->
+    width  = @container[0].offsetWidth
+    height = @container[0].offsetHeight
+    @container.css
+      top: window.innerHeight/2-height/2+(@accessor('margin').top-@accessor('margin').bottom)/2
+      left: window.innerWidth/2-width/2+(@accessor('margin').left-@accessor('margin').right)/2
 
   ###
   Seta os eventos direcionados aos  objetos

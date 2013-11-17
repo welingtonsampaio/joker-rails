@@ -1,0 +1,31 @@
+
+@if $modal-fx-let-me {
+	
+	.md-show.md-effect-17 ~ .container {
+		height: 100%;
+		overflow: hidden;
+		-webkit-transition: -webkit-transform 0.3s;
+		-moz-transition: -moz-transform 0.3s;
+		transition: transform 0.3s;
+	}	
+
+	.md-show.md-effect-17 ~ .container,
+	.md-show.md-effect-17 ~ .md-overlay  {
+		@include transform(rotateX(-2deg));
+		@include prefix-property(transform-origin, 50% 0%);
+		@include prefix-property(transform-style, preserve-3d);
+	}
+
+	.md-effect-17 .md-content {
+		opacity: 0;
+		@include transform(translateY(200%));
+	}
+
+	.md-show.md-effect-17 .md-content {
+		@include transform(translateY(0));
+		opacity: 1;
+		@include transition(all 0.3s 0.2s);
+	}
+
+
+}

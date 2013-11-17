@@ -1,0 +1,23 @@
+
+@if $modal-fx-blur {
+	
+	.md-show.md-effect-16 ~ .md-overlay { background: $modal-fx-blur-background; }
+	.md-show.md-effect-16 ~ .container { 
+		@include prefix-property(filter,blur(3px));
+	}
+
+	.md-effect-16 .md-content {
+		@include transform(translateY(-5%));
+		opacity: 0;
+	}
+
+	.md-show.md-effect-16 ~ .container,
+	.md-effect-16 .md-content { @include transition(all 0.3s); }
+
+	.md-show.md-effect-16 .md-content {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
+
+
+}

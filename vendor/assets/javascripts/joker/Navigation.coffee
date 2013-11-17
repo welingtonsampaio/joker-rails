@@ -16,7 +16,7 @@
   @param jQueryEvent
   ###
   closeMenu: (e) ->
-    return true if not @isOpen or $('nav.main-nav *').toArray().count(e.target) > 0
+    return true if not @isOpen or ($('nav.main-nav *').toArray().count(e.target) > 0 and not @menuLinksTarget.toArray().count(e.target) > 0)
     @isOpen = false
     $("ul").removeClass "show"
     $('nav.main-nav').removeClass 'active'
@@ -52,11 +52,13 @@
   ###
   setElements: ->
     @menuLinks = $ "ul.main-menu > li > a"
+    @menuLinksTarget = $ "ul.main-menu > li > ul a"
 
   ###
   Configura os eventos de controle do menu
   ###
   setEvents: ->
     @menuLinks.on  "click mouseover",                                  $.proxy(@openMenu, @)
+    @menuLinksTarget.on "click",                                       $.proxy(@closeMenu, @)
     $(document).on "click",           "body:has(nav.main-nav.active)", $.proxy(@closeMenu, @)
 

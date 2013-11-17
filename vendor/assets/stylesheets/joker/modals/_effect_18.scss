@@ -1,0 +1,47 @@
+
+@if $modal-fx-make-way {
+	
+	.md-show.md-effect-18 ~ .container {
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.md-show.md-effect-18 ~ .md-overlay {
+		background: $modal-fx-make-way-overlay;
+		@include transition(all 0.5s);
+	}
+
+	.md-show.md-effect-18 ~ .container,
+	.md-show.md-effect-18 ~ .md-overlay {
+		@include prefix-property(transform-style, preserve-3d);
+		@include prefix-property(transform-origin, 0% 50%);
+		@include animation(rotateRightSideFirst 0.5s forwards ease-in);
+	}
+
+	@-webkit-keyframes rotateRightSideFirst {
+		50% { -webkit-transform: translateZ(-50px) rotateY(5deg); -webkit-animation-timing-function: ease-out; }
+		100% { -webkit-transform: translateZ(-200px); }
+	}
+
+	@-moz-keyframes rotateRightSideFirst {
+		50% { -moz-transform: translateZ(-50px) rotateY(5deg); -moz-animation-timing-function: ease-out; }
+		100% { -moz-transform: translateZ(-200px); }
+	}
+
+	@keyframes rotateRightSideFirst {
+		50% { transform: translateZ(-50px) rotateY(5deg); animation-timing-function: ease-out; }
+		100% { transform: translateZ(-200px); }
+	}
+
+	.md-effect-18 .md-content {
+		@include transform(translateX(200%));
+		opacity: 0;
+	}
+
+	.md-show.md-effect-18 .md-content {
+		@include transform(translateX(0));
+		opacity: 1;
+		@include transition(all 0.5s 0.1s);
+	}
+
+}

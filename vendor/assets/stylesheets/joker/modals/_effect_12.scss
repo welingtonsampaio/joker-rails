@@ -1,0 +1,23 @@
+
+@if $modal-fx-just-me {
+	
+	.md-effect-12 .md-content {
+		@include transform(scale(0.8));
+		opacity: 0;
+		@include transition(all 0.3s);
+	}
+
+	.md-show.md-effect-12 ~ .md-overlay {
+		background: $modal-fx-just-me-background;
+	} 
+
+	.md-effect-12 .md-content {
+		&, h3 {background: transparent;}
+	}
+
+	.md-show.md-effect-12 .md-content {
+		@include transform(scale(1));
+		opacity: 1;
+	}
+
+}

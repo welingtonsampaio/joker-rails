@@ -1,0 +1,52 @@
+
+@if $modal-fx-slip-from-top {
+	
+	.md-show.md-effect-19 ~ .container {
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.md-show.md-effect-19 ~ .md-overlay {
+		@include transition(all 0.5s);
+	}
+
+	.md-show.md-effect-19 ~ .container,
+	.md-show.md-effect-19 ~ .md-overlay {
+		@include prefix-property(transform-style, preserve-3d);
+		@include prefix-property(transform-origin, 50% 100%);
+		@include prefix-property(animation, OpenTop 0.5s forwards ease-in);
+	}
+
+	@-webkit-keyframes OpenTop {
+		50% { 
+			-webkit-transform: rotateX(10deg); 
+			-webkit-animation-timing-function: ease-out; 
+		}
+	}
+
+	@-moz-keyframes OpenTop {
+		50% { 
+			-moz-transform: rotateX(10deg); 
+			-moz-animation-timing-function: ease-out; 
+		}
+	}
+
+	@keyframes OpenTop {
+		50% { 
+			transform: rotateX(10deg); 
+			animation-timing-function: ease-out; 
+		}
+	}
+
+	.md-effect-19 .md-content {
+		@include transform(translateY(-200%));
+		opacity: 0;
+	}
+
+	.md-show.md-effect-19 .md-content {
+		@include transform(translateY(0));
+		opacity: 1;
+		@include transition(all 0.5s 0.1s);
+	}
+
+}

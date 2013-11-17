@@ -1,0 +1,15 @@
+
+@if $modal-fx-slide-in-bottom {
+	
+	.md-effect-3 .md-content {
+		@include transform(translateY(20%));
+		opacity: 0;
+		@include transition(all 0.3s);
+	}
+
+	.md-show.md-effect-3 .md-content {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
+
+}

@@ -1,0 +1,15 @@
+
+@if $modal-fx-super-scaled {
+	
+	.md-effect-11 .md-content {
+		@include transform(scale(2));
+		opacity: 0;
+		@include transition(all 0.3s);
+	}
+
+	.md-show.md-effect-11 .md-content {
+		@include transform(scale(1));
+		opacity: 1;
+	}
+
+}

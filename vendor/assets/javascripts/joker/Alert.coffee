@@ -98,7 +98,7 @@ class Joker.Alert extends Joker.Core
   @TYPE_ERROR  : "alert-error"
   @TYPE_INFO   : "alert-info"
   @TYPE_SUCCESS: "alert-success"
-  @TYPE_WANING : ""
+  @TYPE_WARNING: ""
 
   @alertContainer: undefined
   @defaultData:

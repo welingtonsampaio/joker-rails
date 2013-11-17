@@ -50,9 +50,9 @@ class Joker.Render extends Joker.Core
   linkClickRender: (e)->
     @debug "Evento de clique disparados para o elemento: ", e.currentTarget
     el = e.currentTarget
-    if Object.isString(el.dataset.render) and el.dataset.render != "true"
+    if Object.isString(el.dataset.jrender) and el.dataset.jrender != "true"
       push   = false
-      target = @libSupport("[data-yield-for=#{el.dataset.render}]")
+      target = @libSupport("[data-yield-for=#{el.dataset.jrender}]")
     else
       push   = true
       target = @getRenderContainer()
@@ -62,10 +62,11 @@ class Joker.Render extends Joker.Core
               _this = this;
               xhr = new Joker.Ajax({
                 url: "#{el.getAttribute('href')}",
+                data: "format=js",
                 async: false,
                 callbacks: {
                   success: function (data, textStatus, jqXHR) {
-                    _this.libSupport("#{target.selector}").empty().html(data);
+                    _this.libSupport("[data-yield-for=#{el.dataset.jrender}]").empty().html(data);
                   },
                   error: function ( jqXHR, textStatus ) {
                     console.log(jqXHR, textStatus);
@@ -80,7 +81,7 @@ class Joker.Render extends Joker.Core
               """
       title: @formatTitle(title)
       url  : el.getAttribute('href')
-    , push)
+    , false)
     false
 
   ###
@@ -90,7 +91,7 @@ class Joker.Render extends Joker.Core
   ###
   linkClickWindow: (e)->
     el = @libSupport e.currentTarget
-    @load
+    @load(
       script: """
               _this = this;
               xhr = new Joker.Ajax({
@@ -117,6 +118,7 @@ class Joker.Render extends Joker.Core
               """
       title: @formatTitle(el.data "jrender-title")
       url  : el.attr('href')
+    , false)
     false
 
   ###

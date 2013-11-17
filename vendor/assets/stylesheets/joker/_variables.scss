@@ -136,4 +136,58 @@ $window-title-color: white !default;
 $window-title-font-size: 14px !default;
 $window-title-padding: 12px 60px 12px 12px !default;
 
+// ====== Modals ====== \\
 
+// Principal Box
+$modal-max-width: 630px !default;
+$modal-min-width: 320px !default;
+$modal-zindex: 10000 !default;
+$modal-color: white !default;
+$modal-backgroud: #e74c3c !default;
+$modal-border-radius: 3px;
+
+// Conteudo
+$modal-content-padding: 15px 40px 30px !default;
+$modal-content-margin: 0 !default;
+$modal-content-font-weight: 300 !default;
+$modal-content-font-size: 1.15em !default;
+
+// Title
+$modal-title-color: $modal-color !default;
+$modal-title-background: rgba(black, 0.1) !default;
+$modal-title-padding: 0.4em !default;
+$modal-title-margin: 0 !default;
+$modal-title-align: center !default;
+$modal-title-font-size: 2.4em !default;
+$modal-title-font-weight: 300 !default;
+$modal-title-border-radius: 3px 3px 0 0 !default;
+
+// Overlay
+$modal-overlay-zindex: ($modal-zindex - 100) !default;
+$modal-overlay-background: rgba(143,27,15,0.8) !default;
+$modal-overlay-effect-time: 300ms !default;
+
+// Efeitos
+$modal-fx-fade-in-and-scale: true !default;
+$modal-fx-slide-in-right: true !default;
+$modal-fx-slide-in-bottom: true !default;
+$modal-fx-newspapper: true !default;
+$modal-fx-fall: true !default;
+$modal-fx-side-fall: true !default;
+$modal-fx-sticky-up: true !default;
+$modal-fx-3d-flip-horizontal: true !default;
+$modal-fx-3d-flip-vertical: true !default;
+$modal-fx-3d-sign: true !default;
+$modal-fx-super-scaled: true !default;
+$modal-fx-just-me: true !default;
+$modal-fx-3d-slit: true !default;
+$modal-fx-3d-rotate-bottom: true !default;
+$modal-fx-3d-rotate-in-left: true !default;
+$modal-fx-blur: true !default;
+$modal-fx-let-me: true !default;
+$modal-fx-make-way: true !default;
+$modal-fx-slip-from-top: true !default;
+
+$modal-fx-just-me-background: #e74c3c !default;
+$modal-fx-blur-background: rgba(180,46,32,0.5) !default;
+$modal-fx-make-way-overlay: rgba(143,27,15,0.8) !default;

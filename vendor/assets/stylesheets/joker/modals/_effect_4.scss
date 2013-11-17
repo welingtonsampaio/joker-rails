@@ -1,0 +1,20 @@
+
+@if $modal-fx-newspapper {
+	
+	.md-effect-4 .md-content {
+		@include transform(scale(0) rotate(720deg));
+		opacity: 0;
+	}
+
+	.md-show.md-effect-4 ~ .md-overlay,
+	.md-effect-4 .md-content {
+		@include transition(all 0.5s);
+	}
+
+	.md-show.md-effect-4 .md-content {
+		@include transform(scale(1) rotate(0deg));
+		opacity: 1;
+	}
+
+
+}

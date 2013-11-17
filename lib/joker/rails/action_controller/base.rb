@@ -44,7 +44,7 @@ module Joker::Rails
           end
         else
           @joker_errors ||= {}
-          @joker_errors[model.class.name.tableize.singularize] = model.errors.full_messages
+          @joker_errors[I18n.t("activerecord.models.#{model.class.name.tableize.singularize}")] = model.errors.full_messages
           response = false
         end
         if not response and not update
@@ -71,7 +71,7 @@ module Joker::Rails
       # @param ActiveRecord::Base
       def show_errors_for model
         if params[:format] == 'json'
-          render :json => @joker_errors
+          render :json => { status: :error, errors: @joker_errors}
         elsif model.persisted?
           flash[:notice] = @joker_errors
           render :action => :edit

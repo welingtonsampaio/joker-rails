@@ -1,0 +1,20 @@
+
+@if $modal-fx-3d-flip-vertical {
+	
+	.md-effect-9.md-modal {
+		@include prefix-property(perspective, 1300px);
+	}
+
+	.md-effect-9 .md-content {
+		@include prefix-property(transform-style, preserve-3d);
+		@include transform(rotateX(-70deg));
+		@include transition(all 0.3s);
+		opacity: 0;
+	}
+
+	.md-show.md-effect-9 .md-content {
+		@include transform(rotateX(0deg));
+		opacity: 1;
+	}
+
+}

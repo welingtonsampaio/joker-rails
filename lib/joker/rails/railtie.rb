@@ -13,13 +13,14 @@ module Joker
       end
 
       initializer "joker_rails.active_record" do
-        ActiveSupport.on_load :active_record do
+        ::ActiveSupport.on_load :active_record do
           require 'joker/rails/active_record'
         end
       end
 
       initializer "joker_rails.view_helpers" do
         ::ActionView::Base.send :include, Joker::Rails::ActionView::Helpers
+        ::ActionView::Helpers::FormBuilder.send :include, Joker::Rails::ActionView::Helpers::FormBuilder
       end
     end
   end
