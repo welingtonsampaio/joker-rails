@@ -55,10 +55,8 @@ module Joker::Rails
           options[:value] = @object.send(method[0..-4]).send options[:data][:valuekey] if @object.persisted?
           original_options[:value] = @object.send(method) if @object.persisted?
 
-          "<div>".html_safe +
           ::ActionView::Helpers::Tags::TextField.new(:typehead, method, self, options).render +
-          ::ActionView::Helpers::Tags::HiddenField.new(@object_name, method, self, original_options).render +
-          "</div>".html_safe
+          ::ActionView::Helpers::Tags::HiddenField.new(@object_name, method, self, original_options).render
         end
       end
     end

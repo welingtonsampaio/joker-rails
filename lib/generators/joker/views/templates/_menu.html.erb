@@ -1,0 +1,14 @@
+<div class="container-title">
+  <div class="container-fluid">
+    <div class="row-fluid clearfix">
+      <h1><i class="iconset1-globe"></i>  <%= "<%=" %> t("activerecord.models.<%= plural_table_name %>").capitalize %></h1>
+      <div class="section-menu">
+        <ul>
+          <li><%= "<%=" %> render_to :<%= singular_table_name %>, "Todos #{t("activerecord.models.<%= plural_table_name %>").downcase}",<%= index_helper %>_path(content_only:true), :class => "iconset1-list-6", id: 'list-<%= plural_table_name %>' %></li>
+          <li><%= "<%=" %> render_to :<%= singular_table_name %>, "Novo", new_<%= singular_table_name %>_path, :class => "iconset1-plus"  %></li>
+          <li><a href="#" class="iconset1-search-2 activate-filters">Buscar</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

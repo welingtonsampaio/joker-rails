@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <%= form_for @state, html: {class: 'ajaxsend'} do |f| %>
+    <div class="row-fluid error-messages hide">
+      <div class="span12">
+        <h2>Os seguintes erros proibiram este estado de ser cadastrado:</h2>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span8">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'input-block-level' %>
+      </div>
+      <div class="span4">
+        <%= f.label :acronym %>
+        <%= f.text_field :acronym, class: 'input-block-level' %>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6">
+        <%= f.label :country_id %>
+        <%= f.typeahead countries_path(:json), :country_id, class: "input-block-level enumerable" %>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
