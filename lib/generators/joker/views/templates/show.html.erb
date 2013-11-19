@@ -1,24 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <h3><%= '<%=' %> t('activerecord.models.<%= singular_table_name %>').capitalize %> #<%= '<%=' %> @<%= singular_table_name %>.id %></h3>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @state.name %>
-</p>
-
-<p>
-  <strong>Acronym:</strong>
-  <%= @state.acronym %>
-</p>
-
-<p>
-  <strong>Sattus:</strong>
-  <%= @state.sattus %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @state.country %>
-</p>
-
-<%= link_to 'Edit', edit_state_path(@state) %> |
-<%= link_to 'Back', states_path %>
+<dl>
+  <% attributes_names.each do |attribute| %>
+  <dt><%= attribute.humanize %>:</dt>
+  <dd><%= '<%=' %> @<%= singular_table_name %>.<%= attribute %> %></dd>
+  <% end %>
+</dl>

@@ -1,6 +1,8 @@
-object @state
-attributes :id, :name, :acronym, :status
+object @<%= singular_table_name %>
+attributes :id , :<%= attributes.dup.delete_if{|c|c.type.to_s == 'references' }.collect{|c|c.name}.join(', :') %>
 
-child :country do
-  extends "countries/show"
+<% attributes.dup.delete_if{|c|c.type.to_s != 'references' }.each do |attribute| %>
+child :<%= attribute.name %> do
+  extends "<%= attribute.name.pluralize %>/show"
 end
+<% end %>

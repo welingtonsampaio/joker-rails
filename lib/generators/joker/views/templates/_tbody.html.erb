@@ -1,14 +1,16 @@
-<% entries.each do |entry| %>
-  <tr id="<%= dom_id entry %>">
-    <td><%= entry.id %></td>
-    <td><%= entry.name %></td>
-    <td><%= entry.acronym %></td>
-    <td><%= entry.country %></td>
-    <td><%= status_tag entry.status %></td>
-    <!--<td><%= link_to t(:show), entry %></td>-->
-    <td><%= render_to :state, t(:edit), edit_state_path(entry), class: 'btn btn-small' %></td>
-    <!-- <td><%= link_to t(:destroy), state_path(entry, :json), data: {destroy: true,
-                                                                  title: "EXCLUIR ESTADO ##{entry.id}",
-                                                                  reference: dom_id(entry)} %></td>  -->
+<%= '<%' %> entries.each do |entry| %>
+  <tr id="<%= '<%=' %> dom_id entry %>">
+    <td><%= '<%=' %> entry.id %></td><% attributes_names.each do |attribute| %>
+    <% if attribute.to_s == 'status' %><td><%= '<%=' %> status_tag entry.status %></td><% else %><td><%= '<%=' %> entry.<%= attribute %> %></td><% end %><% end %>
+    <td>
+      <div class="btn-group">
+        <%= '<%' %> #= render_to :<%= singular_table_name %>, t(:show), entry, class: 'btn btn-small' %>
+        <%= '<%=' %> render_to :<%= singular_table_name %>, t(:edit), edit_<%= singular_table_name %>_path(entry), class: 'btn btn-small' %>
+        <%= '<%' %> #= link_to t(:destroy), <%= singular_table_name %>_path(entry, :json), data: {destroy: true,
+           #                                                       title: "EXCLUIR ESTADO ##{entry.id}",
+           #                                                       reference: dom_id(entry)},
+           #                                                       class: 'btn btn-small' %>
+      </div>
+    </td>
   </tr>
-<% end %>
+<%= '<%' %> end %>

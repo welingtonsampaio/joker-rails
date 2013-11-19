@@ -1,4 +1,4 @@
-class <%= class_name %>Controller < ApplicationController
+class <%= class_name.pluralize %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,7 +20,7 @@ class <%= class_name %>Controller < ApplicationController
   end
 
   def create
-    @<%= singular_table_name %> = <%= class_name %> #{singular_table_name} %>_params
+    @<%= singular_table_name %> = <%= class_name %>.new <%= singular_table_name %>_params
     # authorize @<%= singular_table_name %>
     if save_with_reflections @<%= singular_table_name %>
       if params[:format] == 'json'
@@ -62,7 +62,7 @@ class <%= class_name %>Controller < ApplicationController
 
   private
   def set_<%= singular_table_name %>
-    @<%= singular_table_name %> = <%= class_name %>.find "params[:id]" %>
+    @<%= singular_table_name %> = <%= class_name %>.find params[:id]
   end
 
   def <%= "#{singular_table_name}_params" %>

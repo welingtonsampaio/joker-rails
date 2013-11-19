@@ -10,7 +10,7 @@ Description:
 DESC
 
       def create_controller
-        template "controller.erb", "app/controllers/#{singular_table_name}_controller.rb"
+        template "controller.erb", "app/controllers/#{plural_table_name}_controller.rb"
       end
     end
   end

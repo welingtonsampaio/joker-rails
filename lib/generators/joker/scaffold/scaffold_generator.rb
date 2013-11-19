@@ -16,8 +16,12 @@ DESC
         invoke 'joker:views', [class_name, get_attributes ]
       end
 
-      def create_model
-        invoke :migration, ["create_#{plural_table_name}", get_attributes ]
+      def create_migration
+        invoke :model, [class_name, get_attributes ]
+      end
+
+      def create_route
+        route "resources :#{ plural_table_name }"
       end
 
       protected

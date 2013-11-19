@@ -1,2 +1,2 @@
-collection @states
-extends 'states/show'
+collection @<%= plural_table_name %>
+extends '<%= plural_table_name %>/show'
