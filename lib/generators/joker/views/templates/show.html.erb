@@ -6,9 +6,14 @@
   </div>
 </div>
 
-<dl>
+<div class="container-fluid">
+
   <% attributes_names.each do |attribute| %>
-  <dt><%= attribute.humanize %>:</dt>
-  <dd><%= '<%=' %> @<%= singular_table_name %>.<%= attribute %> %></dd>
+    <div class="row-fluid">
+      <div class="span12">
+        <label><%= '<%=' %> ta <%= class_name %>, :<%= attribute %> %></label>
+        <span class="uneditable-input input-block-level"><%= '<%=' %> @<%= singular_table_name %>.<%= attribute %> %></span>
+      </div>
+    </div>
   <% end %>
-</dl>
+</div>

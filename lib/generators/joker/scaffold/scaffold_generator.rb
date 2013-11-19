@@ -24,6 +24,14 @@ DESC
         route "resources :#{ plural_table_name }"
       end
 
+      def create_translations
+        invoke 'joker:translate', [class_name, get_attributes ]
+      end
+
+      def create_js_controller
+        invoke 'joker:js_controller', [class_name, get_attributes ]
+      end
+
       protected
 
       def get_attributes

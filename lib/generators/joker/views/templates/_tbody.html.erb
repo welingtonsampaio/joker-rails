@@ -7,7 +7,7 @@
         <%= '<%' %> #= render_to :<%= singular_table_name %>, t(:show), entry, class: 'btn btn-small' %>
         <%= '<%=' %> render_to :<%= singular_table_name %>, t(:edit), edit_<%= singular_table_name %>_path(entry), class: 'btn btn-small' %>
         <%= '<%' %> #= link_to t(:destroy), <%= singular_table_name %>_path(entry, :json), data: {destroy: true,
-           #                                                       title: "EXCLUIR ESTADO ##{entry.id}",
+           #                                                       title: "EXCLUIR <%= human_name.upcase %> ##{entry.id}",
            #                                                       reference: dom_id(entry)},
            #                                                       class: 'btn btn-small' %>
       </div>

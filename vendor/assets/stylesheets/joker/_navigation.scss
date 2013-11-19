@@ -1,5 +1,4 @@
 .#{$navigation-class-container} {
-  width: 100%;
   background: $navigation-background;
   font-size: $navigation-font-size;
   z-index: 9000;
@@ -61,7 +60,7 @@
 
           a {
             display: block;
-            line-height: 2.5em;
+            line-height: $navigation-line-height;
             padding: 3px 8px 3px 8px;
             color: $navigation-submenu-color;
             @include transition(background 0.1s ease-in-out);
@@ -70,6 +69,13 @@
             &:hover {
               background: $navigation-submenu-background-hover;
               color: $navigation-submenu-color-hover;
+            }
+
+            .shortcut {
+              float: right;
+              opacity: 0.5;
+              line-height: $navigation-line-height;
+              font-size: $navigation-shortcut-size;
             }
           }
           ul.inner-menu {

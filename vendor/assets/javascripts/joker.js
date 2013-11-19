@@ -14,6 +14,7 @@
  *= require joker/Form
  *= require joker/RestDelete
  *= require joker/Typeahead
+ *= require joker/KeyboardShortcut
  *= require_self
  */
 
@@ -22,5 +23,6 @@ window.Joker.bootstrap = function() {
   Joker.Form.getInstance();
   Joker.RestDelete.getInstance();
   Joker.Typeahead.getInstance();
+  Joker.KeyboardShortcut.getInstance();
   Joker.Navigation.init();
 };
