@@ -1,108 +1,111 @@
-.#{$navigation-class-container} {
+header{
   background: $navigation-background;
-  font-size: $navigation-font-size;
-  z-index: 9000;
-  position: relative;
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
-      float: left;
-      border-right: 1px solid $navigation-border-right;
-      border-left: 1px solid $navigation-border-left;
-      position: relative;
+  .#{$navigation-class-container} {
+    background: $navigation-background;
+    font-size: $navigation-font-size;
+    z-index: 9000;
+    position: relative;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        float: left;
+        border-right: 1px solid $navigation-border-right;
+        border-left: 1px solid $navigation-border-left;
+        position: relative;
 
-      &:first-child { border-left: none; }
-      &:last-child { border-right: none; }
+        &:first-child { border-left: none; }
+        &:last-child { border-right: none; }
 
-      a {
-        color: $navigation-color;
-        padding: 1em 2em;
-        display: inline-block;
-        text-decoration: none;
-        &:hover {
-          background: $navigation-background-hover;
-          color: $navigation-color-hover;
-        }
-      }
-
-      ul.sub-menu {
-        position: absolute;
-        display: block;
-        visibility: hidden;
-        opacity: 0;
-        padding: 0;
-        text-align: left;
-        pointer-events: none;
-        z-index: 99;
-        box-shadow: $navigation-submenu-boxshadow;
-
-        &.show {
-          width: $navigation-submenu-width;
-          left: 0;
-          margin: 0px;
-          opacity: 1;
-          visibility: visible;
-          pointer-events: auto;
-          @include transition(opacity 0.3s );
+        a {
+          color: $navigation-color;
+          padding: 1em 2em;
+          display: inline-block;
+          text-decoration: none;
+          &:hover {
+            background: $navigation-background-hover;
+            color: $navigation-color-hover;
+          }
         }
 
-        li {
-          float: none;
+        ul.sub-menu {
+          position: absolute;
           display: block;
-          border: none;
-          background: $navigation-submenu-background;
-          border-top: 1px solid $navigation-submenu-border-top;
-          border-bottom: 1px solid $navigation-submenu-border-bottom;
+          visibility: hidden;
+          opacity: 0;
+          padding: 0;
+          text-align: left;
+          pointer-events: none;
+          z-index: 99;
+          box-shadow: $navigation-submenu-boxshadow;
 
-          &:first-child{ border-top: none; }
-          &:last-child { border-bottom: none; }
-
-          a {
-            display: block;
-            line-height: $navigation-line-height;
-            padding: 3px 8px 3px 8px;
-            color: $navigation-submenu-color;
-            @include transition(background 0.1s ease-in-out);
-            position: relative;
-
-            &:hover {
-              background: $navigation-submenu-background-hover;
-              color: $navigation-submenu-color-hover;
-            }
-
-            .shortcut {
-              float: right;
-              opacity: 0.5;
-              line-height: $navigation-line-height;
-              font-size: $navigation-shortcut-size;
-            }
-          }
-          ul.inner-menu {
+          &.show {
             width: $navigation-submenu-width;
-            position: absolute;
-            visibility: hidden;
-            left: 100%;
-            top: 0;
-            box-shadow: $navigation-submenu-boxshadow;
-            &:before {
-              visibility: visible;
-              content: " ";
-              border: solid transparent;
-              border-color: transparent;
-              border-left-color: $navigation-arrow-color;
-              border-width: 8px;
-
-              display: block;
-              width: 1em;
-              position: absolute;
-              left: -1.2em;
-              @include transform(translatey(0.9em));
-            }
-            li:first-child { margin-top: 0; }
+            left: 0;
+            margin: 0px;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            @include transition(opacity 0.3s );
           }
 
-          &:hover ul { visibility: visible; }
+          li {
+            float: none;
+            display: block;
+            border: none;
+            background: $navigation-submenu-background;
+            border-top: 1px solid $navigation-submenu-border-top;
+            border-bottom: 1px solid $navigation-submenu-border-bottom;
+
+            &:first-child{ border-top: none; }
+            &:last-child { border-bottom: none; }
+
+            a {
+              display: block;
+              line-height: $navigation-line-height;
+              padding: 3px 8px 3px 8px;
+              color: $navigation-submenu-color;
+              @include transition(background 0.1s ease-in-out);
+              position: relative;
+
+              &:hover {
+                background: $navigation-submenu-background-hover;
+                color: $navigation-submenu-color-hover;
+              }
+
+              .shortcut {
+                float: right;
+                opacity: 0.5;
+                line-height: $navigation-line-height;
+                font-size: $navigation-shortcut-size;
+              }
+            }
+            ul.inner-menu {
+              width: $navigation-submenu-width;
+              position: absolute;
+              visibility: hidden;
+              left: 100%;
+              top: 0;
+              box-shadow: $navigation-submenu-boxshadow;
+              &:before {
+                visibility: visible;
+                content: " ";
+                border: solid transparent;
+                border-color: transparent;
+                border-left-color: $navigation-arrow-color;
+                border-width: 8px;
+
+                display: block;
+                width: 1em;
+                position: absolute;
+                left: -1.2em;
+                @include transform(translatey(0.9em));
+              }
+              li:first-child { margin-top: 0; }
+            }
+
+            &:hover ul { visibility: visible; }
+          }
         }
       }
     }

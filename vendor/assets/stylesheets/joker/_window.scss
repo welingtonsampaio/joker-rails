@@ -23,19 +23,23 @@ div.jwindow {
       margin: 0;
       line-height: 1em;
     }
-    span.close {
+    div.controls {
       position: absolute;
       top: 0;
       right: 3px;
-      color: white;
-      text-shadow: none;
-      font-weight: normal;
-      font-size: 22px;
-      opacity: 0.1;
-      line-height: 36px;
-      padding: 0 7px;
-      @include transition(opacity 150ms linear);
-      &:hover { opacity: 0.8; }
+      span.close,
+      span.maximize,
+      span.minimize {
+        color: white;
+        text-shadow: none;
+        font-weight: normal;
+        font-size: 13px;
+        opacity: 0.1;
+        line-height: 36px;
+        padding: 0 7px;
+        @include transition(opacity 150ms linear);
+        &:hover { opacity: 0.8; }
+      }
     }
   }
 
@@ -43,4 +47,32 @@ div.jwindow {
     padding: $window-content-padding;
   }
 
+}
+
+div.minimize-display {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 37px;
+  background: $window-minimize-background;
+  @include user-select(none);
+
+  > span {
+    float: left;
+    line-height: 37px;
+    padding: 0 25px;
+    cursor: pointer;
+    color: $window-minimize-color;
+    border-right: 1px solid $window-minimize-border-right;
+    border-left: 1px solid $window-minimize-border-left;
+
+    &:first-child { border-left: none; }
+    &:last-child { border-right: none; }
+
+    &.active {
+      color: $window-minimize-color-active;
+      background: $window-minimize-background-hover;
+    }
+  }
 }

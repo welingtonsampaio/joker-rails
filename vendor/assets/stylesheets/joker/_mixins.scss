@@ -731,3 +731,24 @@ $easeInOutBack  : cubic-bezier(0.680, -0.550, 0.265, 1.550);
 @mixin user-select( $value ) {
   @include prefix-property(user-select, $value);
 }
+
+@mixin iconset_container($number:1) {
+  [data-iconset#{$number}]:before,
+  [class*="iconset#{$number}-"]
+  {
+    font-family: "IconSet#{$number}";
+    content: attr(data-iconset#{$number});
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@mixin iconset($name, $content, $number:1) {
+  .iconset#{$number}-#{$name}:before {
+    content: "#{$content}";
+  }
+}

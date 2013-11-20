@@ -84,11 +84,17 @@ class Joker.Animation extends Joker.Core
     @debug "Disparando o event de enter animation"
     element.removeClass("animate#{indice} #{data.leaveEffect}")
            .addClass(   "animate#{indice} #{data.enterEffect}")
+    setTimeout( =>
+      data.callbacks.finishEnter(@)
+    , 200*(indice+1)+50)
     if data.autoLeave
       setTimeout( =>
         @debug "Disparando o event de leave animation"
         element.removeClass("animate#{indice} #{data.enterEffect}")
                .addClass(   "animate#{indice} #{data.leaveEffect}")
+        setTimeout( =>
+          data.callbacks.finishLeave(@)
+        , 200 *(indice+1)+50)
       , data.delayTime)
 
 
@@ -198,3 +204,23 @@ class Joker.Animation extends Joker.Core
     @type String
     ###
     leaveEffect: Animation.FX_FADEOUT
+    ###
+    Objeto contendo os callbacks a serem disparados
+    apos execucoes da animacao
+    @type Object
+    ###
+    callbacks:
+      ###
+      Disparado sempre que finalizado a
+      animacao de entrada
+      @type Function
+      @param Joker.Animation animation
+      ###
+      finishEnter: (animation)->
+      ###
+      Disparado sempre que finalizado a
+      animacao de saida
+      @type Function
+      @param Joker.Animation animation
+      ###
+      finishLeave: (animation)->

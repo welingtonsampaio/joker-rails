@@ -33,6 +33,7 @@
   @param jQueryEvent
   ###
   openMenu: (e) ->
+    return true if e.type == 'click' and $(e.target).parent().find('ul').length == 0
     return false if e.type == "mouseover" and @isOpen == false
     $('nav.main-nav').addClass 'active'
     if @isOpen

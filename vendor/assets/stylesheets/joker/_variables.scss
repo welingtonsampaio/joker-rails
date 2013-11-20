@@ -91,6 +91,16 @@ $fx-wiggle: true !default;
 
 // ==================================================
 //
+//          IconsSets
+//
+// ==================================================
+
+$icon-use: true !default;
+
+
+
+// ==================================================
+//
 //          Components
 //
 // ==================================================
@@ -136,6 +146,14 @@ $window-title-background: #4b5257 !default;
 $window-title-color: white !default;
 $window-title-font-size: 14px !default;
 $window-title-padding: 12px 60px 12px 12px !default;
+
+// Minimize Display
+$window-minimize-background: lighten($navigation-background, 15%) !default;
+$window-minimize-background-hover: lighten($navigation-background, 5%) !default;
+$window-minimize-border-right: darken($window-minimize-background, 10%) !default;
+$window-minimize-border-left: lighten($window-minimize-background, 10%) !default;
+$window-minimize-color: white !default;
+$window-minimize-color-active: white !default;
 
 // ====== Modals ====== \\
 
