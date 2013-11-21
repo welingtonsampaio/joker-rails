@@ -37,6 +37,29 @@ module Joker::Rails
         link_to name, uri, html_options, &block
       end
 
+      ##
+      #
+      #
+      def render_filters model
+        puts model.new.get_filters
+      end
+
+      # Render the controller menu in all of its actions. The menu file should be included inside it's controller folder
+      # for views.
+      def render_menu
+        render "#{controller_name}/menu" if File.exist? File.expand_path(Rails.root.join "app", "views",controller_name,"_menu.html.erb") unless params[:content_only].present?
+      end
+
+      # Create a tag for Buy Order Status
+      def status_tag(status)
+        "<span class='label label-#{status.to_s}'>#{t("status.#{status.to_s}").humanize.upcase}</span>".html_safe
+      end
+
+      def translate_attribute(model, attribute)
+        model.human_attribute_name(attribute)
+      end
+      alias_method :ta, :translate_attribute
+
       module FormBuilder
         include ::ActionView::Helpers::CaptureHelper
         def typeahead( url_consulting, method,  options = {} )
