@@ -8,9 +8,13 @@ div.jwindow {
   @include transition(box-shadow 200ms linear);
   min-width: 260px;
 
-  &.active { box-shadow: 0 0 10px rgba($window-box-shadow-color, 0.6); }
+  &.active {
+    box-shadow: 0 0 10px rgba($window-box-shadow-color, 0.6);
+  }
 
-  &.alpha { opacity: 0.8; }
+  &.alpha {
+    opacity: 0.8;
+  }
 
   .jwindow-title {
     @include user-select(none);
@@ -38,13 +42,76 @@ div.jwindow {
         line-height: 36px;
         padding: 0 7px;
         @include transition(opacity 150ms linear);
-        &:hover { opacity: 0.8; }
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
   }
 
   .jwindow-content {
     padding: $window-content-padding;
+    .container-title {
+      background: $window-section-menu-background-color;
+      border-top: $window-section-menu-border-top;
+      margin-bottom: 10px;
+      height: 80px;
+
+      h1 {
+        margin: 0px;
+        font-size: 43px;
+        text-transform: capitalize;
+        font-weight: bold;
+        color: white;
+        float: left;
+        line-height: 80px;
+      }
+      .section-menu {
+        float: left;
+        margin-left: 20px;
+        height: 80px;
+        ul {
+          margin: 0px;
+          padding: 0px;
+          li {
+            float: left;
+            border-right: $window-section-menu-border-right;
+            border-left: $window-section-menu-border-left;
+            &:first-child {
+              border-left: none;
+            }
+            &:last-child {
+              border-right: none;
+            }
+            a {
+              display: block;
+              text-align: center;
+              position: relative;
+              padding: 25px 20px 0 20px;
+              line-height: 55px;
+              color: $window-section-menu-link-color;
+              &:before {
+                font-style: normal;
+                font-weight: normal;
+                text-indent: 0em;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 30px;
+                -webkit-font-smoothing: antialiased;
+              }
+              &:hover {
+                background: $window-section-menu-link-hover-background;
+                text-decoration: none;
+                color: $window-section-menu-link-hover-color;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
 }
@@ -67,8 +134,12 @@ div.minimize-display {
     border-right: 1px solid $window-minimize-border-right;
     border-left: 1px solid $window-minimize-border-left;
 
-    &:first-child { border-left: none; }
-    &:last-child { border-right: none; }
+    &:first-child {
+      border-left: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
 
     &.active {
       color: $window-minimize-color-active;

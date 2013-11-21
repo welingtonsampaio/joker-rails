@@ -140,7 +140,7 @@ $alert-min-width: 300px !default;
 $window-background: white !default;
 $window-border: 1px solid #4b5257 !default;
 $window-box-shadow-color: #4b5257 !default;
-$window-content-padding: 10px !default;
+$window-content-padding: 0px !default;
 $window-index: 1009 !default;
 $window-title-background: #4b5257 !default;
 $window-title-color: white !default;
@@ -154,6 +154,15 @@ $window-minimize-border-right: darken($window-minimize-background, 10%) !default
 $window-minimize-border-left: lighten($window-minimize-background, 10%) !default;
 $window-minimize-color: white !default;
 $window-minimize-color-active: white !default;
+
+// Section Menu
+$window-section-menu-background-color: #28b165;
+$window-section-menu-border-top: 1px solid lighten(#28b165, 10%);
+$window-section-menu-border-left: 1px solid lighten(#28b165, 5%) !default;
+$window-section-menu-border-right: 1px solid darken(#28b165, 5%) !default;
+$window-section-menu-link-color: lighten(#28b165, 40%) !default;
+$window-section-menu-link-hover-background: darken(#28b165, 4%) !default;
+$window-section-menu-link-hover-color: white !default;
 
 // ====== Modals ====== \\
 
