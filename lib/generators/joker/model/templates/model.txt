@@ -1,0 +1,31 @@
+class <%= class_name %> < ActiveRecord::Base
+  include DefaultValue
+  include Filter
+
+<% attributes.each do |item| if item.type.to_sym == :references %>  belongs_to :<%= item.name %>
+<% end end %><% if check_status_exists? %>
+  STATUS_ACTIVE = :active
+
+  set_default :status, STATUS_ACTIVE
+
+  def self.get_status
+    Struct.new('Status', :id, :name)
+    [
+        Struct::Status.new('',''),
+        Struct::Status.new(STATUS_ACTIVE,human_attribute_name(STATUS_ACTIVE))
+    ]
+  end
+<% end %><% attributes.each do |item| if item.type.to_sym == :references %>
+  def self.by_<%= item.name %> value
+    where <%= item.name %>_id: value
+  end
+<% end end %>
+
+  #set_list_url :<%= plural_table_name %>_filter_path
+
+<% attributes.each do |item| if item.type.to_sym != :references and item.name.to_sym != :status %>  #filter :<%= item.name %>, type: :text
+<% end end %><% if check_status_exists? %>  #filter :status, type: :select, collection: lambda { get_status }
+<% end %><% attributes.each do |item| if item.type.to_sym == :references %>
+  #filter :<%= item.name.pluralize %>, type: :typeahead, url: :<%= item.name.pluralize %>_path, only_filter: true,
+  #               indicekey: :id, valuekey: :name#, template: "<p>{{name}}</p>"
+<% end end %>end

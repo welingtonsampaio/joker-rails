@@ -59,12 +59,10 @@ class Joker.KeyboardShortcut extends Joker.Core
 
     # Remover a ultima janela
     Mousetrap.bind "ctrl+alt+w", -> Joker.Window.removeLastIndex()
-    # Maximiza a ultima janela
+    # Maximiza ou Restaura a ultima janela
     Mousetrap.bind "ctrl+alt+m", -> Joker.Window.maximizeLastIndex()
     # Minimiza a ultima janela
     Mousetrap.bind "ctrl+alt+n", -> Joker.Window.minimizeLastIndex()
-    # restaura a ultima janela
-    Mousetrap.bind "ctrl+alt+c", -> Joker.Window.restoreLastIndex()
 
     # trigger menu link shortcuts
     @elements.each (i, el)=>

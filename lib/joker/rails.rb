@@ -1,9 +1,15 @@
+require 'mustache'
 
 module Joker
   module Rails
-    VENDOR_PATH = File.expand_path("../../../vendor/assets", __FILE__)
-    SPEC_PATH   = File.expand_path("../../../spec", __FILE__)
-    ROUTES_PATH = File.expand_path("../../../config/routes.rb", __FILE__)
+    VENDOR_PATH      = File.expand_path("../../../vendor/assets", __FILE__)
+    SPEC_PATH        = File.expand_path("../../../spec", __FILE__)
+    ROUTES_PATH      = File.expand_path("../../../config/routes.rb", __FILE__)
+    JOKER_RAILS_PATH = File.expand_path("../rails", __FILE__)
+
+
+    autoload :Filter, 'joker/rails/filter'
+    autoload :FilterMustache, 'joker/rails/filter/mustache'
 
     module ActionController
       autoload :Base, 'joker/rails/action_controller/base'

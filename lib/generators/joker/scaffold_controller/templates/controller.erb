@@ -3,6 +3,7 @@ class <%= class_name.pluralize %>Controller < ApplicationController
 
   def index
     @<%= plural_table_name %> = <%= class_name %>.all
+    @<%= plural_table_name %> = @<%= plural_table_name %>.joker_filter params
     # authorize @<%= plural_table_name %>
   end
 

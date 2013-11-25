@@ -17,7 +17,7 @@ DESC
       end
 
       def create_migration
-        invoke :model, [class_name, get_attributes ]
+        invoke 'joker:model', [class_name, get_attributes ]
       end
 
       def create_route

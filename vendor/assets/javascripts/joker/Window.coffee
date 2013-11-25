@@ -85,20 +85,6 @@ class Joker.Window extends Joker.Core
     @
 
   ###
-  Metodo responsavel por remover a janela
-  seguindo o padrao de remover primeiramento
-  os eventos e depois o DOMObject, depois ele
-  executa o metodo pai
-  ###
-  destroy: ->
-    @container.off ".widget"
-    @container.remove()
-    @accessor("removeFromId")( @objectId )
-    @accessor("refreshIndexes")( )
-    @accessor("minimizeContainer").find("[data-target=#{@objectId}]").remove()
-    super
-
-  ###
   Cria a janela atribuindo o conteudo
   Requer titulo e conteudo
   ###
@@ -111,6 +97,20 @@ class Joker.Window extends Joker.Core
     @container = @libSupport @accessor('patterns').container.assign {title: title}, {content: content}, {id: @objectId}
     @container.appendTo "body"
     @accessor('minimizeContainer').append @accessor('patterns').bottomMinimizeSpan.assign {title: @data.title}, {id: @objectId}
+
+  ###
+  Metodo responsavel por remover a janela
+  seguindo o padrao de remover primeiramento
+  os eventos e depois o DOMObject, depois ele
+  executa o metodo pai
+  ###
+  destroy: ->
+    @container.off ".widget"
+    @container.remove()
+    @accessor("removeFromId")( @objectId )
+    @accessor("refreshIndexes")( )
+    @accessor("minimizeContainer").find("[data-target=#{@objectId}]").remove()
+    super
 
   ###
   Define a janela para ativo, automaticamente todas
@@ -448,8 +448,11 @@ class Joker.Window extends Joker.Core
     Window.addToCollection win
     Window.refreshIndexes()
 
-  maximizeLastIndex: ->
-    Window.indexes[Window.indexes.length-1].object.destroy() if Window.indexes.length > 0
+  @maximizeLastIndex: ->
+    Window.indexes[Window.indexes.length-1].object.maximize()
+
+  @minimizeLastIndex: ->
+    Window.indexes[Window.indexes.length-1].object.minimize()
 
   ###
   Define o width e height maximo para o
