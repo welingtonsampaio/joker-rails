@@ -24,7 +24,15 @@ DESC
       def append_to_js_route
         append_to_file 'app/assets/javascripts/app/routes.coffee.erb' do
           "  #{plural_table_name}_filter_path: -> '<%= #{plural_table_name}_path %>'\n" \
-          "  #{plural_table_name}_path: -> '<%= #{plural_table_name}_path :json %>'"
+          "  #{plural_table_name}_path: -> '<%= #{plural_table_name}_path :json %>'\n"
+        end
+      end
+
+      def append_to_scss
+        append_to_file 'app/assets/stylesheets/app/_containers.scss' do
+          ".model_name-container {\n" \
+          "   min-width: \#{$min-width-containers}px;\n" \
+          "}\n\n"
         end
       end
 

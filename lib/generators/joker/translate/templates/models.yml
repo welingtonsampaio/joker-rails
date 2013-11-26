@@ -1,3 +1,3 @@
 <%= @locale %>:
   activerecord:
-    attributes:
+    models:

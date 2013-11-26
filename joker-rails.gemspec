@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Joker::Rails::VERSION
   spec.authors       = ["Welington Sampaio"]
   spec.email         = ["welington.sampaio@zaez.net"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Bla}
+  spec.summary       = %q{Bla 2}
   spec.homepage      = ""
   spec.license       = "MIT"
 
