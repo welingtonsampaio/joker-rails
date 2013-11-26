@@ -9,7 +9,7 @@
     var $window = $(window)
     var $body   = $(document.body)
 
-    var navHeight = $('.navbar').outerHeight(true) + 10
+    var navHeight = $('.navbar').outerHeight(true) + 10;
 
     $body.scrollspy({
       target: '.bs-sidebar',
@@ -77,7 +77,8 @@
       })
 
     // carousel demo
-    $('.bs-docs-carousel-example').carousel()
+    $('.bs-docs-carousel-example').carousel();
+
 })
 
 }(window.jQuery)

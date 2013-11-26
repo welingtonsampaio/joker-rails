@@ -12,3 +12,5 @@ port:             9001
 
 # Custom vars
 repo:             https://github.com/zaez-official/joker-rails
+zaez:             https://zaez.net/
+blog:             http://welington.zaez.net/

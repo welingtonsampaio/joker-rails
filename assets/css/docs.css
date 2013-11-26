@@ -4,6 +4,7 @@
  *
  * Table of contents:
  *
+ * Fonts
  * Scaffolding
  * Main navigation
  * Footer
@@ -293,6 +294,8 @@ body {
 }
 .bs-header h1 {
   color: #fff;
+  background: rgb(61,30,42);
+  display: table;
 }
 .bs-header p {
   font-weight: 300;
@@ -455,6 +458,13 @@ body {
 .bs-sidebar .nav .nav {
   display: none; /* Hide by default, but at >768px, show it */
   margin-bottom: 8px;
+  position: inherit;
+}
+.bs-sidebar .nav .nav > li {
+  list-style: circle;
+  list-style-position: inside;
+  display: list-item;
+  line-height: 115%;
 }
 .bs-sidebar .nav .nav > li > a {
   padding-top:    3px;
