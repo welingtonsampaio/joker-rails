@@ -109,21 +109,21 @@ $icon-use: true !default;
 $navigation-font-size: 14px !default;
 $navigation-line-height: 35px !default;
 $navigation-class-container: main-nav !default;
-$navigation-background: #323d52 !default;
-$navigation-background-hover: lighten(#323d52, 5%) !default;
+$navigation-background: #258783 !default;
+$navigation-background-hover: lighten($navigation-background, 5%) !default;
 $navigation-border-right: darken($navigation-background, 10%) !default;
 $navigation-border-left: lighten($navigation-background, 10%) !default;
 $navigation-color: white !default;
-$navigation-color-hover: #28b165 !default;
+$navigation-color-hover: #ebf0f1 !default;
 
 $navigation-submenu-boxshadow: 1px 1px 2px rgba(0, 0, 0, 0.4) !default;
 $navigation-submenu-width: 16em !default;
-$navigation-submenu-background: #fafafa !default;
-$navigation-submenu-background-hover: #2ec673 !default;
+$navigation-submenu-background: #f1f5f6 !default;
+$navigation-submenu-background-hover: #e1e5e6 !default;
 $navigation-submenu-border-top: darken($navigation-submenu-background, 5%) !default;
 $navigation-submenu-border-bottom: lighten($navigation-submenu-background, 5%) !default;
-$navigation-submenu-color: #333333 !default;
-$navigation-submenu-color-hover: white !default;
+$navigation-submenu-color: #575d5f !default;
+$navigation-submenu-color-hover: #575d5f !default;
 
 $navigation-arrow-color: #cccccc !default;
 
@@ -138,31 +138,36 @@ $alert-min-width: 300px !default;
 
 // ====== Window ====== \\
 $window-background: white !default;
-$window-border: 1px solid #4b5257 !default;
-$window-box-shadow-color: #4b5257 !default;
+$window-border: 1px solid #65777c !default;
+$window-box-shadow-color: #65777c !default;
+$window-box-shadow-color-active: white !default;
 $window-content-padding: 0px !default;
 $window-index: 1009 !default;
-$window-title-background: #4b5257 !default;
+$window-title-background: #65777c !default;
 $window-title-color: white !default;
 $window-title-font-size: 14px !default;
 $window-title-padding: 12px 60px 12px 12px !default;
 
 // Minimize Display
-$window-minimize-background: lighten($navigation-background, 15%) !default;
-$window-minimize-background-hover: lighten($navigation-background, 5%) !default;
+$window-minimize-background: lighten($navigation-background, 8%) !default;
+$window-minimize-background-hover: darken($window-minimize-background, 5%) !default;
 $window-minimize-border-right: darken($window-minimize-background, 10%) !default;
 $window-minimize-border-left: lighten($window-minimize-background, 10%) !default;
 $window-minimize-color: white !default;
 $window-minimize-color-active: white !default;
 
 // Section Menu
-$window-section-menu-background-color: #28b165;
-$window-section-menu-border-top: 1px solid lighten(#28b165, 10%);
-$window-section-menu-border-left: 1px solid lighten(#28b165, 5%) !default;
-$window-section-menu-border-right: 1px solid darken(#28b165, 5%) !default;
-$window-section-menu-link-color: lighten(#28b165, 40%) !default;
-$window-section-menu-link-hover-background: darken(#28b165, 4%) !default;
+$window-section-menu-height: 60px !default;
+$window-section-menu-background-color: #60c0a6 !default;
+$window-section-menu-h1-size: 27px !default;
+$window-section-menu-border-top: 1px solid lighten($window-section-menu-background-color, 10%);
+$window-section-menu-border-left: 1px solid lighten($window-section-menu-background-color, 5%) !default;
+$window-section-menu-border-right: 1px solid darken($window-section-menu-background-color, 5%) !default;
+$window-section-menu-link-color: lighten($window-section-menu-background-color, 40%) !default;
+$window-section-menu-link-hover-background: darken($window-section-menu-background-color, 4%) !default;
 $window-section-menu-link-hover-color: white !default;
+$window-section-menu-link-line-height: 35px !default;
+$window-section-menu-link-icon-size: 20px !default;
 
 // ====== Modals ====== \\
 
@@ -170,8 +175,8 @@ $window-section-menu-link-hover-color: white !default;
 $modal-max-width: 95% !default;
 $modal-min-width: 320px !default;
 $modal-zindex: 10000 !default;
-$modal-color: white !default;
-$modal-backgroud: #e74c3c !default;
+$modal-color: #333 !default;
+$modal-backgroud: #f2f7f8 !default;
 $modal-border-radius: 3px;
 
 // Conteudo
@@ -181,41 +186,41 @@ $modal-content-font-weight: 300 !default;
 $modal-content-font-size: 1.15em !default;
 
 // Title
-$modal-title-color: $modal-color !default;
-$modal-title-background: rgba(black, 0.1) !default;
-$modal-title-padding: 0.4em !default;
+$modal-title-color: white !default;
+$modal-title-background: $navigation-background !default;
+$modal-title-padding: 0.3em !default;
 $modal-title-margin: 0 !default;
 $modal-title-align: center !default;
-$modal-title-font-size: 2.4em !default;
+$modal-title-font-size: 2em !default;
 $modal-title-font-weight: 300 !default;
 $modal-title-border-radius: 3px 3px 0 0 !default;
 
 // Overlay
 $modal-overlay-zindex: ($modal-zindex - 100) !default;
-$modal-overlay-background: rgba(143,27,15,0.8) !default;
+$modal-overlay-background: rgba(50,50,50,0.8) !default;
 $modal-overlay-effect-time: 300ms !default;
 
 // Efeitos
-$modal-fx-fade-in-and-scale: true !default;
-$modal-fx-slide-in-right: true !default;
-$modal-fx-slide-in-bottom: true !default;
-$modal-fx-newspapper: true !default;
+$modal-fx-fade-in-and-scale: false !default;
+$modal-fx-slide-in-right: false !default;
+$modal-fx-slide-in-bottom: false !default;
+$modal-fx-newspapper: false !default;
 $modal-fx-fall: true !default;
-$modal-fx-side-fall: true !default;
-$modal-fx-sticky-up: true !default;
-$modal-fx-3d-flip-horizontal: true !default;
-$modal-fx-3d-flip-vertical: true !default;
-$modal-fx-3d-sign: true !default;
-$modal-fx-super-scaled: true !default;
-$modal-fx-just-me: true !default;
-$modal-fx-3d-slit: true !default;
-$modal-fx-3d-rotate-bottom: true !default;
-$modal-fx-3d-rotate-in-left: true !default;
-$modal-fx-blur: true !default;
-$modal-fx-let-me: true !default;
-$modal-fx-make-way: true !default;
-$modal-fx-slip-from-top: true !default;
+$modal-fx-side-fall: false !default;
+$modal-fx-sticky-up: false !default;
+$modal-fx-3d-flip-horizontal: false !default;
+$modal-fx-3d-flip-vertical: false !default;
+$modal-fx-3d-sign: false !default;
+$modal-fx-super-scaled: false !default;
+$modal-fx-just-me: false !default;
+$modal-fx-3d-slit: false !default;
+$modal-fx-3d-rotate-bottom: false !default;
+$modal-fx-3d-rotate-in-left: false !default;
+$modal-fx-blur: false !default;
+$modal-fx-let-me: false !default;
+$modal-fx-make-way: false !default;
+$modal-fx-slip-from-top: false !default;
 
-$modal-fx-just-me-background: #e74c3c !default;
-$modal-fx-blur-background: rgba(180,46,32,0.5) !default;
-$modal-fx-make-way-overlay: rgba(143,27,15,0.8) !default;
+$modal-fx-just-me-background: #f2f7f8 !default;
+$modal-fx-blur-background: $modal-overlay-background !default;
+$modal-fx-make-way-overlay: $modal-overlay-background !default;

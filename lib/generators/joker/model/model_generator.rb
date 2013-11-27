@@ -28,6 +28,14 @@ DESC
         end
       end
 
+      def append_to_scss
+        append_to_file 'app/assets/stylesheets/app/_containers.scss' do
+          ".model_name-container {\n" \
+          "   min-width: \#{$min-width-containers}px;\n" \
+          "}\n\n"
+        end
+      end
+
       protected
       def check_status_exists?
         attributes_names.include? 'status'

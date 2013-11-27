@@ -9,7 +9,7 @@ div.jwindow {
   min-width: 260px;
 
   &.active {
-    box-shadow: 0 0 10px rgba($window-box-shadow-color, 0.6);
+    box-shadow: 0 0 10px rgba($window-box-shadow-color, 0.6), 0 0 1px $window-box-shadow-color-active;
   }
 
   &.alpha {
@@ -55,21 +55,21 @@ div.jwindow {
       background: $window-section-menu-background-color;
       border-top: $window-section-menu-border-top;
       margin-bottom: 10px;
-      height: 80px;
+      height: $window-section-menu-height;
 
       h1 {
         margin: 0px;
-        font-size: 43px;
+        font-size: $window-section-menu-h1-size;
         text-transform: capitalize;
         font-weight: bold;
         color: white;
         float: left;
-        line-height: 80px;
+        line-height: $window-section-menu-height;
       }
       .section-menu {
         float: left;
         margin-left: 20px;
-        height: 80px;
+        height: $window-section-menu-height;
         ul {
           margin: 0px;
           padding: 0px;
@@ -88,7 +88,7 @@ div.jwindow {
               text-align: center;
               position: relative;
               padding: 25px 20px 0 20px;
-              line-height: 55px;
+              line-height: $window-section-menu-link-line-height;
               color: $window-section-menu-link-color;
               &:before {
                 font-style: normal;
@@ -99,7 +99,7 @@ div.jwindow {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                font-size: 30px;
+                font-size: $window-section-menu-link-icon-size;
                 -webkit-font-smoothing: antialiased;
               }
               &:hover {
@@ -146,4 +146,10 @@ div.minimize-display {
       background: $window-minimize-background-hover;
     }
   }
+}
+
+div[class$=-container] {
+  padding: 10px;
+  max-width: 95%;
+  div[class$=-container] { padding: 0; }
 }
