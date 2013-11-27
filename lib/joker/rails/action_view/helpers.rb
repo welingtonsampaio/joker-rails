@@ -57,6 +57,18 @@ module Joker::Rails
         "<span class='label label-#{status.to_s}'>#{t("status.#{status.to_s}").humanize.upcase}</span>".html_safe
       end
 
+      #
+      #
+      def tab_form(parent, &block)
+        content_tag :div, {:class => 'tabs-container', :data => {:parent => parent}}, &block
+      end
+
+      #
+      #
+      def tab_for(icon, text, &block)
+        content_tag :div, {:class => 'tab', :data => {:tab_icon => icon, :tab_text => text}}, &block
+      end
+
       def translate_attribute(model, attribute)
         model.human_attribute_name(attribute)
       end

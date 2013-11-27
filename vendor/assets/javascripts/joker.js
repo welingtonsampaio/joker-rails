@@ -16,6 +16,7 @@
  *= require joker/Typeahead
  *= require joker/KeyboardShortcut
  *= require joker/Filter
+ *= require joker/Tab
  *= require_self
  */
 
@@ -26,5 +27,6 @@ window.Joker.bootstrap = function() {
   Joker.Typeahead.getInstance();
   Joker.KeyboardShortcut.getInstance();
   Joker.Filter.getInstance();
+  Joker.Tab.getInstance();
   Joker.Navigation.init();
 };
