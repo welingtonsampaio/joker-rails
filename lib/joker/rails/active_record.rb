@@ -1,4 +1,3 @@
-require "base64"
 
 module Joker::Rails
   module ActiveRecord
@@ -22,14 +21,6 @@ module Joker::Rails
         current_joker_scoped
       end
 
-
-      private
-      def decrypt_params params
-        params[:orderBy] = Base64.decode64 params[:orderBy] if params.include? :orderBy
-        params[:group] = Base64.decode64 params[:group] if params.include? :group
-        params[:where] = Base64.decode64 params[:where] if params.include? :where
-        params
-      end
     end
 
     # mix everything into Active Record

@@ -37,15 +37,6 @@ module Joker::Rails
         link_to name, uri, html_options, &block
       end
 
-      ##
-      #
-      #
-      def render_filters model
-        template = Joker::Rails::JOKER_RAILS_PATH.join 'filter', 'template.mustache'
-        template = Rails.root.join('app','views','layouts','filter.mustache') if File.exist? Rails.root.join('app','views','layouts','filter.mustache')
-        template = Rails.root.join('app','views',controller_name,'filter.mustache') if File.exist? Rails.root.join('app','views',controller_name,'filter.mustache')
-      end
-
       # Render the controller menu in all of its actions. The menu file should be included inside it's controller folder
       # for views.
       def render_menu

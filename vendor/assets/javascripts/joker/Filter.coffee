@@ -33,7 +33,7 @@ class Joker.Filter extends Joker.Core
     new Joker.Ajax
       url: url
       method: 'GET'
-      data: form.serialize() + "&content_only=true&format=js"
+      data: form.serialize() + "&content_only=true&format=joker"
       dataType: 'html'
       callbacks:
         error: ->

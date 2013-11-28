@@ -62,7 +62,7 @@ class Joker.Render extends Joker.Core
               _this = this;
               xhr = new Joker.Ajax({
                 url: "#{el.getAttribute('href')}",
-                data: "format=js",
+                data: "format=joker",
                 async: false,
                 callbacks: {
                   success: function (data, textStatus, jqXHR) {
@@ -96,7 +96,7 @@ class Joker.Render extends Joker.Core
               _this = this;
               xhr = new Joker.Ajax({
                 url: "#{el.attr 'href'}",
-                data: "format=js",
+                data: "format=joker",
                 async: false,
                 callbacks: {
                   success: function (data, textStatus, jqXHR) {

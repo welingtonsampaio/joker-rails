@@ -1,6 +1,6 @@
 class <%= class_name %> < ActiveRecord::Base
-  include DefaultValue
-  include Filter
+  include Joker::Rails::Concerns::DefaultValue
+  include Joker::Rails::Concerns::Filter
 
 <% attributes.each do |item| if item.type.to_sym == :references %>  belongs_to :<%= item.name %>
 <% end end %><% if check_status_exists? %>

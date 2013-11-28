@@ -1,10 +1,10 @@
 module Joker::Rails
   module ActionController
     class Base < ::ActionController::Base
-      layout :set_default_to_js_format
+      layout :set_default_to_joker_format
 
-      def set_default_to_js_format
-        "content_only" if params[:format] == "js"
+      def set_default_to_joker_format
+        "content_only" if params[:format] == "joker"
       end
 
 
