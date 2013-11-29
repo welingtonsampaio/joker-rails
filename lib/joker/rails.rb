@@ -18,6 +18,11 @@ module Joker
     module ActionView
       autoload :Helpers, 'joker/rails/action_view/helpers'
     end
+
+    module Concerns
+      autoload :DefaultValue, 'joker/rails/concerns/default_value'
+      autoload :Filter,       'joker/rails/concerns/filter'
+    end
   end
 end
 
