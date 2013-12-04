@@ -54,7 +54,7 @@ div.jwindow {
     .container-title {
       background: $window-section-menu-background-color;
       border-top: $window-section-menu-border-top;
-      margin-bottom: 10px;
+      margin-bottom: $window-container-title-margin-bottom;
       height: $window-section-menu-height;
 
       h1 {
