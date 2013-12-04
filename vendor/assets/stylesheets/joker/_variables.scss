@@ -91,11 +91,12 @@ $fx-wiggle: true !default;
 
 // ==================================================
 //
-//          IconsSets
+//          IconsSets & Fonts
 //
 // ==================================================
 
 $icon-use: true !default;
+$import-font-santafelet: true !default;
 
 
 
@@ -104,6 +105,21 @@ $icon-use: true !default;
 //          Components
 //
 // ==================================================
+
+// ====== Login Page ====== \\
+$include-login-page: true !default;
+
+$login-bg-color-1: #1a505f !default;
+$login-bg-color-2: #0c252c !default;
+$login-logo-color: white !default;
+$login-logo-boxshadow-color: #f5f5f4 !default;
+$login-color: #f5f5f4 !default;
+$login-color-footer: white !default;
+
+$login-button-bg: #e7f1ef !default;
+$login-button-color: #333333 !default;
+
+
 
 // ====== Navigation ====== \\
 $navigation-font-size: 14px !default;
@@ -131,8 +147,8 @@ $navigation-shortcut-size: 0.85em !default;
 
 
 // ====== Alerts ====== \\
-$alert-top: 40px !default;
-$alert-right: 40px !default;
+$alert-top: 58px !default;
+$alert-right: 0px !default;
 $alert-min-width: 300px !default;
 
 
@@ -160,7 +176,7 @@ $window-minimize-color-active: white !default;
 $window-section-menu-height: 60px !default;
 $window-section-menu-background-color: #60c0a6 !default;
 $window-section-menu-h1-size: 27px !default;
-$window-section-menu-border-top: 1px solid lighten($window-section-menu-background-color, 10%);
+$window-section-menu-border-top: 1px solid lighten($window-section-menu-background-color, 10%) !default;
 $window-section-menu-border-left: 1px solid lighten($window-section-menu-background-color, 5%) !default;
 $window-section-menu-border-right: 1px solid darken($window-section-menu-background-color, 5%) !default;
 $window-section-menu-link-color: lighten($window-section-menu-background-color, 40%) !default;
@@ -177,7 +193,7 @@ $modal-min-width: 320px !default;
 $modal-zindex: 10000 !default;
 $modal-color: #333 !default;
 $modal-backgroud: #f2f7f8 !default;
-$modal-border-radius: 3px;
+$modal-border-radius: 3px !default;
 
 // Conteudo
 $modal-content-padding: 15px 40px 30px !default;

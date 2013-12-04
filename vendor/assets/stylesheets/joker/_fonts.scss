@@ -1,0 +1,14 @@
+@if $import-font-santafelet {
+
+  @font-face {
+    font-family: 'SantaFeLET';
+    src: url('/assets/SantaFeLETFonts.eot');
+  }
+
+  @font-face {
+    font-family: 'SantaFeLET';
+    src: url('/assets/SantaFeLETFonts.woff') format('woff'),
+    url('/assets/SantaFeLETFonts.svg#SantaFeLetPlain') format('svg');
+  }
+
+}

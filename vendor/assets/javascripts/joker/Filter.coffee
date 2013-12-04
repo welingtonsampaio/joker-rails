@@ -41,6 +41,7 @@ class Joker.Filter extends Joker.Core
         success: (html)=>
           t = @libSupport html
           content = t.find("[data-yield-for=#{form.data 'target'}] > table")
+          form.find('.less-options').trigger 'click'
           @libSupport("[data-yield-for=#{form.data 'target'}]").empty().append content
     false
 

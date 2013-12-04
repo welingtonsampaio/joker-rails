@@ -14,6 +14,7 @@ module Joker::Rails
         #end
 
         if params[:filter]
+          current_joker_scoped = current_joker_scoped.unscoped
           self.get_filters.each do |item|
             current_joker_scoped = current_joker_scoped.send "by_#{item.name}", params[:filter][item.name] unless params[:filter][item.name].blank?
           end

@@ -30,6 +30,11 @@ module Joker::Rails
   end
 EOT
         end
+
+        def get_filters
+          @filter_fields
+        end
+
         protected :generate_method_filter
 
         def render_filters(path=nil)

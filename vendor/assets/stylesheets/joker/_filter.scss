@@ -1,5 +1,7 @@
 .filter-display {
 
+  margin-right: 10px;
+
   .first-filter {
     label {
       display: none;
@@ -18,6 +20,7 @@
     box-shadow: 2px 2px 4px rgba(100,100,100,0.3);
     border-top: 1px solid rgba(0,0,0,0.1);
     border-left: 1px solid rgba(0,0,0,0.1);
+    z-index: 900;
 
     .first-filter {
       label {
@@ -34,9 +37,10 @@
     .fields-hide {
       display: block;
     }
+
+    & ~ div {
+      margin-top: 40px;
+    }
   }
 
-}
-.filter-display.open ~ div {
-  margin-top: 40px;
 }

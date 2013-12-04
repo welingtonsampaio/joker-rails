@@ -40,7 +40,7 @@ module Joker::Rails
       # Render the controller menu in all of its actions. The menu file should be included inside it's controller folder
       # for views.
       def render_menu
-        render "#{controller_name}/menu" if File.exist? File.expand_path(Rails.root.join "app", "views",controller_name,"_menu.html.erb") unless params[:content_only].present?
+        render partial: "#{controller_name}/menu" unless params[:content_only].present?
       end
 
       # Create a tag for Buy Order Status

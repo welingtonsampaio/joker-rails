@@ -1,0 +1,120 @@
+@if $include-login-page {
+
+  html.sessions.new {
+    width: 100%;
+    height: 100%;
+    body {
+      @include ellipse-gradient(top, center, $login-bg-color-1, $login-bg-color-2);
+      padding: 0;
+    }
+  }
+
+  .loginpanel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate((-50%, -50%));
+    width: 300px;
+    max-width: 95% !important;
+    .pull-right {
+      margin-top: 11px;
+      color: $login-color;
+      font-size: 11px;
+      font-family: Helvetica, sans-serif;
+      a {
+        color: $login-color;
+      }
+    }
+
+    .alerts {
+      position: relative;
+      top: 0;
+      right: 0;
+      .alert {
+        right: 0;
+        min-width: inherit;
+        font-size: 11px;
+        text-align: center;
+        padding: 5px 0;
+        border: 0;
+        .close {
+          display: none
+        }
+      }
+    }
+  }
+  .loginpanelinner {
+    position: relative;
+    .logo {
+      text-align: center;
+      padding: 20px 0;
+      a {
+        font-family: 'SantaFeLET';
+        font-size: 65px;
+        color: $login-logo-color;
+        line-height: 100%;
+        transition: text-shadow 260ms ease-in-out;
+        &:hover {
+          text-shadow: 0px 0px 60px rgba($login-logo-boxshadow-color, 0.5);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .inputwrapper {
+    input {
+      border: 0;
+      padding: 10px !important;
+      background: #fff;
+      @include border-radius(0);
+      &:active, &:focus {
+        background: #fff;
+        border: 0;
+      }
+    }
+    button {
+      display: block;
+      border: 1px solid darken($login-button-bg, 3%);
+      padding: 10px;
+      background: $login-button-bg;
+      color: $login-button-color;
+      text-transform: uppercase;
+      @include transition(background-color 260ms ease-in-out);
+      &:focus, &:active, &:hover {
+        background: lighten($login-button-bg, 5%);
+      }
+    }
+    label {
+      display: inline-block;
+      margin-top: 10px;
+      color: $login-color;
+      font-size: 11px;
+      vertical-align: middle;
+      input {
+        width: auto;
+        margin: -3px 5px 0 0;
+        vertical-align: middle;
+      }
+    }
+    .remember {
+      padding: 0;
+      background: none;
+    }
+
+  }
+
+  .loginfooter {
+    font-size: 11px;
+    color: $login-color-footer;
+    position: absolute;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: arial, sans-serif !important;
+    padding: 5px 0;
+  }
+
+}

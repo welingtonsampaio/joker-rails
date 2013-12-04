@@ -20,46 +20,49 @@ DESC
       def create_locales
         I18n.available_locales.each do |locale|
           @locale = locale
-          template "models.yml", "config/locales/#{locale}/models.yml"
+          template "translate/models.yml", "config/locales/#{locale}/models.yml"
         end
       end
 
       def create_javascripts
         create_file 'app/assets/javascripts/app/controllers/.keep'
         create_file 'app/assets/javascripts/app/support/.keep'
-        template 'app.coffee', 'app/assets/javascripts/app.coffee'
-        template 'joker_init.coffee', 'app/assets/javascripts/joker_init.coffee'
-        template 'routes.txt', 'app/assets/javascripts/app/routes.coffee.erb'
         remove_file 'app/assets/javascripts/application.coffee' if File.exist? 'app/assets/javascripts/application.coffee'
         remove_file 'app/assets/javascripts/application.js'     if File.exist? 'app/assets/javascripts/application.js'
-        template 'application.coffee', 'app/assets/javascripts/application.coffee'
-        if File.exist? 'app/views/layouts/application.html.erb'
-          inject_into_file 'app/views/layouts/application.html.erb', before: '</body>' do
-            "  <script type='text/javascript'>\n" \
-            "    Joker.bootstrap()\n" \
-            "  </script>\n"
-          end
-        end
+        template 'coffee/app.coffee',         'app/assets/javascripts/app.coffee'
+        template 'coffee/joker_init.coffee',  'app/assets/javascripts/joker_init.coffee'
+        template 'coffee/routes.coffee',      'app/assets/javascripts/app/routes.coffee.erb'
+        template 'coffee/application.coffee', 'app/assets/javascripts/application.coffee'
+      end
+
+      def create_layout
+        remove_file 'app/views/layouts/application.html.erb' if File.exist? 'app/views/layouts/application.html.erb'
+        template 'views/application.html.erb', 'app/views/layouts/application.html.erb'
+        template 'views/_messages.html.erb',        'app/views/layouts/_messages.erb'
+        template 'views/_navigation.html.erb',      'app/views/layouts/_navigation.erb'
       end
 
       def create_scss
-        template 'containers.scss', 'app/assets/stylesheets/app/_containers.scss'
         remove_file 'app/assets/stylesheets/application.scss'     if File.exist? 'app/assets/stylesheets/application.scss'
         remove_file 'app/assets/stylesheets/application.css.scss' if File.exist? 'app/assets/stylesheets/application.css.scss'
         remove_file 'app/assets/stylesheets/application.css'      if File.exist? 'app/assets/stylesheets/application.css'
-        template 'application.scss', 'app/assets/stylesheets/application.scss'
-        template 'app.scss', 'app/assets/stylesheets/app.scss'
+        template 'scss/containers.scss',  'app/assets/stylesheets/app/_containers.scss'
+        template 'scss/application.scss', 'app/assets/stylesheets/application.scss'
+        template 'scss/app.scss',         'app/assets/stylesheets/app.scss'
         copy_file ::Joker::Rails::VENDOR_PATH + "/stylesheets/joker/_variables.scss", 'app/assets/stylesheets/_joker_variables.scss'
         gsub_file 'app/assets/stylesheets/_joker_variables.scss', / !default/, ''
         gsub_file 'app/assets/stylesheets/_joker_variables.scss', /^\$/, '// $'
       end
 
       def create_fonts
-        copy_file 'icomoon.dev.svg', 'public/assets/icomoon.dev.svg'
-        copy_file 'icomoon.eot', 'public/assets/icomoon.eot'
-        copy_file 'icomoon.svg', 'public/assets/icomoon.svg'
-        copy_file 'icomoon.ttf', 'public/assets/icomoon.ttf'
-        copy_file 'icomoon.woff', 'public/assets/icomoon.woff'
+        copy_file 'fonts/icomoon.dev.svg', 'public/assets/icomoon.dev.svg'
+        copy_file 'fonts/icomoon.eot',     'public/assets/icomoon.eot'
+        copy_file 'fonts/icomoon.svg',     'public/assets/icomoon.svg'
+        copy_file 'fonts/icomoon.ttf',     'public/assets/icomoon.ttf'
+        copy_file 'fonts/icomoon.woff',    'public/assets/icomoon.woff'
+        copy_file 'fonts/SantaFeLETFonts.eot',     'public/assets/SantaFeLETFonts.eot'
+        copy_file 'fonts/SantaFeLETFonts.svg',     'public/assets/SantaFeLETFonts.svg'
+        copy_file 'fonts/SantaFeLETFonts.woff',    'public/assets/SantaFeLETFonts.woff'
       end
 
       def application_controller

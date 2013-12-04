@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "jquery-rails"
   spec.add_dependency 'mustache'
+  spec.add_dependency 'pundit'
+  spec.add_dependency 'devise'
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 end

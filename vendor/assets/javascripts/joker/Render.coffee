@@ -69,12 +69,13 @@ class Joker.Render extends Joker.Core
                     _this.libSupport("[data-yield-for=#{el.dataset.jrender}]").empty().html(data);
                   },
                   error: function ( jqXHR, textStatus ) {
-                    console.log(jqXHR, textStatus);
                     add_push = false;
-                    new Joker.Alert({
-                      message: "Ocorreu um erro ao solicitar a pagina: #{el.getAttribute('href')}",
-                      type: Joker.Alert.TYPE_ERROR
-                    });
+                    if (jqXHR.status != 403) {
+                      new Joker.Alert({
+                        message: "Ocorreu um erro ao solicitar a pagina: #{el.getAttribute('href')}",
+                        type: Joker.Alert.TYPE_ERROR
+                      });
+                    }
                   }
                 }
               });
@@ -106,12 +107,13 @@ class Joker.Render extends Joker.Core
                     });
                   },
                   error: function ( jqXHR, textStatus ) {
-                    console.log(jqXHR, textStatus);
                     add_push = false;
-                    new Joker.Alert({
-                      message: "Ocorreu um erro ao solicitar a pagina: #{el.attr 'href'}",
-                      type: Joker.Alert.TYPE_ERROR
-                    });
+                    if (jqXHR.status != 403) {
+                      new Joker.Alert({
+                        message: "Ocorreu um erro ao solicitar a pagina: #{el.attr 'href'}",
+                        type: Joker.Alert.TYPE_ERROR
+                      });
+                    }
                   }
                 }
               });

@@ -125,6 +125,8 @@ div.minimize-display {
   background: $window-minimize-background;
   @include user-select(none);
 
+  &:empty { display: none; }
+
   > span {
     float: left;
     line-height: 37px;

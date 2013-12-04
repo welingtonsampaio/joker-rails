@@ -1,4 +1,7 @@
 require 'mustache'
+require 'pundit'
+require 'devise'
+require 'devise/orm/active_record'
 
 module Joker
   module Rails

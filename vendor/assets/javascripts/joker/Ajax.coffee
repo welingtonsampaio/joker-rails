@@ -100,6 +100,8 @@ class Joker.Ajax extends Joker.Core
         @destroy()
       error      : (jqXHR, textStatus, errorThrown)=>
         @debug "Error: ", jqXHR, textStatus, errorThrown
+        @testResponseUnauthorized jqXHR
+        @testResponseForbidden jqXHR
         @settings.callbacks.error(jqXHR, textStatus, errorThrown)
       success    : (data, textStatus, jqXHR)=>
         @debug "Success: ", data, textStatus, jqXHR
@@ -112,6 +114,17 @@ class Joker.Ajax extends Joker.Core
   get_data: ->
     return @libSupport.param(@settings.data) if Object.isObject @settings.data
     @settings.data
+
+  testResponseForbidden: (jqXHR)->
+    if jqXHR.status == 403
+      new Joker.Alert
+        type: Joker.Alert.TYPE_ERROR
+        message: 'Você não tem permissão para executar esta requisição.'
+
+  testResponseUnauthorized: (jqXHR)->
+    if jqXHR.status == 401
+      console.log "asd"
+      window.location.reload()
 
   @debugPrefix: "Joker_Ajax"
   @className  : "Joker_Ajax"

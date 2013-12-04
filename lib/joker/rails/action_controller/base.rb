@@ -1,26 +1,28 @@
 module Joker::Rails
   module ActionController
     class Base < ::ActionController::Base
+      include Pundit
+
+      before_filter :authenticate_user!
       layout :set_default_to_joker_format
+
+      rescue_from Pundit::NotAuthorizedError do |exception|
+        if params[:format] == 'joker'
+          render :json => {status: :error, error: 'Forbidden access'}, :status => 403, :layout => false
+        else
+          render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => true
+        end
+      end
+
+      protected
+
+      def user_not_authorized
+        head 403, :text => "This is an error"
+      end
 
       def set_default_to_joker_format
         "content_only" if params[:format] == "joker"
       end
-
-
-      protected
-
-      #def create
-      #  @franchise = Franchise.new(franchise_params)
-      #  params[:user][:email] = params[:franchise][:email]
-      #  params[:user][:name] = params[:franchise][:name]
-      #  if save_with_reflections @franchise
-      #    set_bankslip_settings
-      #    redirect_to @franchise, notice: 'Franchise was successfully created.'
-      #  else
-      #    return show_errors_for @franchise
-      #  end
-      #end
 
       def save_with_reflections model, update = false
         response = true
@@ -55,20 +57,11 @@ module Joker::Rails
         response
       end
 
-      #def update
-      #  @franchise.attributes= franchise_params
-      #  if update_with_reflections @franchise
-      #    set_bankslip_settings
-      #    redirect_to @franchise, notice: 'Franchise was successfully updated.'
-      #  else
-      #    return show_errors_for @franchise
-      #  end
-      #end
       def update_with_reflections model
         save_with_reflections model, true
       end
 
-      # @param ActiveRecord::Base
+      # @param model ActiveRecord::Base
       def show_errors_for model
         if params[:format] == 'json'
           render :json => { status: :error, errors: @joker_errors}
@@ -80,7 +73,6 @@ module Joker::Rails
           render :action => :new
         end
       end
-
 
     end
   end

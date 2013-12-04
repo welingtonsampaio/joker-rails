@@ -1,14 +1,56 @@
-<div>
-  {{# fields}}
-  <div>
-    {{#is_text}}
+<div id="{{object_id}}" class="filter-display row-fluid">
+  <form action="{{form_url}}" method="get" data-target="table_{{table_name}}" >
+    <div class="first-filter span6 offset6">
+      <div class="row-fluid">
+        <div class="span12 input-append">
+          <div class="pull-right">
+            {{#first}}
+            {{#is_text}}
+            <label for="{{object_id}}_{{name}}">{{t_name}}</label>
+            <input type="text" class="" placeholder="{{t_name}}" name="filter[{{name}}]" />
+            {{/is_text}}
+            {{/first}}
+            <button type="submit" class="btn">
+              <i class="iconset1-search"></i>
+            </button>
+            <button type="button" class="btn more-options" data-target="{{object_id}}">
+              <i class="iconset1-caret-down"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fields-hide">
+    {{#fields}}
 
-    {{/is_text}}
-    {{#is_typeahead}}
-    <label for="city_state_id">Estado</label>
-    <input class="input-block-level typeahead" data-autocomplete="/states.json" data-callback="stateDisplay" data-indicekey="id" data-target="city_state_id" data-template="&lt;p&gt;{{name}} - {{country.name}}&lt;/p&gt;" data-valuekey="name" id="typehead_state_id" name="typehead[state_id]" type="text" />
-    <input class="input-block-level" data-callback="stateDisplay" data-template="&lt;p&gt;{{name}} - {{country.name}}&lt;/p&gt;" id="city_state_id" name="city[state_id]" type="hidden" />
-    {{/is_typeahead}}
-  </div>
-  {{/ fields}}
+      {{#is_text}}
+      <label for="{{object_id}}_{{name}}">{{t_name}}</label>
+      <input class="input-block-level" type="text" name="filter[{{name}}]" id="{{object_id}}_{{name}}" />
+      {{/is_text}}
+
+      {{#is_select}}
+      <label for="{{object_id}}_{{name}}">{{t_name}}</label>
+      <select id="{{object_id}}_{{name}}" name="filter[{{name}}]" class="input-block-level">
+      {{#collection}}
+        <option value="{{id}}">{{name}}</option>
+      {{/collection}}
+      </select>
+      {{/is_select}}
+
+      {{#is_typeahead}}
+      <label for="{{object_id}}_{{name}}">{{t_name}}</label>
+      <input class="input-block-level typeahead" data-autocomplete="{{url}}" data-indicekey="{{indicekey}}" data-target="{{object_id}}_{{name}}" data-template="{{template}}" data-valuekey="{{valuekey}}" name="filter[typeahead]" type="text" />
+      <input class="input-block-level" id="{{object_id}}_{{name}}" name="filter[{{name}}]" type="hidden" />
+      {{/is_typeahead}}
+    {{/fields}}
+      <div>
+        <button type="submit" class="btn">
+          <i class="iconset1-search"></i>
+        </button>
+        <button type="button" class="btn less-options" data-target="{{object_id}}">
+          <i class="iconset1-caret-up"></i>
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
