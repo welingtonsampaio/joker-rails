@@ -1,0 +1,61 @@
+ul.tabs-menu{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: table;
+  margin-top: -10px;
+  li{
+    //float: left;
+    position: relative;
+    display: table-cell;
+    &:first-child{
+      a.active{
+        border-left: none;
+      }
+    }
+    &:last-child{
+      a.active{
+        border-right: none;
+      }
+    }
+    a{
+      padding: 8px;
+      display: block;
+      color: #b1b1b1;
+      text-align: center;
+      background: darken(white, 3%);
+      border-bottom: 1px solid darken(white, 5%);
+      &.active{
+        background: white;
+        border-bottom: none;
+        border-left: 1px solid darken(white, 5%);
+        border-right: 1px solid darken(white, 5%);
+        &:hover{
+          background: white;
+          color: #b1b1b1;
+        }
+      }
+      &:hover{
+        color: darken(#b1b1b1, 10%);
+        background: darken(white, 8%);
+        text-decoration: none;
+      }
+      i{
+        font-size: 40px;
+        color: #b1b1b1;
+        display: block;
+      }
+    }
+  }
+}
+
+.tabs-container{
+  padding: 0;
+  margin: 0;
+  .tab{
+    display: none;
+  }
+  .active{
+    display: inherit;
+  }
+}

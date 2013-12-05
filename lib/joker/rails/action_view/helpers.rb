@@ -68,9 +68,10 @@ module Joker::Rails
       def translate_joker
         locale_translate = I18n.backend.send(:translations)[I18n.locale]
         joker_translations = {}
+        joker_translations.deep_merge! date: locale_translate[:date]
+        joker_translations.deep_merge! models: (locale_translate[:activerecord][:models] || {}) if locale_translate[:activerecord].present?
         joker_translations.deep_merge! locale_translate[:joker] if locale_translate[:joker].present?
         joker_translations.deep_merge! locale_translate[:zerp] if locale_translate[:zerp].present?
-        joker_translations.deep_merge! date: locale_translate[:date]
         javascript_tag " Joker.I18n.translations = #{joker_translations.to_json}"
       end
 

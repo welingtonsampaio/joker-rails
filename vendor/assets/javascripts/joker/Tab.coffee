@@ -64,7 +64,6 @@ class Joker.Tab extends Joker.Core
     @libSupport(document).on "ajaxComplete", @libSupport.proxy(@verifyNewTab, @)
 
   verifyNewTab: (e) ->
-    console.log @libSupport(".tabs-container:not([data-tab])")
     @libSupport(".tabs-container:not([data-tab])").each (index, el) => @createTab el
 
   @debugPrefix: "Joker_Tab"

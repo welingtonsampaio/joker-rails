@@ -1,5 +1,11 @@
 $min-width-containers: 680px;
 
+.tabs-container {
+  min-width: inherit !important;
+  min-width: inherit !important;
+  padding: 0 !important;
+}
+
 //.model_name-container {
 //   min-width: #{$min-width-containers}px;
 //}
