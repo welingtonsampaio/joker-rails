@@ -65,6 +65,15 @@ module Joker::Rails
       end
       alias_method :ta, :translate_attribute
 
+      def translate_joker
+        locale_translate = I18n.backend.send(:translations)[I18n.locale]
+        joker_translations = {}
+        joker_translations.deep_merge! locale_translate[:joker] if locale_translate[:joker].present?
+        joker_translations.deep_merge! locale_translate[:zerp] if locale_translate[:zerp].present?
+        joker_translations.deep_merge! date: locale_translate[:date]
+        javascript_tag " Joker.I18n.translations = #{joker_translations.to_json}"
+      end
+
       module FormBuilder
         include ::ActionView::Helpers::CaptureHelper
         def typeahead( url_consulting, method,  options = {} )

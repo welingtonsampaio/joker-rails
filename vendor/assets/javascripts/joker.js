@@ -2,6 +2,7 @@
  *= require_tree ./joker/support
  *= require joker/JokerUtils
  *= require joker/Debug
+ *= require joker/I18n
  *= require joker/Core
  *= require joker/Animation
  *= require joker/Alert
@@ -27,5 +28,6 @@ window.Joker.bootstrap = function() {
   Joker.KeyboardShortcut.getInstance();
   Joker.Filter.getInstance();
   Joker.Tab.getInstance();
+  Joker.I18n.getInstance();
   Joker.Navigation.init();
 };

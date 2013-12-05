@@ -1,0 +1,8 @@
+br:
+  joker:
+    controllers:
+      create_success: "{model} criado(a) com sucesso"
+      remove_success: "{model} removido(a) com sucesso"
+      update_success: "{model} atualizado(a) com sucesso"
+    models:
+      user: usuário
