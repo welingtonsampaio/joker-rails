@@ -60,11 +60,121 @@ module Joker::Rails
         content_tag :div, {:class => 'tab', :data => {:tab_icon => icon, :tab_text => text}}, &block
       end
 
+      # Renderiza na tela formulários que possuem a possibilidade de inserir multiplos campos,
+      # como formulário de telefone, produtos de uma nota fiscal, etc.
+      #
+      #
+      # @param collection <ActiveRecord::Relation>
+      # @param wrapper <String>
+      # @param options <Hash>
+      #
+      # Existem algumas regras que devem ser utilizadas na criação de um template. Cada container
+      # de um item deve possuir um id especificado pela tag {uniq_reference}
+      #
+      #-------------------------------------------------------------------------------------------
+      # Tags que podem ser utilizadas no template
+      #-------------------------------------------------------------------------------------------
+      #
+      # {uniq_id} : Gera um ID unico para ser utilizado
+      # {uniq_reference} : Gera uma referencia unica para o container gerado
+      # {select_XXX} : Gera um campo select, substituir XXX pelo nome (separado por _) da selection
+      #                passada nas options
+      # {entry.param} : Imprime o valor de uma propriedade da collection especificada em option
+      #                 Param é o nome da propriedade que deseja ser impressa
+      #
+      #
+      #
+      # Exemplo de configuração do Hash de opções:
+      #
+      #options = {
+      #    :template => %q[
+      #      <div class="row-fluid" id="{uniq_reference}">
+      #      <div class="span4">
+      #        <label for="contact_type_{uniq_id}">Tipo de Contato</label>
+      #        {select_contact_type}
+      #      </div>
+      #      <div class="span7">
+      #        <label for="contact_{uniq_id}">Contato</label>
+      #        <input class="input-block-level" type="text" name="contact[{entry.id}][contact]"
+      #               id="contact_{uniq_id}" value="{entry.contact}"/>
+      #        <input type="hidden" name="contact[{entry.id}][id]" value="{entry.id}"/>
+      #      </div>
+      #      <div class="span1">
+      #        {remove_tag[iconset1-remove-sign]}
+      #      </div>
+      #    </div>
+      #    ],
+      #    :selections => {
+      #        :contact_type => {
+      #            :collection => ContactType.all.collect { |v| [v.id, v.name] },
+      #            :id => "contact_type_{uniq_id}",
+      #            :name => "contact[{entry.id}][contact_type_id]",
+      #            :class => "input-block-level chosen-select"
+      #        }
+      #    },
+      #    :callbacks => {
+      #        :after_blur => '.class',
+      #        :after_button_press => {:text => "Inserir novo Contato", :trigger => 'add-contact'}
+      #    }
+      #}
+      def multiple_fields_for(collection, wrapper, options)
+        str = options[:template]
+        options[:selections].each do |key,value|
+          target = key
+          select_string = "<select name='#{value[:name]}' id='#{value[:id]}' class='#{value[:class]}'>"
+          value[:collection].each{|i| select_string += "<option #{key}value='#{i[0]}'>#{i[1]}</option>"}
+          select_string += '</select>'
+          str.gsub! "{select_#{target}}", select_string
+        end
+        callbacks = Hash.new
+        (options[:callbacks] || {}).each { |key,value| callbacks["callbacks_#{key}"] = value }
+        response = content_tag :div, {:class => "#{wrapper} multiple-fields-wrapper", :data =>{
+            :template => str,
+            :callbacks => options[:callbacks] || {},
+            :wrapper => wrapper,
+            :remove_icon => str.match(/.{remove_tag\[(...*)\]}/im)[1]
+        }} do
+          content = ""
+          collection.each do |entry|
+            str_dup = str.dup
+            uniq_id = SecureRandom.hex 10
+            uniq_reference = SecureRandom.hex 20
+            str_dup.gsub! '{uniq_id}', uniq_id
+            str_dup.gsub! '{uniq_reference}', uniq_reference
+            need_replace = str.scan /\{entry.(\w*)\}/i
+            need_replace.each{|s| str_dup.gsub!("{entry.#{s[0]}}", entry.send(s[0]).to_s)}
+            options[:selections].each do |key,value|
+              str_dup.gsub!( "#{key}value='#{entry.send("#{key}_#{entry.send(key).class.send :primary_key}")}'", "#{key}value='#{entry.send("#{key}_#{entry.send(key).class.send :primary_key}")}' selected" )
+              str_dup.gsub!( "#{key}value", "value" )
+            end
+            str_dup.gsub!(/{remove_tag\[(...*)\]}/im) {"<a href='#' class='remove-item'><i class='#{$1}' data-target='#{uniq_reference}'></i></a>"}
+            content += str_dup
+          end
+          content.html_safe
+        end
+        if options.has_key? :callbacks
+          callbacks = options[:callbacks]
+          if callbacks.has_key? :after_button_press
+            response += "<div class='row-fluid mmf-btn-wrapper'>".html_safe
+            response += content_tag :button, {:class => "btn btn-small #{callbacks[:after_button_press][:trigger]}", :type => "button"} do
+              "<i class='iconset1-plus'></i> #{callbacks[:after_button_press][:text]}".html_safe
+            end
+            response += "</div>".html_safe
+          end
+        end
+        response.html_safe
+      end
+      alias_method :mff, :multiple_fields_for
+
+      #
+      #
       def translate_attribute(model, attribute)
         model.human_attribute_name(attribute)
       end
       alias_method :ta, :translate_attribute
 
+      #
+      #
       def translate_joker
         locale_translate = I18n.backend.send(:translations)[I18n.locale]
         joker_translations = {}

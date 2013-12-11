@@ -17,6 +17,7 @@
  *= require joker/KeyboardShortcut
  *= require joker/Filter
  *= require joker/Tab
+ *= require joker/MultipleFields
  *= require_self
  */
 
@@ -28,6 +29,7 @@ window.Joker.bootstrap = function() {
   Joker.KeyboardShortcut.getInstance();
   Joker.Filter.getInstance();
   Joker.Tab.getInstance();
+  Joker.MultipleFields.getInstance();
   Joker.I18n.getInstance();
   Joker.Navigation.init();
 };
