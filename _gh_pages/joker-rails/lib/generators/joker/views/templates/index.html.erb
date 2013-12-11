@@ -1,0 +1,21 @@
+<%= "<%=" %> render_menu %>
+<div data-yield-for="<%= singular_table_name %>" class="<%= singular_table_name %>-container row-fluid">
+  <div class="span12 wrapped">
+    <%= "<% #=" %> <%= class_name %>.render_filters %>
+    <div data-yield-for="table_<%= plural_table_name %>">
+      <table class="table table-condensed table-striped">
+        <thead>
+        <tr>
+          <th>#</th><% attributes_names.each do |attribute| %>
+          <th><%= "<%=" %> ta <%= class_name %>, :<%= attribute %> %></th><% end %>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= "<%=" %> render :partial => "tbody",
+                   :locals => {entries: @<%= plural_table_name %>} %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

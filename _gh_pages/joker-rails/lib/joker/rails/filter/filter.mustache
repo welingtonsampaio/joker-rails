@@ -1,0 +1,14 @@
+<div>
+  {{# fields}}
+  <div>
+    {{#is_text}}
+
+    {{/is_text}}
+    {{#is_typeahead}}
+    <label for="city_state_id">Estado</label>
+    <input class="input-block-level typeahead" data-autocomplete="/states.json" data-callback="stateDisplay" data-indicekey="id" data-target="city_state_id" data-template="&lt;p&gt;{{name}} - {{country.name}}&lt;/p&gt;" data-valuekey="name" id="typehead_state_id" name="typehead[state_id]" type="text" />
+    <input class="input-block-level" data-callback="stateDisplay" data-template="&lt;p&gt;{{name}} - {{country.name}}&lt;/p&gt;" id="city_state_id" name="city[state_id]" type="hidden" />
+    {{/is_typeahead}}
+  </div>
+  {{/ fields}}
+</div>

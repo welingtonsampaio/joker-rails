@@ -1,0 +1,5 @@
+<%= @locale %>:
+  activerecord:
+    attributes:
+      <%= singular_table_name %>:<% attributes_names.each do |attribute| %>
+        <%= attribute %>: <%= attribute.capitalize %><% end %>

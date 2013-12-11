@@ -1,0 +1,894 @@
+---
+layout: default
+title: Módulos
+slug: modules
+lead: "Veja todos os módulos do JokerJS"
+base_url: "../"
+---
+
+<!-- ====================== Modules ============================ -->
+<div class="bs-docs-section">
+    <div class="page-header">
+        <h1 id="joker"> Módulos do JokerJS </h1>
+    </div>
+
+    <p class="lead">Veja aqui todos os módulos, seus métodos e atributos.</p>
+
+    <h3 id="java-script">JavaScript</h3>
+    <p> Abaixo todos os componentes de JavaScript contidos no JoakerJs.</p>
+
+    <!-- Ajax -->
+    <h3 id="ajax">Ajax.coffee</h3>
+    <p> Faz a conexão, assíncrona ou síncrona, entre o servidor e o cliente. </p>
+
+    <!-- Configuracoes do ajax -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+        <blockquote>
+            <strong>autoExec {<code>boolean</code> | default: true}</strong>
+            <p> Indica se o objeto deve ser executado no fim da sua cria&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>assinc {<code>boolean</code> | default: true}</strong>
+            <p> Indica se a conexão deve ser assíncrona ou não. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>userLoader {<code>boolean</code> | default: true}</strong>
+            <p> Indica se deve ser mostrado um loader para o usuário até a conclusão do carregamento. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>contentType {<code>string</code> | default: 'application/x-www-form-urlencoded; charset=UTF-8'}</strong>
+            <p> Indica o tipo de conteúdo da requisi&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>url {<code>string</code> | default: null}</strong>
+            <p> Indica a url da requisi&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>method {<code>string</code> | default: GET | op&ccedil;ões: GET, POST, PUT, DELETE}</strong>
+            <p> Indica o método da requisi&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>data {<code>object</code> | default: null}</strong>
+            <p> Indica o conteúdo da requisi&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>dataType {<code>string</code> | default: 'json'}</strong>
+            <p> Indica o tipo de retorno esperado após a conclusão da requisi&ccedil;ão. </p>
+        </blockquote>
+
+    <!-- construtor do ajax -->
+    <p> <strong>Construtor do Ajax</strong> {parâmetro: <code>object</code> settings}</p>
+    {% highlight ruby %}
+constructor: (settings)->
+    super
+    @settings = @libSupport.extend true, {}, @settings, settings
+    @debug "Construindo o ajax com as configuracoes: ", @settings
+    @exec() if @settings.autoExec == true
+    {% endhighlight %}
+
+    <!-- callbacks do ajax -->
+    <p> <strong>Callbacks:</strong> </p>
+
+        <blockquote>
+            <strong>beforeSend {parâmetros: <code>jqXHR</code> jqXHR, <code>object</code> settings}</strong>
+            <p> Fun&ccedil;ão de retorno pré-requisi&ccedil;ão que pode ser usada para modificar o objeto jqXHR antes de ser enviado. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>complete {parâmetros: <code>jqXHR</code> jqXHR, <code>String</code> textStatus}</strong>
+            <p> Fun&ccedil;ão a ser chamada quando a requisi&ccedil;ão termina. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>error {parâmetros: <code>jqXHR</code> jqXHR, <code>String</code> textStatus, <code>String</code> errorThrown}</strong>
+            <p> Fun&ccedil;ão a ser chamada se a requisi&ccedil;ão falha. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>sucess {parâmetros: <code>PlainObject</code> data, <code>String</code> textStatus, <code>jqXHR</code> jqXHR}</strong>
+            <p> Fun&ccedil;ão a ser chamada se a requisi&ccedil;ão tiver sucesso. </p>
+        </blockquote>
+
+    <!-- metodos do ajax -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>exec</strong>
+            <p> Executa a requisi&ccedil;ão javascript. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>get_data {retorno: <code>string</code>}</strong>
+            <p> Converte a data em um parametro string. </p>
+        </blockquote>
+
+    <!-- alert -->
+    <h3 id="alert">Alert.coffee</h3>
+    <p> Cria um container para mostrar mensagens de controle e informativos para o usuário. Essa classe retorna um objeto do tipo <code>Alert</code>. </p>
+
+    <!-- configuracoes do alert -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+    <blockquote>
+        <strong>alertWindow {default: undefined}</strong>
+        <p> ... </p>
+    </blockquote>
+
+        <blockquote>
+            <strong>data {default: undefined}</strong>
+            <p> Indica o conteúdo da requisi&ccedil;ão. </p>
+        </blockquote>
+
+    <!-- construtor do alert -->
+    <p> <strong> Construtor do Alert </strong> {parâmetro: <code>String | Object</code> data | retorno: <code>Joker.Alert</code>}</p>
+
+    {% highlight ruby %}
+constructor: (data={})->
+    super
+    if Object.isString data
+        str  = data
+        data =  {}
+        data["message"] = str
+    @data = @libSupport.extend true, {}, @accessor('defaultData'), data
+    @createAlert()
+    @setEvents()
+    @setAutoClose() if @data.exclude
+    {% endhighlight %}
+
+    <!-- metodos do alert -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>createAlert</strong>
+            <p> Cria o objeto de alert no DOM. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>destroy</strong>
+            <p>  Aplica o efeito de saída do elemento e remove o objeto do DOM. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>setAutoClose</strong>
+            <p>  Configura a auto remo&ccedil;ão do objeto. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>setEvents</strong>
+            <p>  Configura os eventos para este objeto. </p>
+        </blockquote>
+
+    <!-- animation-->
+    <h3 id="animation">Animation.coffee</h3>
+    <p> Responsável pelas anima&ccedil;ões em CSS efetuadas nos DOMElements </p>
+
+    <!-- configuracoes do animation -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+        <blockquote>
+            <strong>animations {<code>array</code> | default: undefined}</strong>
+            <p>  Cole&ccedil;ão de elementos que receberão os efeitos em ordem.</p>
+        </blockquote>
+
+    <!-- construtor do animation -->
+    <p> <strong> Contrutor do Animation </strong> {parâmetro: <code>object</code> data} </p>
+    {% highlight ruby %}
+constructor: (data)->
+    super
+    @animations = []
+    @appendAllAnimations(data) if Object.isArray data
+    @appendAnimation(data)     if Object.isObject data
+    @createAllAnimations()
+    {% endhighlight %}
+    <!-- metodos do animation -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>appendAllAnimations {parâmetro: <code>array</code> datas}</strong>
+            <p> Método responsável por percorrer os objetos do construtor e enviar um a um para gerar a anima&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>appendAnimation {parâmetro: <code>object</code> data}</strong>
+            <p>  Responsável por validar e extender as configura&ccedil;ões do padrão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>createAllAnimations</strong>
+            <p>  Método que percorre a cole&ccedil;ão de anima&ccedil;ões para criar, anima&ccedil;ão por anima&ccedil;ão, sendo que
+                cada anima&ccedil;ão será chamada em cadeia respeitando o tempo de delay da classe CSS. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>createAnimation {parâmetros: <code>DOMElement | JQueryElement</code> element, <code>object</code> data, <code>integer</code> indice}</strong>
+            <p>  Responsável por criar a anima&ccedil;ão solicitada. </p>
+        </blockquote>
+    <!-- ver arquivos -->
+
+    <!-- core -->
+    <h3 id="core">Core.coffee</h3>
+    <p> Cria uma nova instância da classe Core. </p>
+
+    <!-- configuracoes do core -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+        <blockquote>
+            <strong>objectId {<code>string</code> | default: null}</strong>
+            <p>  Indica o ID de identifica&ccedil;ão do objeto. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>debugIndex {<code>integer</code> | default: 1}</strong>
+            <p> Ele mantém o número de mensagens de depuração impressos pelo objeto. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>debugPrefix {<code>string</code> | default: 'joker_Core'}</strong>
+            <p> É o nome do objeto, que será impresso nas mensagens de depura&ccedil;ão para identifica&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>libSupport {<code>object</code> | default: window.jQuery}</strong>
+            <p> Indica o padrão de ajuda. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>className {<code>object</code> | default: 'Joker_Core'}</strong>
+            <p> Define o nome da classe. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>settings {<code>object</code>}</strong>
+            <p> É um objeto de controle que contém informa&ccedil;ões sobre o objeto específico.
+                Todas as informa&ccedil;ões fornecidas neste objeto podem ser modificadas no momento da instanciação do filho do objeto. </p>
+        </blockquote>
+
+    <!-- construtor do core -->
+    <p> <strong> Construtor do Core </strong> </p>
+    {%highlight ruby %}
+constructor: ->
+    @libSupport = Joker.Core.libSupport
+    @verifyLibSupport()
+    @generateId()
+    {% endhighlight %}
+
+    <!-- metodos do core -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>verifyLibSupport {retorno: <code>boolean</code>}</strong>
+            <p> Como o nome diz, verifica se existe biblioteca do jQuery. O método retorna <code>false</code> se existir. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>generateId {retorno: <code>string</code>}</strong>
+            <p> Responsável por gerar um id único para o objeto em questão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>destroy {retorno: <code>boolean</code>}</strong>
+            <p> Destrói o objeto e remove as referências do Joker ao Util, limpando a existência do mesmo na memória. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>debug {retorno: <code>integer</code>}</strong>
+            <p> Responsável pela verificação e impressão de mensagens de depura&ccedil;ão para todos os objetos.
+                Todos os parâmetros passados ​​para os métodos serão impressos na tela.
+                O retorno é o índice da próxima mensagem de depuração. </p>
+        </blockquote>
+
+    <!-- debug -->
+    <h3 id="debug">Debug.coffee</h3>
+    <p> Responsável por imprimir as mensagens de depuração no console. Veja abaixo as configura&ccedil;ões e como o sistema de depura&ccedil;ão funciona.</p>
+
+    <!-- configuracoes do debug -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+        <blockquote>
+            <strong>console {<code>object</code> | default: window.console}</strong>
+            <p>  É responsável por imprimir na tela as mensagens de depura&ccedil;ão. </p>
+        </blockquote>
+
+        <p> Configura&ccedil;ão padrão de depura&ccedil;ão. </p>
+        {% highlight ruby %} paramsDefault:
+               debug    : false
+               prefix   : 'Joker_Debug'
+               objectId : ''
+               index    : 1
+               messages : []
+        {% endhighlight %}
+
+        <blockquote>
+            <strong>debug {<code>boolean</code> | default: false}</strong>
+            <p> Define se a mensagem deve ser impressa ou não. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>prefix {<code>string</code> | default: 'Joker_Debug'}</strong>
+            <p> É o nome de identifica&ccedil;ão que aparecerá quando a mensagem for impressa no console. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>objectId {<code>string</code> | default: ''}</strong>
+            <p> Define o id do objeto responsável pela impressão da mensagem no console. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>index {<code>integer</code> | default: 1}</strong>
+            <p> Mostra quantas mensagens foram impressas no console. O número é sempre o da próxima mensagem a ser impressa. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>messages {<code>array</code> | default: []}</strong>
+            <p> Array contendo as mensagens a serem impressas no console. </p>
+        </blockquote>
+
+    <!-- metodo do debug -->
+    <p> <strong>Método:</strong> </p>
+
+        <blockquote>
+            <strong>print {parâmetro: <code>object</code> params}</strong>
+            <p> Este método é responsável por imprimir as mensagens no console do navegador.
+                Ele recebe um objeto que contêm os parâmetros para a impressão. </p>
+        </blockquote>
+
+    <!-- filter -->
+    <h3 id="filter">Filter.coffee</h3>
+    <p> ... </p>
+
+    <!-- configuracoes do filter -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+
+        <blockquote>
+            <strong>instance {<code>Joker.Filter</code> | default: undefined}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> debugPrefix {<code>String</code> | default: 'Joker_Filter'}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>className {<code>object</code> | default: 'Joker_Filter'}</strong>
+            <p> Define o nome da classe. </p>
+        </blockquote>
+
+    <!-- construtor do filter -->
+    <p> <strong> Construtor do Filter </strong> </p>
+    {% highlight ruby %}
+constructor: ->
+    super
+    @setEvents()
+    {% endhighlight %}
+    <!-- metodos do filter -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>formSubmit {parâmetro: <code>jQueryEvent</code> e}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>openLessOptions {parâmetro: <code>jQueryEvent</code> e}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>openMoreOptions {parâmetro: <code>jQueryEvent</code> e}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>setEvents</strong>
+            <p> Define os eventos a partir dos elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>getInstance {retorno: <code>Joker.Filter</code>}</strong>
+            <p> Retorna uma variável única para a instância do objeto. </p>
+        </blockquote>
+
+    <!-- form -->
+    <h3 id="form">Form.coffee</h3>
+    <p> ... </p>
+
+    <!-- configuracoes do form -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+
+        <blockquote>
+            <strong>debugPrefix {<code>String</code> | default: 'Joker_Form'}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>className {<code>object</code> | default: 'Joker_Form'}</strong>
+            <p> Define o nome da classe. </p>
+        </blockquote>
+
+        <blockquote>
+            <string>instance {<code>Joker.Form</code> | default: undefined}</string>
+            <p> ... </p>
+        </blockquote>
+
+    <!-- construtor do form -->
+    <p> <strong> Construtor do Form </strong> </p>
+    {% highlight ruby %}
+constructor: ->
+    super
+    @setEvents()
+    {% endhighlight %}
+
+    <!-- metodos do form -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>cleanErrorMessages {parâmetro: <code>?</code> container}</strong>
+            <p> Remove as mensagens de erro. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>prepareForm {parâmetro: <code>jQueryEvent</code> e}</strong>
+            <p> Prepara o formulário. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>printErrorMessages {parâmetros: <code>?</code> errors, <code>?</code> container}</strong>
+            <p> Imprime na tela mensagens de erro.</p>
+        </blockquote>
+
+        <blockquote>
+            <strong>setEvents</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>getInstance {retorno: <code>Joker.Form</code>}</strong>
+            <p> Retorna um objeto único da instância de Joker.Form </p>
+        </blockquote>
+
+    <!-- jokerUtils -->
+    <h3 id="jokerUtils">JokerUtils.coffee</h3>
+    <p> O objeto "Utils", contém alguns métodos gerais de ajuda para as classes. Além de armazenamento de referência de instanciação. </p>
+
+    <!-- metodos do jokerUtils -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>uniqid {parâmetro: <code>string</code> prefix, <code>boolean</code> more_entropy | retorno: <code>string</code>}</strong>
+            <p> Gera uma string única para a execu&ccedil;ão do script. </p>
+            <p> Exemplos: </p>
+            {% highlight ruby %} JokerUtils.uniqid(); {% endhighlight %}
+            <p> Retorno: a30285b160c14</p>
+            {% highlight ruby %} JokerUtils.uniqid('foo'); {% endhighlight %}
+            <p> Retorno: fooa30285b1cd361</p>
+            {% highlight ruby %} JokerUtils.uniqid('bar', true); {% endhighlight %}
+            <p> Retorno: bara20285b23dfd1.31879087  </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>toString {parâmetro: Mixin | retorno: <code>string</code>}</strong>
+            <p> Converte para string. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>addObject {parâmetro: <code>object</code> obj | retorno: <code>object</code>}</strong>
+            <p> Adiciona um objeto para a cole&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>getObject {parâmetro: <code>string</code> id | retorno: <code>object</code>}</strong>
+            <p> Recupera um objeto da cole&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>removeObject {parâmetro: <code>string</code> id | retorno: <code>boolean</code>}</strong>
+            <p> Remove um objeto da cole&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>redirectTo {parâmetro: <code>string</code> url}</strong>
+            <p> Redireciona a página para outra url. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>isEmpty {parâmetro: <code>string/Mixin</code> pStrText | retorno: <code>boolean</code>}</strong>
+            <p> Verfica se a string está vazia, incluindo espa&ccedil;os. </p>
+        </blockquote>
+
+    <!-- keyBoardShortcut -->
+    <h3 id="keyBoardShortcut">KeyBoardShortcut.coffee</h3>
+        <p> Cria atalhos de teclado para serem utilizados na aplica&ccedil;ão. </p>
+
+    <!-- configuracao do keyBoardShortcut -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+
+        <blockquote>
+            <strong>elements {<code>array</code> | default: undefined}</strong>
+            <p> Guarda os elementos que contêm o atributo shortcut. </p>
+        </blockquote>
+
+    <!-- construtor do keyBoardShortcut -->
+    <p> <strong> Construtor do KeyBoardShortcut </strong> {parâmetro: <code>String | Object</code> params} </p>
+    {% highlight ruby %}
+constructor: (params={})->
+    super
+    @settings = @libSupport.extend(true, {}, @settings, params)
+    @setElements()
+    @setEvents()
+    {% endhighlight%}
+
+    <!-- metodos do keyBoardShortcut -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>createLabel {parâmetro: <code>DOMElements</code> el}</strong>
+            <p> Cria um label com o atalho do botão. </p>
+        </blockquote>
+
+
+        <blockquote>
+            <strong>setElements</strong>
+            <p> Cria um seletor que localiza os elementos para a cria&ccedil;ão dos shortcuts. </p>
+        </blockquote>
+
+
+        <blockquote>
+            <strong>setEvents</strong>
+            <p> Responsável por criar os eventos quando os shortcuts são executados. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>triggerClick {parâmetro: <code>DOMElements</code> link}</strong>
+            <p> Executa os eventos de click nos botões. Utilizado
+                para abrir/criar as janelas ou executar fun&ccedil;ões. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>getInstance {retorno: <code>Joker.Render</code>}</strong>
+            <p> Retorna uma variável única para a instância do objeto. </p>
+        </blockquote>
+
+
+    <!-- modal -->
+    <h3 id="modal">Modal.coffee</h3>
+        <p> O papel do Modal é mostrar uma caixa de alerta para o usuário. </p>
+
+    <!-- configuracao do modal -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+
+        <blockquote>
+            <strong>modal {default: undefined}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>overlay {default: undefined}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>params {default: undefined}</strong>
+            <p> Parâmetros para a cria&ccedil;ão do Modal. </p>
+        </blockquote>
+
+    <!-- construtor do modal -->
+    <p> <strong> Construtor do Modal </strong> {parâmetro: <code>String | Object</code> config}</p>
+    {% highlight ruby %}
+constructor: (config={})->
+    super
+    @settings = @libSupport.extend true, new Object, @accessor('defaultSettings'), config
+    @debug "Inicializando o Modal", @objectId
+    if @validateParams()
+        @debug 'Todos os valores são válidos para a criação'
+        @createModal()
+        @setEvents()
+    if @settings.callbacks.beforeCreate(@)
+        @debug 'Permitido a inserção do Modal no HTML pelo callback', @settings.callbacks.beforeCreate
+        @addToBody()
+        @show() if @settings.autoShow
+        @settings.callbacks.afterCreate(@)
+    else
+        @debug "Valores invalidos para criar o Modal", @settings
+    {% endhighlight %}
+
+    <!-- callbacks do modal -->
+    <p> <strong>Callbacks</strong> </p>
+
+        <blockquote>
+            <strong>beforeCreate {parâmetro: <code>Joker.Modal</code> modal | retorno: <code>boolean</code>}</strong>
+            <p> Método disparado antes de ser permitido a cria&ccedil;ão do Modal na tela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>afterCreate {parâmetro: <code>Joker.Modal</code> modal | retorno: <code>void</code>}</strong>
+            <p> Método disparado logo após a cria&ccedil;ão do Modal. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>beforeDestroy {parâmetro: <code>Joker.Modal</code> modal | retorno: <code>boolean</code>}</strong>
+            <p> Método disparado antes de ser permitido a remo&ccedil;ão do Modal da tela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>afterdestroy {parâmetro: <code>Joker.Modal</code> modal | retorno: <code>void</code>}</strong>
+            <p> Método disparado logo após a remo&ccedil; do Modal da tela. </p>
+        </blockquote>
+
+    <!-- metodos do modal -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>addToBody</strong>
+            <p> Adiciona o Modal ao corpo do HTML. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>createModal</strong>
+            <p> Responsável por criar os elementos do Modal. </p>
+        </blockquote>
+
+
+        <blockquote>
+            <strong>destroy</strong>
+            <p> Responsável por remover o Modal da tela e executar os callbacks. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>setEvents</strong>
+            <p> Define os eventos a partir dos elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>show</strong>
+            <p> Mostra o Modal na tela do usuário. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>unsetEvents</strong>
+            <p> Remove todos os eventos do Modal. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>validateParams {retorno: <code>boolean</code>}</strong>
+            <p> Verifica se os valores contidos dentro de Params estão corretos e são válidos. </p>
+        </blockquote>
+
+    <!-- defaultSettings do modal -->
+    <p> <strong>DefaultSettings</strong> </p>
+
+        <blockquote>
+            <strong>autoShow {<code>boolean</code> | default: true}</strong>
+            <p> Define se o modal deve ser mostrado após a sua incializa&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>content {<code>String | DOMElements</code> | default: undefined}</strong>
+            <p> Conteúdo que deverá ser inserido no corpo do Modal. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>title {<code>String</code> | default: undefined}</strong>
+            <p> Título que será apresentado no Modal. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>effect {<code>String</code> | default: 'md-effect-5'}</strong>
+            <p> Define qual o efeito padrão do sistema de Modal. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> patternModal {<code>String</code> | default: ''}</strong>
+            <p> Modelo padrão de cria&ccedil;ão do Modal. </p>
+
+{% highlight ruby %}
+"
+<div class="md-modal {effect}" id="{id}">
+    <div class="md-content">
+        <h3>{title}</h3>
+        <div>
+            {content}
+        </div>
+    </div>
+</div>
+"
+{% endhighlight %}
+           </blockquote>
+
+            <blockquote>
+                <p> <strong> Efeitos de anima&ccedil;ão de entrada/saída dos Modals. </strong> </p>
+
+    {% highlight ruby %}
+@FX_FADE_IN_AND_SCALE: 'md-effect-1'
+@FX_SLIDE_IN_RIGHT: 'md-effect-2'
+@FX_SLIDE_IN_BOTTOM: 'md-effect-3'
+@FX_NEWSPAPPER: 'md-effect-4'
+@FX_FALL: 'md-effect-5'
+@FX_SIDE_FALL: 'md-effect-6'
+@FX_STICKY_UP: 'md-effect-7'
+@FX_3D_FLIP_HORIZONTAL: 'md-effect-8'
+@FX_3D_FLIP_VERTICAL: 'md-effect-9'
+@FX_3D_SIGN: 'md-effect-10'
+@FX_SUPER_SCALED: 'md-effect-11'
+@FX_JUST_ME: 'md-effect-12'
+@FX_3D_SLIT: 'md-effect-13'
+@FX_3D_ROTATE_BOTTOM: 'md-effect-14'
+@FX_3D_ROTATE_IN_LEFT: 'md-effect-15'
+@FX_BLUR: 'md-effect-16'
+@FX_LET_ME: 'md-effect-17'
+@FX_MAKE_WAY: 'md-effect-18'
+@FX_SLIP_FROM_TOP: 'md-effect-19'
+    {% endhighlight %}
+            </blockquote>
+
+    <!-- navigation -->
+    <h3 id="navigation">Navigation.coffee</h3>
+    <p> Esta classe é responsável por manipular os menus da aplica&ccedil;ão.   </p>
+
+    <!-- configuracoes do navigation -->
+    <p> <strong> Configura&ccedil;ões: </strong> </p>
+
+        <blockquote>
+            <strong> menuLinks {<code>DOMElements</code> | default: undefined} </strong>
+            <p> Faz referência aos links do menu da aplica&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> isOpen {<code>boolean</code> | default: true} </strong>
+            <p> Define se o menu está com  status active. </p>
+        </blockquote>
+
+    <!-- metodos do navigation -->
+    <p> <strong> Métodos: </strong> </p>
+
+        <blockquote>
+            <strong> openMenu {parâmetro: <code>jQueryElement</code>} </strong>
+            <p> Método responsável por abrir o menu. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> closeMenu {parâmetro: <code>jQueryEvent</code> e} </strong>
+            <p> Método responsável por fechar o menu. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> init </strong>
+            <p> Método de inicializa&ccedil;ão do sistema de menu. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setElements </strong>
+            <p> Configura e define os elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setEvents </strong>
+            <p> Configura os eventos de controle do menu. </p>
+        </blockquote>
+
+    <!-- render -->
+    <h3 id="render">Render.coffee</h3>
+    <p> ... </p>
+
+    <!-- configuracoes do render -->
+    <p> <strong> Configura&ccedil;ões: </strong> </p>
+        <blockquote>
+            <strong> debugPrefix {<code>String</code> | default: 'Joker_Render'} </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> className {<code>obejct</code> | default: 'Joker_Render'}</strong>
+            <p> Define o nome da classe. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> defaultMethod {default: undefined} </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> instance {<code>Joker.Render</code> | default: undefined} </strong>
+        </blockquote>
+
+    <!-- metodos do render -->
+    <p> <strong> Métodos: </strong> </p>
+
+        <blockquote>
+            <strong> formatTitle {parâmetro: <code>String</code> title | retorno: <code>String</code>} </strong>
+            <p> Este método pega o título e o retorna formatado. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> linkClickRender {parâmetro: <code>Event</code> e | retorno: <code>boolean</code> false} </strong>
+            <p> Evento é disparado quando um link para 'jRender' é acionado. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> linkClickWindow {parâmetro: <code>Event</code> e | retorno: <code>boolean</code> false} </strong>
+            <p> Evento é disparado quando um link para 'jWindow' é acionado. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> load {parâmetro: <code>object</code> obj, <code>boolean</code> add_push} </strong>
+            <p> Método que faz o carregamento do conteudo HTML. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> getRenderContainer </strong>
+            <p> Retorna o container padrão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setEvents </strong>
+            <p> Define os eventos a partir dos elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> unsetEvents </strong>
+            <p> Remove todos os eventos dos elementos com o nome <code>.render</code>. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> getInstance {retorno: <code>Joker.Render</code>} </strong>
+            <p> Retorna a variável única para a instância do objeto. </p>
+        </blockquote>
+
+    <!-- restDelete -->
+    <h3 id="restDelete">RestDelete.coffee</h3>
+    <p> ... </p>
+
+    <!-- configuracoes do restDelete -->
+    <p> <strong>Configura&ccedil;ões:</strong> </p>
+
+        <blockquote>
+            <strong>modal {default: undefined}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+        <strong>overlay {default: undefined}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>params {default: undefined}</strong>
+            <p> Parâmetros para a cria&ccedil;ão do RestDelete. </p>
+        </blockquote>
+
+    <!-- metodos do restDelete -->
+    <p> <strong>Métodos:</strong> </p>
+
+        <blockquote>
+            <strong>ajaxDelete {parâmetros: <code>jQueryEvent</code> event, <code>Joker.Modal</code> modal}</strong>
+            <p> Faz a requisi&ccedil;ão para excluir um registro do banco de dados. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>createModal {parâmetro: <code>jQueryEvent</code> e}</strong>
+            <p> Responsável por criar os elementos do Modal, sendo que cada um tem sua fun&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>generateContent {parâmetro: <code>object</code> data}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>setEvents</strong>
+            <p> Define todos os eventos dos elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>insetEvents</strong>
+            <p>Remove todos os eventos dos elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong>getInstance {retorno: <code>Joker.RestDelete</code>}</strong>
+            <p> Retorna uma variável única para a instância do objeto. </p>
+        </blockquote>
+</div>

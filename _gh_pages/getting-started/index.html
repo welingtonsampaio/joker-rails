@@ -56,6 +56,9 @@
           <a href="../getting-started">Como come&ccedil;ar</a>
         </li>
         <li>
+          <a href="../modules">Módulos</a>
+        </li>
+        <li>
           <a href="../css">CSS</a>
         </li>
         <li>
@@ -74,7 +77,7 @@
     <div class="bs-header" id="content">
       <div class="container">
         <h1>Como come&ccedil;ar</h1>
-        <p>Descobra o que é, e como funciona o JokerJS, veja alguns exemplos e mais.</p>
+        <p>Descobra o que é, como funciona o JokerJS, veja alguns exemplos e mais.</p>
       </div>
     </div>
 
@@ -85,10 +88,19 @@
             <ul class="nav bs-sidenav">
               
                 <li>
+    <a href="#joker">JokerJS</a>
+    <ul class="nav">
+        <li><a href="#why-joker">Por que Joker?</a></li>
+        <li><a href="#meet-team">Conhe&ccedil;a a equipe</a></li>
+    </ul>
+</li>
+
+<li>
   <a href="#instalation">Instala&ccedil;ão</a>
   <ul class="nav">
     <li><a href="#instalation-dependencies">Dependências</a></li>
     <li><a href="#instalation-rails">Instalando no Rails</a></li>
+    <li><a href="#create-app">Criando uma aplica&ccedil;ão JokerJS</a></li>
   </ul>
 </li>
 
@@ -97,39 +109,94 @@
           </div>
         </div>
         <div class="col-md-9" role="main">
-          <!-- Getting started
-================================================== -->
+          <!-- ========================= Getting started ========================= -->
 <div class="bs-docs-section">
   <div class="page-header">
-    <h1 id="instalation">Instala&ccedil;ão</h1>
+    <h1 id="joker"> JokerJS</h1>
   </div>
+
   <p class="lead">JokerJS foi desenvolvido para facilitar a cria&ccedil;ão de uma aplica&ccedil;ão RIA voltada para a
     área de sistema. Ele busca a facilidade de gerar códigos e padroniza&ccedil;ão da aplica&ccedil;ão.</p>
   <p>JokerJS nasceu para aplica&ccedil;ões RoR ( Ruby on Rails ) o qual possibilitou total integra&ccedil;ão a gama de
-  recursos que esta maravilho framework disponibiliza.</p>
+  recursos que esta maravilhosa framework disponibiliza.</p>
+
+    <h3 id="why-joker">Por que Joker</h3>
+        <p> Joker veio através de uma decepção. Nossa, mas por que uma decep&ccedil;ão? Chatiados com a má documenta&ccedil;ão do BatmanJS, a equipe resolveu criar o Joker.</p>
+
+    <h3 id="meet-team">Conhe&ccedil;a a equipe</h3>
+        <p> Nada melhor que falar do JokerJS mostrando a equipe responsável pelo projeto. </p>
+        <dl class="dl-horizontal">
+            <dt>Zaez</dt>
+            <dd>Atual mantenedora do projeto - <a href="http://zaez.net/" target="_blank">website</a></dd>
+            <dt>Welington Sampaio</dt>
+            <dd>Coordenador do projeto e principal desenvolvedor - <a href="http://welington.zaez.net/" target="_blank">website</a>
+                - <a href="http://facebook.com/WelingtonSampaio/" target="_blank">facebook</a> - <a href="http://twitter.com/sampaiowa" target="_blank">twitter</a></dd>
+            <dt>Elison de Campos</dt>
+            <dd>Conceito e funcionalidades para o projeto - <a href="http://facebook.com/elison.campos" target="_blank">facebook</a> </dd>
+        </dl>
+
+    <h1 id="instalation">Instala&ccedil;ão</h1>
 
   <h3 id="instalation-dependencies">Dependências</h3>
 
-  <p>O JokerJS é um framework que utiliza varias dependencias para existir, desde o seu funcionamento ao sistema de
-    teste automatizado. Confira abaixo a listagem completa de dependencias do JokerJS:</p>
+  <p>O JokerJS é um framework que utiliza varias dependências para existir, desde o seu funcionamento ao sistema de
+    teste automatizado. Confira abaixo a listagem completa de dependências do JokerJS:</p>
   <dl class="dl-horizontal">
     <dt><a href="http://rubyonrails.org/" target="_blank">Ruby on Rails</a></dt>
-    <dd>Onde a aplicacao deve rodar</dd>
+    <dd>Onde a aplica&ccedil;ão deve rodar</dd>
 
     <dt><a href="http://coffeescript.org/" target="_blank">CoffeeScript</a></dt>
-    <dd>...</dd>
+    <dd>Linguagem utilizada nas bibliotecas do Joker para compilar o javascript.</dd>
 
     <dt><a href="http://sass-lang.com/" target="_blank">SCSS</a></dt>
-    <dd>...</dd>
+    <dd>Utilizado para servir o CSS, possibilitando a rápida mudança das cores.</dd>
 
     <dt><a href="http://jquery.com/" target="_blank">jQuery</a> ou <a href="http://zeptojs.com/" target="_blank">Zepto.js</a>
     </dt>
-    <dd>...</dd>
+    <dd>Biblioteca que serve recursos ao Joker para efetuar as manipulações que necessita.</dd>
   </dl>
 
   <h3 id="instalation-rails">Instalando no Rails</h3>
-  <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>bower install bootstrap
+
+    <p> No arquivo <code>Gemfile</code> do Rails, é preciso adicionar o arquivo do JokerJs:</p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span> gem <span class="s1">&#39;joker-rails&#39;</span> 
 </code></pre></div>
+
+    <p> Após adicionar ao <code>Gemfile</code>, deve ser executado o seguinte comando para a instalação da Gem: </p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span> bundle install 
+</code></pre></div>
+
+    <p> Pronto, a instala&ccedil;ão já foi concluída. </p>
+
+  <h3 id="create-app"> Criando uma aplica&ccedil;ão JokerJS </h3>
+
+    <p> Com o comando <code> rails new </code> podemos instalar os pacotes necessários para a cria&ccedil;ão de uma aplica&ccedil;ão JokerJS  </p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rails new Carro 
+</code></pre></div>
+    <p> (No nosso exemplo, estamos utilizando Carro) </p>
+
+    <p> Logo após a criação, deve ser executado o seguinte código: </p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>bundle install 
+</code></pre></div>
+
+    <p>  O próximo passo é gerar os arquivos do JokerJS </p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rails generate joker:install 
+</code></pre></div>
+
+    <p> Aí, você cria sua aplicação contendo o que você deseja: </p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rails generate joker:scaffold Carro cor:string ano:integer marca:string placa:string 
+</code></pre></div>
+    <p> (Neste caso, foi criado um objeto Carro, com os atributos cor, ano, marca e placa) </p>
+
+    <p> Para criar o banco de dados da sua aplica&ccedil;ão, é necessário executar o seguinte código: </p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rake db:migrate 
+</code></pre></div>
+
+    <p> Depois, fa&ccedil;a o bundle instalar isso: </p>
+    <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>bundle install 
+</code></pre></div>
+
+    <p> Aplica&ccedil;ão criada, agora é só utilizá-la.</p>
 
 </div>
         </div>
