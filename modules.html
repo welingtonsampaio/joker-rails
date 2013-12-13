@@ -15,7 +15,7 @@ base_url: "../"
     <p class="lead">Veja aqui todos os módulos, seus métodos e atributos.</p>
 
     <h3 id="java-script">JavaScript</h3>
-    <p> Abaixo todos os componentes de JavaScript contidos no JoakerJs.</p>
+    <p> Abaixo todos os componentes de JavaScript contidos no JokerJs.</p>
 
     <!-- Ajax -->
     <h3 id="ajax">Ajax.coffee</h3>
@@ -176,7 +176,7 @@ constructor: (data={})->
         </blockquote>
 
     <!-- construtor do animation -->
-    <p> <strong> Contrutor do Animation </strong> {parâmetro: <code>object</code> data} </p>
+    <p> <strong> Construtor do Animation </strong> {parâmetro: <code>object</code> data} </p>
     {% highlight ruby %}
 constructor: (data)->
     super
@@ -185,6 +185,7 @@ constructor: (data)->
     @appendAnimation(data)     if Object.isObject data
     @createAllAnimations()
     {% endhighlight %}
+
     <!-- metodos do animation -->
     <p> <strong>Métodos:</strong> </p>
 
@@ -209,6 +210,119 @@ constructor: (data)->
             <p>  Responsável por criar a anima&ccedil;ão solicitada. </p>
         </blockquote>
     <!-- ver arquivos -->
+
+    <!-- default data do animation -->
+    <strong> defaultData {<code>object</code>}</strong>
+    <p> Configura&ccedil;ões padrão, caso algum objeto não tenha configurado alguma informa&ccedil;ão. </p>
+    {% highlight ruby %}
+    @defaultData:
+        target     : undefined
+        enterEffect: Animation.FX_FADEIN
+        autoLeave  : false
+        delayTime  : 7000
+        leaveEffect: Animation.FX_FADEOUT
+    {% endhighlight %}
+
+        <blockquote>
+            <strong> target {<code>DOMElement | String | JQueryElement</code> | default: undefined}</strong>
+            <p> Objeto que receberá a anima&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> enterEffect {<code>String</code> | default: 'Animation.FX_FADEIN'}</strong>
+            <p> Define qual o efeito que deve ser atribuído no início da anima&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> autoLeave {<code>boolean</code> | default: true} </strong>
+            <p> Define se deve ser utilizado automaticamente um efeito de retirada do objeto após o delayTime. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> delayTime {<code>Integer</code> | default: 7000}</strong>
+            <p> Tempo de espera para disparar o efeito de retirada do elemento. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> leaveEffect {<code>String</code> | default: 'Animation.FX_FADEOUT'}</strong>
+            <p> Define qual o efeito deve ser atribuído ao ser disparado o efeito de retirada do elemento. </p>
+        </blockquote>
+
+    <!-- efeitos animation -->
+    <p> <strong> Efeitos de anima&ccedil;ão: </strong> </p>
+    {% highlight ruby %}
+    @FX_FLASH              : "flash"
+    @FX_SHAKE              : "shake"
+    @FX_BOUNCE             : "bounce"
+    @FX_TADA               : "tada"
+    @FX_SWING              : "swing"
+    @FX_WOBBLE             : "wobble"
+    @FX_PULSE              : "pulse"
+    @FX_FLIP               : "flip"
+    @FX_FLIPINX            : "flipInX"
+    @FX_FLIPOUTX           : "flipOutX"
+    @FX_FLIPINY            : "flipInY"
+    @FX_FLIPOUTY           : "flipOutY"
+    @FX_FADEIN             : "fadeIn"
+    @FX_FADEINUP           : "fadeInUp"
+    @FX_FADEINDOWN         : "fadeInDown"
+    @FX_FADEINLEFT         : "fadeInLeft"
+    @FX_FADEINRIGHT        : "fadeInRight"
+    @FX_FADEINBIG          : "fadeInBig"
+    @FX_FADEINUPBIG        : "fadeInUpBig"
+    @FX_FADEINDOWNBIG      : "fadeInDownBig"
+    @FX_FADEINLEFTBIG      : "fadeInLeftBig"
+    @FX_FADEINRIGHTBIG     : "fadeInRightBig"
+    @FX_FADEOUT            : "fadeOut"
+    @FX_FADEOUTUP          : "fadeOutUp"
+    @FX_FADEOUTDOWN        : "fadeOutDown"
+    @FX_FADEOUTLEFT        : "fadeOutLeft"
+    @FX_FADEOUTRIGHT       : "fadeOutRight"
+    @FX_FADEOUTBIG         : "fadeOutBig"
+    @FX_FADEOUTUPBIG       : "fadeOutUpBig"
+    @FX_FADEOUTDOWNBIG     : "fadeOutDownBig"
+    @FX_FADEOUTLEFTBIG     : "fadeOutLeftBig"
+    @FX_FADEOUTRIGHTBIG    : "fadeOutRightBig"
+    @FX_BOUNCEIN           : "bounceIn"
+    @FX_BOUNCEINUP         : "bounceInUp"
+    @FX_BOUNCEINDOWN       : "bounceInDown"
+    @FX_BOUNCEINLEFT       : "bounceInLeft"
+    @FX_BOUNCEINRIGHT      : "bounceInRight"
+    @FX_BOUNCEOUT          : "bounceOut"
+    @FX_BOUNCEOUTUP        : "bounceOutUp"
+    @FX_BOUNCEOUTDOWN      : "bounceOutDown"
+    @FX_BOUNCEOUTLEFT      : "bounceOutLeft"
+    @FX_BOUNCEOUTRIGHT     : "bounceOutRight"
+    @FX_ROTATEIN           : "rotateIn"
+    @FX_ROTATEINUPLEFT     : "rotateInUpLeft"
+    @FX_ROTATEINDOWNLEFT   : "rotateInDownLeft"
+    @FX_ROTATEINUPRIGHT    : "rotateInUpRight"
+    @FX_ROTATEINDOWNRIGHT  : "rotateInDownRight"
+    @FX_ROTATEOUT          : "rotateOut"
+    @FX_ROTATEOUTUPLEFT    : "rotateOutUpLeft"
+    @FX_ROTATEOUTDOWNLEFT  : "rotateOutDownLeft"
+    @FX_ROTATEOUTUPRIGHT   : "rotateOutUpRight"
+    @FX_ROTATEOUTDOWNRIGHT : "rotateOutDownRight"
+    @FX_HINGE              : "hinge"
+    @FX_ROLLIN             : "rollIn"
+    @FX_ROLLOUT            : "rollOut"
+    @FX_LIGHTSPEEDIN       : "lightSpeedIn"
+    @FX_LIGHTSPEEDOUT      : "lightSpeedOut"
+    @FX_WIGGLE             : "wiggle"
+    {% endhighlight %}
+
+    <!-- callbacks do animation -->
+    <p> <strong> Callbacks: </strong> </p>
+
+        <blockquote>
+            <strong> finishEnter {parâmetro: <code>Joker.Animation</code> animation}</strong>
+            <p> Disparado sempre que finalizado a anima&ccedil;ão de enetrada. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> finishLeave {parâmetro: <code>Joker.Animation</code> animation}</strong>
+            <p> Callback disparado sempre que finaliza a anima&ccedil;ão de saída. </p>
+        </blockquote>
 
     <!-- core -->
     <h3 id="core">Core.coffee</h3>
@@ -410,7 +524,7 @@ constructor: ->
         </blockquote>
 
         <blockquote>
-            <string>instance {<code>Joker.Form</code> | default: undefined}</string>
+            <strong>instance {<code>Joker.Form</code> | default: undefined}</strong>
             <p> ... </p>
         </blockquote>
 
@@ -595,6 +709,82 @@ constructor: (config={})->
         @debug "Valores invalidos para criar o Modal", @settings
     {% endhighlight %}
 
+    <!-- defaultSettings do modal -->
+    <p> <strong>DefaultSettings</strong> </p>
+
+    {% highlight ruby %}
+@defaultSettings:
+    autoShow     : true
+    content      : undefined
+    title        : undefined
+    effect       : 'md-effect-5'
+    patternModal : ''
+    {% endhighlight %}
+    <blockquote>
+        <strong>autoShow {<code>boolean</code> | default: true}</strong>
+        <p> Define se o modal deve ser mostrado após a sua incializa&ccedil;ão. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong>content {<code>String | DOMElements</code> | default: undefined}</strong>
+        <p> Conteúdo que deverá ser inserido no corpo do Modal. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong>title {<code>String</code> | default: undefined}</strong>
+        <p> Título que será apresentado no Modal. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong>effect {<code>String</code> | default: 'md-effect-5'}</strong>
+        <p> Define qual o efeito padrão do sistema de Modal. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong> patternModal {<code>String</code> | default: ''}</strong>
+        <p> Modelo padrão de cria&ccedil;ão do Modal. </p>
+
+    {% highlight ruby %}
+"
+<div class="md-modal {effect}" id="{id}">
+    <div class="md-content">
+        <h3>{title}</h3>
+        <div>
+            {content}
+        </div>
+    </div>
+</div>
+"
+   {% endhighlight %}
+    </blockquote>
+
+
+    <blockquote>
+        <p> <strong> Efeitos de anima&ccedil;ão de entrada/saída dos Modals. </strong> </p>
+
+        {% highlight ruby %}
+    @FX_FADE_IN_AND_SCALE: 'md-effect-1'
+    @FX_SLIDE_IN_RIGHT: 'md-effect-2'
+    @FX_SLIDE_IN_BOTTOM: 'md-effect-3'
+    @FX_NEWSPAPPER: 'md-effect-4'
+    @FX_FALL: 'md-effect-5'
+    @FX_SIDE_FALL: 'md-effect-6'
+    @FX_STICKY_UP: 'md-effect-7'
+    @FX_3D_FLIP_HORIZONTAL: 'md-effect-8'
+    @FX_3D_FLIP_VERTICAL: 'md-effect-9'
+    @FX_3D_SIGN: 'md-effect-10'
+    @FX_SUPER_SCALED: 'md-effect-11'
+    @FX_JUST_ME: 'md-effect-12'
+    @FX_3D_SLIT: 'md-effect-13'
+    @FX_3D_ROTATE_BOTTOM: 'md-effect-14'
+    @FX_3D_ROTATE_IN_LEFT: 'md-effect-15'
+    @FX_BLUR: 'md-effect-16'
+    @FX_LET_ME: 'md-effect-17'
+    @FX_MAKE_WAY: 'md-effect-18'
+    @FX_SLIP_FROM_TOP: 'md-effect-19'
+        {% endhighlight %}
+    </blockquote>
+
     <!-- callbacks do modal -->
     <p> <strong>Callbacks</strong> </p>
 
@@ -657,73 +847,6 @@ constructor: (config={})->
             <p> Verifica se os valores contidos dentro de Params estão corretos e são válidos. </p>
         </blockquote>
 
-    <!-- defaultSettings do modal -->
-    <p> <strong>DefaultSettings</strong> </p>
-
-        <blockquote>
-            <strong>autoShow {<code>boolean</code> | default: true}</strong>
-            <p> Define se o modal deve ser mostrado após a sua incializa&ccedil;ão. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong>content {<code>String | DOMElements</code> | default: undefined}</strong>
-            <p> Conteúdo que deverá ser inserido no corpo do Modal. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong>title {<code>String</code> | default: undefined}</strong>
-            <p> Título que será apresentado no Modal. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong>effect {<code>String</code> | default: 'md-effect-5'}</strong>
-            <p> Define qual o efeito padrão do sistema de Modal. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong> patternModal {<code>String</code> | default: ''}</strong>
-            <p> Modelo padrão de cria&ccedil;ão do Modal. </p>
-
-{% highlight ruby %}
-"
-<div class="md-modal {effect}" id="{id}">
-    <div class="md-content">
-        <h3>{title}</h3>
-        <div>
-            {content}
-        </div>
-    </div>
-</div>
-"
-{% endhighlight %}
-           </blockquote>
-
-            <blockquote>
-                <p> <strong> Efeitos de anima&ccedil;ão de entrada/saída dos Modals. </strong> </p>
-
-    {% highlight ruby %}
-@FX_FADE_IN_AND_SCALE: 'md-effect-1'
-@FX_SLIDE_IN_RIGHT: 'md-effect-2'
-@FX_SLIDE_IN_BOTTOM: 'md-effect-3'
-@FX_NEWSPAPPER: 'md-effect-4'
-@FX_FALL: 'md-effect-5'
-@FX_SIDE_FALL: 'md-effect-6'
-@FX_STICKY_UP: 'md-effect-7'
-@FX_3D_FLIP_HORIZONTAL: 'md-effect-8'
-@FX_3D_FLIP_VERTICAL: 'md-effect-9'
-@FX_3D_SIGN: 'md-effect-10'
-@FX_SUPER_SCALED: 'md-effect-11'
-@FX_JUST_ME: 'md-effect-12'
-@FX_3D_SLIT: 'md-effect-13'
-@FX_3D_ROTATE_BOTTOM: 'md-effect-14'
-@FX_3D_ROTATE_IN_LEFT: 'md-effect-15'
-@FX_BLUR: 'md-effect-16'
-@FX_LET_ME: 'md-effect-17'
-@FX_MAKE_WAY: 'md-effect-18'
-@FX_SLIP_FROM_TOP: 'md-effect-19'
-    {% endhighlight %}
-            </blockquote>
-
     <!-- navigation -->
     <h3 id="navigation">Navigation.coffee</h3>
     <p> Esta classe é responsável por manipular os menus da aplica&ccedil;ão.   </p>
@@ -745,7 +868,7 @@ constructor: (config={})->
     <p> <strong> Métodos: </strong> </p>
 
         <blockquote>
-            <strong> openMenu {parâmetro: <code>jQueryElement</code>} </strong>
+            <strong> openMenu {parâmetro: <code>jQueryEvent</code> e} </strong>
             <p> Método responsável por abrir o menu. </p>
         </blockquote>
 
@@ -794,6 +917,16 @@ constructor: (config={})->
             <strong> instance {<code>Joker.Render</code> | default: undefined} </strong>
         </blockquote>
 
+    <!-- construtor do render -->
+    <p> <strong> Construtor do Render </strong> </p>
+    {% highlight ruby %}
+constructor: ->
+    super
+    @debug "Inicializando o Render"
+    @setDefaults()
+    @setEvents()
+    {% endhighlight %}
+
     <!-- metodos do render -->
     <p> <strong> Métodos: </strong> </p>
 
@@ -813,13 +946,18 @@ constructor: (config={})->
         </blockquote>
 
         <blockquote>
-            <strong> load {parâmetro: <code>object</code> obj, <code>boolean</code> add_push} </strong>
+            <strong> load {parâmetro: <code>object</code> obj, <code>boolean</code> add_push (default: <code>true</code>)} </strong>
             <p> Método que faz o carregamento do conteudo HTML. </p>
         </blockquote>
 
         <blockquote>
             <strong> getRenderContainer </strong>
             <p> Retorna o container padrão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setDefault</strong>
+            <p> Define os valores do motor de renderiza&ccedil;ão padrão. </p>
         </blockquote>
 
         <blockquote>
@@ -859,7 +997,14 @@ constructor: (config={})->
             <p> Parâmetros para a cria&ccedil;ão do RestDelete. </p>
         </blockquote>
 
-    <!-- metodos do restDelete -->
+    <!-- contrutor do restDelete -->
+    <p> <strong> Construtor do RestDelete </strong> </p>
+    {% highlight ruby %}
+constructor: ->
+    super
+    @setEvents()
+    {% endhighlight %}
+
     <p> <strong>Métodos:</strong> </p>
 
         <blockquote>
@@ -890,5 +1035,71 @@ constructor: (config={})->
         <blockquote>
             <strong>getInstance {retorno: <code>Joker.RestDelete</code>}</strong>
             <p> Retorna uma variável única para a instância do objeto. </p>
+        </blockquote>
+
+    <!-- tab -->
+    <h3 id="tab">Tab.coffee</h3>
+    <p> ... </p>
+
+    <!-- construtor do tab -->
+    <p> <strong> Construtor do Tab </strong> </p>
+    {% highlight ruby %}
+constructor: ->
+    super
+    @setEvents()
+    {% endhighlight %}
+
+    <!-- metodos do tab -->
+    <p> <strong> Métodos: </strong> </p>
+
+        <blockquote>
+            <strong> changeTab {parâmetro: <code>JQueryEvent</code> e}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> createTab {parâmetro: <code>DOMElement</code> el}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> createMenu {parâmetros: <code>?</code> elements, <code>?</code> id}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setEvents </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> verifyNewTab {parâmetro: <code>JQueryEvent</code> e}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> getInstance {retorno: <code>Joker_Tab</code>}</strong>
+            <p> Retorna uma variável única para a instância do objeto. </p>
+        </blockquote>
+
+    <!-- typeHead -->
+    <h3 id="typeHead">TypeHead.coffee</h3>
+    <p> ... </p>
+
+    <!-- construtor do typeHead -->
+    <p> Construtor do TypeHead</p>
+    {% highlight ruby %}
+constructor: ->
+    super
+    @debug "Inicializando o Typeahead"
+    @setEvents()
+    {% endhighlight %}
+
+    <!-- metodos do typeHead -->
+    <p> <strong> Métodos: </strong> </p>
+
+        <blockquote>
+            <strong> configure {parâmetro: <code>JQueryEvent</code> ev}</strong>
+            <p> Configura o elemento do TypeHead. </p>
         </blockquote>
 </div>

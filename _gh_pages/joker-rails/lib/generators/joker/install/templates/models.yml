@@ -1,4 +1,0 @@
-<%= @locale %>:
-  activerecord:
-    models:
-      example_model: example content

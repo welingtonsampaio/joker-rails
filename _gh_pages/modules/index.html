@@ -103,6 +103,8 @@
         <li><a href="#navigation">navigation.coffee</a></li>
         <li><a href="#render">render.coffee</a></li>
         <li><a href="#restDelete">restDelete.coffee</a></li>
+        <li><a href="#tab">tab.coffee</a></li>
+        <li><a href="#typeHead">typeHead.coffee</a></li>
     </ul>
 </li>
 
@@ -120,7 +122,7 @@
     <p class="lead">Veja aqui todos os módulos, seus métodos e atributos.</p>
 
     <h3 id="java-script">JavaScript</h3>
-    <p> Abaixo todos os componentes de JavaScript contidos no JoakerJs.</p>
+    <p> Abaixo todos os componentes de JavaScript contidos no JokerJs.</p>
 
     <!-- Ajax -->
     <h3 id="ajax">Ajax.coffee</h3>
@@ -281,7 +283,7 @@
         </blockquote>
 
     <!-- construtor do animation -->
-    <p> <strong> Contrutor do Animation </strong> {parâmetro: <code>object</code> data} </p>
+    <p> <strong> Construtor do Animation </strong> {parâmetro: <code>object</code> data} </p>
     <div class="highlight"><pre><code class="ruby"><span class="ss">constructor</span><span class="p">:</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-&gt;</span>
     <span class="k">super</span>
     <span class="vi">@animations</span> <span class="o">=</span> <span class="o">[]</span>
@@ -290,6 +292,7 @@
     <span class="vi">@createAllAnimations</span><span class="p">()</span>
     
 </code></pre></div>
+
     <!-- metodos do animation -->
     <p> <strong>Métodos:</strong> </p>
 
@@ -314,6 +317,119 @@
             <p>  Responsável por criar a anima&ccedil;ão solicitada. </p>
         </blockquote>
     <!-- ver arquivos -->
+
+    <!-- default data do animation -->
+    <strong> defaultData {<code>object</code>}</strong>
+    <p> Configura&ccedil;ões padrão, caso algum objeto não tenha configurado alguma informa&ccedil;ão. </p>
+    <div class="highlight"><pre><code class="ruby">    <span class="vi">@defaultData</span><span class="p">:</span>
+        <span class="n">target</span>     <span class="p">:</span> <span class="n">undefined</span>
+        <span class="ss">enterEffect</span><span class="p">:</span> <span class="no">Animation</span><span class="o">.</span><span class="n">FX_FADEIN</span>
+        <span class="n">autoLeave</span>  <span class="p">:</span> <span class="kp">false</span>
+        <span class="n">delayTime</span>  <span class="p">:</span> <span class="mi">7000</span>
+        <span class="ss">leaveEffect</span><span class="p">:</span> <span class="no">Animation</span><span class="o">.</span><span class="n">FX_FADEOUT</span>
+    
+</code></pre></div>
+
+        <blockquote>
+            <strong> target {<code>DOMElement | String | JQueryElement</code> | default: undefined}</strong>
+            <p> Objeto que receberá a anima&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> enterEffect {<code>String</code> | default: 'Animation.FX_FADEIN'}</strong>
+            <p> Define qual o efeito que deve ser atribuído no início da anima&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> autoLeave {<code>boolean</code> | default: true} </strong>
+            <p> Define se deve ser utilizado automaticamente um efeito de retirada do objeto após o delayTime. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> delayTime {<code>Integer</code> | default: 7000}</strong>
+            <p> Tempo de espera para disparar o efeito de retirada do elemento. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> leaveEffect {<code>String</code> | default: 'Animation.FX_FADEOUT'}</strong>
+            <p> Define qual o efeito deve ser atribuído ao ser disparado o efeito de retirada do elemento. </p>
+        </blockquote>
+
+    <!-- efeitos animation -->
+    <p> <strong> Efeitos de anima&ccedil;ão: </strong> </p>
+    <div class="highlight"><pre><code class="ruby">    <span class="vi">@FX_FLASH</span>              <span class="p">:</span> <span class="s2">&quot;flash&quot;</span>
+    <span class="vi">@FX_SHAKE</span>              <span class="p">:</span> <span class="s2">&quot;shake&quot;</span>
+    <span class="vi">@FX_BOUNCE</span>             <span class="p">:</span> <span class="s2">&quot;bounce&quot;</span>
+    <span class="vi">@FX_TADA</span>               <span class="p">:</span> <span class="s2">&quot;tada&quot;</span>
+    <span class="vi">@FX_SWING</span>              <span class="p">:</span> <span class="s2">&quot;swing&quot;</span>
+    <span class="vi">@FX_WOBBLE</span>             <span class="p">:</span> <span class="s2">&quot;wobble&quot;</span>
+    <span class="vi">@FX_PULSE</span>              <span class="p">:</span> <span class="s2">&quot;pulse&quot;</span>
+    <span class="vi">@FX_FLIP</span>               <span class="p">:</span> <span class="s2">&quot;flip&quot;</span>
+    <span class="vi">@FX_FLIPINX</span>            <span class="p">:</span> <span class="s2">&quot;flipInX&quot;</span>
+    <span class="vi">@FX_FLIPOUTX</span>           <span class="p">:</span> <span class="s2">&quot;flipOutX&quot;</span>
+    <span class="vi">@FX_FLIPINY</span>            <span class="p">:</span> <span class="s2">&quot;flipInY&quot;</span>
+    <span class="vi">@FX_FLIPOUTY</span>           <span class="p">:</span> <span class="s2">&quot;flipOutY&quot;</span>
+    <span class="vi">@FX_FADEIN</span>             <span class="p">:</span> <span class="s2">&quot;fadeIn&quot;</span>
+    <span class="vi">@FX_FADEINUP</span>           <span class="p">:</span> <span class="s2">&quot;fadeInUp&quot;</span>
+    <span class="vi">@FX_FADEINDOWN</span>         <span class="p">:</span> <span class="s2">&quot;fadeInDown&quot;</span>
+    <span class="vi">@FX_FADEINLEFT</span>         <span class="p">:</span> <span class="s2">&quot;fadeInLeft&quot;</span>
+    <span class="vi">@FX_FADEINRIGHT</span>        <span class="p">:</span> <span class="s2">&quot;fadeInRight&quot;</span>
+    <span class="vi">@FX_FADEINBIG</span>          <span class="p">:</span> <span class="s2">&quot;fadeInBig&quot;</span>
+    <span class="vi">@FX_FADEINUPBIG</span>        <span class="p">:</span> <span class="s2">&quot;fadeInUpBig&quot;</span>
+    <span class="vi">@FX_FADEINDOWNBIG</span>      <span class="p">:</span> <span class="s2">&quot;fadeInDownBig&quot;</span>
+    <span class="vi">@FX_FADEINLEFTBIG</span>      <span class="p">:</span> <span class="s2">&quot;fadeInLeftBig&quot;</span>
+    <span class="vi">@FX_FADEINRIGHTBIG</span>     <span class="p">:</span> <span class="s2">&quot;fadeInRightBig&quot;</span>
+    <span class="vi">@FX_FADEOUT</span>            <span class="p">:</span> <span class="s2">&quot;fadeOut&quot;</span>
+    <span class="vi">@FX_FADEOUTUP</span>          <span class="p">:</span> <span class="s2">&quot;fadeOutUp&quot;</span>
+    <span class="vi">@FX_FADEOUTDOWN</span>        <span class="p">:</span> <span class="s2">&quot;fadeOutDown&quot;</span>
+    <span class="vi">@FX_FADEOUTLEFT</span>        <span class="p">:</span> <span class="s2">&quot;fadeOutLeft&quot;</span>
+    <span class="vi">@FX_FADEOUTRIGHT</span>       <span class="p">:</span> <span class="s2">&quot;fadeOutRight&quot;</span>
+    <span class="vi">@FX_FADEOUTBIG</span>         <span class="p">:</span> <span class="s2">&quot;fadeOutBig&quot;</span>
+    <span class="vi">@FX_FADEOUTUPBIG</span>       <span class="p">:</span> <span class="s2">&quot;fadeOutUpBig&quot;</span>
+    <span class="vi">@FX_FADEOUTDOWNBIG</span>     <span class="p">:</span> <span class="s2">&quot;fadeOutDownBig&quot;</span>
+    <span class="vi">@FX_FADEOUTLEFTBIG</span>     <span class="p">:</span> <span class="s2">&quot;fadeOutLeftBig&quot;</span>
+    <span class="vi">@FX_FADEOUTRIGHTBIG</span>    <span class="p">:</span> <span class="s2">&quot;fadeOutRightBig&quot;</span>
+    <span class="vi">@FX_BOUNCEIN</span>           <span class="p">:</span> <span class="s2">&quot;bounceIn&quot;</span>
+    <span class="vi">@FX_BOUNCEINUP</span>         <span class="p">:</span> <span class="s2">&quot;bounceInUp&quot;</span>
+    <span class="vi">@FX_BOUNCEINDOWN</span>       <span class="p">:</span> <span class="s2">&quot;bounceInDown&quot;</span>
+    <span class="vi">@FX_BOUNCEINLEFT</span>       <span class="p">:</span> <span class="s2">&quot;bounceInLeft&quot;</span>
+    <span class="vi">@FX_BOUNCEINRIGHT</span>      <span class="p">:</span> <span class="s2">&quot;bounceInRight&quot;</span>
+    <span class="vi">@FX_BOUNCEOUT</span>          <span class="p">:</span> <span class="s2">&quot;bounceOut&quot;</span>
+    <span class="vi">@FX_BOUNCEOUTUP</span>        <span class="p">:</span> <span class="s2">&quot;bounceOutUp&quot;</span>
+    <span class="vi">@FX_BOUNCEOUTDOWN</span>      <span class="p">:</span> <span class="s2">&quot;bounceOutDown&quot;</span>
+    <span class="vi">@FX_BOUNCEOUTLEFT</span>      <span class="p">:</span> <span class="s2">&quot;bounceOutLeft&quot;</span>
+    <span class="vi">@FX_BOUNCEOUTRIGHT</span>     <span class="p">:</span> <span class="s2">&quot;bounceOutRight&quot;</span>
+    <span class="vi">@FX_ROTATEIN</span>           <span class="p">:</span> <span class="s2">&quot;rotateIn&quot;</span>
+    <span class="vi">@FX_ROTATEINUPLEFT</span>     <span class="p">:</span> <span class="s2">&quot;rotateInUpLeft&quot;</span>
+    <span class="vi">@FX_ROTATEINDOWNLEFT</span>   <span class="p">:</span> <span class="s2">&quot;rotateInDownLeft&quot;</span>
+    <span class="vi">@FX_ROTATEINUPRIGHT</span>    <span class="p">:</span> <span class="s2">&quot;rotateInUpRight&quot;</span>
+    <span class="vi">@FX_ROTATEINDOWNRIGHT</span>  <span class="p">:</span> <span class="s2">&quot;rotateInDownRight&quot;</span>
+    <span class="vi">@FX_ROTATEOUT</span>          <span class="p">:</span> <span class="s2">&quot;rotateOut&quot;</span>
+    <span class="vi">@FX_ROTATEOUTUPLEFT</span>    <span class="p">:</span> <span class="s2">&quot;rotateOutUpLeft&quot;</span>
+    <span class="vi">@FX_ROTATEOUTDOWNLEFT</span>  <span class="p">:</span> <span class="s2">&quot;rotateOutDownLeft&quot;</span>
+    <span class="vi">@FX_ROTATEOUTUPRIGHT</span>   <span class="p">:</span> <span class="s2">&quot;rotateOutUpRight&quot;</span>
+    <span class="vi">@FX_ROTATEOUTDOWNRIGHT</span> <span class="p">:</span> <span class="s2">&quot;rotateOutDownRight&quot;</span>
+    <span class="vi">@FX_HINGE</span>              <span class="p">:</span> <span class="s2">&quot;hinge&quot;</span>
+    <span class="vi">@FX_ROLLIN</span>             <span class="p">:</span> <span class="s2">&quot;rollIn&quot;</span>
+    <span class="vi">@FX_ROLLOUT</span>            <span class="p">:</span> <span class="s2">&quot;rollOut&quot;</span>
+    <span class="vi">@FX_LIGHTSPEEDIN</span>       <span class="p">:</span> <span class="s2">&quot;lightSpeedIn&quot;</span>
+    <span class="vi">@FX_LIGHTSPEEDOUT</span>      <span class="p">:</span> <span class="s2">&quot;lightSpeedOut&quot;</span>
+    <span class="vi">@FX_WIGGLE</span>             <span class="p">:</span> <span class="s2">&quot;wiggle&quot;</span>
+    
+</code></pre></div>
+
+    <!-- callbacks do animation -->
+    <p> <strong> Callbacks: </strong> </p>
+
+        <blockquote>
+            <strong> finishEnter {parâmetro: <code>Joker.Animation</code> animation}</strong>
+            <p> Disparado sempre que finalizado a anima&ccedil;ão de enetrada. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> finishLeave {parâmetro: <code>Joker.Animation</code> animation}</strong>
+            <p> Callback disparado sempre que finaliza a anima&ccedil;ão de saída. </p>
+        </blockquote>
 
     <!-- core -->
     <h3 id="core">Core.coffee</h3>
@@ -516,7 +632,7 @@
         </blockquote>
 
         <blockquote>
-            <string>instance {<code>Joker.Form</code> | default: undefined}</string>
+            <strong>instance {<code>Joker.Form</code> | default: undefined}</strong>
             <p> ... </p>
         </blockquote>
 
@@ -704,6 +820,82 @@
     
 </code></pre></div>
 
+    <!-- defaultSettings do modal -->
+    <p> <strong>DefaultSettings</strong> </p>
+
+    <div class="highlight"><pre><code class="ruby"><span class="vi">@defaultSettings</span><span class="p">:</span>
+    <span class="n">autoShow</span>     <span class="p">:</span> <span class="kp">true</span>
+    <span class="n">content</span>      <span class="p">:</span> <span class="n">undefined</span>
+    <span class="n">title</span>        <span class="p">:</span> <span class="n">undefined</span>
+    <span class="n">effect</span>       <span class="p">:</span> <span class="s1">&#39;md-effect-5&#39;</span>
+    <span class="n">patternModal</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span>
+    
+</code></pre></div>
+    <blockquote>
+        <strong>autoShow {<code>boolean</code> | default: true}</strong>
+        <p> Define se o modal deve ser mostrado após a sua incializa&ccedil;ão. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong>content {<code>String | DOMElements</code> | default: undefined}</strong>
+        <p> Conteúdo que deverá ser inserido no corpo do Modal. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong>title {<code>String</code> | default: undefined}</strong>
+        <p> Título que será apresentado no Modal. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong>effect {<code>String</code> | default: 'md-effect-5'}</strong>
+        <p> Define qual o efeito padrão do sistema de Modal. </p>
+    </blockquote>
+
+    <blockquote>
+        <strong> patternModal {<code>String</code> | default: ''}</strong>
+        <p> Modelo padrão de cria&ccedil;ão do Modal. </p>
+
+    <div class="highlight"><pre><code class="ruby"><span class="s2">&quot;</span>
+<span class="s2">&lt;div class=&quot;</span><span class="n">md</span><span class="o">-</span><span class="n">modal</span> <span class="p">{</span><span class="n">effect</span><span class="p">}</span><span class="s2">&quot; id=&quot;</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span><span class="s2">&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;</span><span class="n">md</span><span class="o">-</span><span class="n">content</span><span class="s2">&quot;&gt;</span>
+<span class="s2">        &lt;h3&gt;{title}&lt;/h3&gt;</span>
+<span class="s2">        &lt;div&gt;</span>
+<span class="s2">            {content}</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;</span>
+   
+</code></pre></div>
+    </blockquote>
+
+
+    <blockquote>
+        <p> <strong> Efeitos de anima&ccedil;ão de entrada/saída dos Modals. </strong> </p>
+
+        <div class="highlight"><pre><code class="ruby">    <span class="vi">@FX_FADE_IN_AND_SCALE</span><span class="p">:</span> <span class="s1">&#39;md-effect-1&#39;</span>
+    <span class="vi">@FX_SLIDE_IN_RIGHT</span><span class="p">:</span> <span class="s1">&#39;md-effect-2&#39;</span>
+    <span class="vi">@FX_SLIDE_IN_BOTTOM</span><span class="p">:</span> <span class="s1">&#39;md-effect-3&#39;</span>
+    <span class="vi">@FX_NEWSPAPPER</span><span class="p">:</span> <span class="s1">&#39;md-effect-4&#39;</span>
+    <span class="vi">@FX_FALL</span><span class="p">:</span> <span class="s1">&#39;md-effect-5&#39;</span>
+    <span class="vi">@FX_SIDE_FALL</span><span class="p">:</span> <span class="s1">&#39;md-effect-6&#39;</span>
+    <span class="vi">@FX_STICKY_UP</span><span class="p">:</span> <span class="s1">&#39;md-effect-7&#39;</span>
+    <span class="vi">@FX_3D_FLIP_HORIZONTAL</span><span class="p">:</span> <span class="s1">&#39;md-effect-8&#39;</span>
+    <span class="vi">@FX_3D_FLIP_VERTICAL</span><span class="p">:</span> <span class="s1">&#39;md-effect-9&#39;</span>
+    <span class="vi">@FX_3D_SIGN</span><span class="p">:</span> <span class="s1">&#39;md-effect-10&#39;</span>
+    <span class="vi">@FX_SUPER_SCALED</span><span class="p">:</span> <span class="s1">&#39;md-effect-11&#39;</span>
+    <span class="vi">@FX_JUST_ME</span><span class="p">:</span> <span class="s1">&#39;md-effect-12&#39;</span>
+    <span class="vi">@FX_3D_SLIT</span><span class="p">:</span> <span class="s1">&#39;md-effect-13&#39;</span>
+    <span class="vi">@FX_3D_ROTATE_BOTTOM</span><span class="p">:</span> <span class="s1">&#39;md-effect-14&#39;</span>
+    <span class="vi">@FX_3D_ROTATE_IN_LEFT</span><span class="p">:</span> <span class="s1">&#39;md-effect-15&#39;</span>
+    <span class="vi">@FX_BLUR</span><span class="p">:</span> <span class="s1">&#39;md-effect-16&#39;</span>
+    <span class="vi">@FX_LET_ME</span><span class="p">:</span> <span class="s1">&#39;md-effect-17&#39;</span>
+    <span class="vi">@FX_MAKE_WAY</span><span class="p">:</span> <span class="s1">&#39;md-effect-18&#39;</span>
+    <span class="vi">@FX_SLIP_FROM_TOP</span><span class="p">:</span> <span class="s1">&#39;md-effect-19&#39;</span>
+        
+</code></pre></div>
+    </blockquote>
+
     <!-- callbacks do modal -->
     <p> <strong>Callbacks</strong> </p>
 
@@ -766,72 +958,6 @@
             <p> Verifica se os valores contidos dentro de Params estão corretos e são válidos. </p>
         </blockquote>
 
-    <!-- defaultSettings do modal -->
-    <p> <strong>DefaultSettings</strong> </p>
-
-        <blockquote>
-            <strong>autoShow {<code>boolean</code> | default: true}</strong>
-            <p> Define se o modal deve ser mostrado após a sua incializa&ccedil;ão. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong>content {<code>String | DOMElements</code> | default: undefined}</strong>
-            <p> Conteúdo que deverá ser inserido no corpo do Modal. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong>title {<code>String</code> | default: undefined}</strong>
-            <p> Título que será apresentado no Modal. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong>effect {<code>String</code> | default: 'md-effect-5'}</strong>
-            <p> Define qual o efeito padrão do sistema de Modal. </p>
-        </blockquote>
-
-        <blockquote>
-            <strong> patternModal {<code>String</code> | default: ''}</strong>
-            <p> Modelo padrão de cria&ccedil;ão do Modal. </p>
-
-<div class="highlight"><pre><code class="ruby"><span class="s2">&quot;</span>
-<span class="s2">&lt;div class=&quot;</span><span class="n">md</span><span class="o">-</span><span class="n">modal</span> <span class="p">{</span><span class="n">effect</span><span class="p">}</span><span class="s2">&quot; id=&quot;</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span><span class="s2">&quot;&gt;</span>
-<span class="s2">    &lt;div class=&quot;</span><span class="n">md</span><span class="o">-</span><span class="n">content</span><span class="s2">&quot;&gt;</span>
-<span class="s2">        &lt;h3&gt;{title}&lt;/h3&gt;</span>
-<span class="s2">        &lt;div&gt;</span>
-<span class="s2">            {content}</span>
-<span class="s2">        &lt;/div&gt;</span>
-<span class="s2">    &lt;/div&gt;</span>
-<span class="s2">&lt;/div&gt;</span>
-<span class="s2">&quot;</span>
-</code></pre></div>
-           </blockquote>
-
-            <blockquote>
-                <p> <strong> Efeitos de anima&ccedil;ão de entrada/saída dos Modals. </strong> </p>
-
-    <div class="highlight"><pre><code class="ruby"><span class="vi">@FX_FADE_IN_AND_SCALE</span><span class="p">:</span> <span class="s1">&#39;md-effect-1&#39;</span>
-<span class="vi">@FX_SLIDE_IN_RIGHT</span><span class="p">:</span> <span class="s1">&#39;md-effect-2&#39;</span>
-<span class="vi">@FX_SLIDE_IN_BOTTOM</span><span class="p">:</span> <span class="s1">&#39;md-effect-3&#39;</span>
-<span class="vi">@FX_NEWSPAPPER</span><span class="p">:</span> <span class="s1">&#39;md-effect-4&#39;</span>
-<span class="vi">@FX_FALL</span><span class="p">:</span> <span class="s1">&#39;md-effect-5&#39;</span>
-<span class="vi">@FX_SIDE_FALL</span><span class="p">:</span> <span class="s1">&#39;md-effect-6&#39;</span>
-<span class="vi">@FX_STICKY_UP</span><span class="p">:</span> <span class="s1">&#39;md-effect-7&#39;</span>
-<span class="vi">@FX_3D_FLIP_HORIZONTAL</span><span class="p">:</span> <span class="s1">&#39;md-effect-8&#39;</span>
-<span class="vi">@FX_3D_FLIP_VERTICAL</span><span class="p">:</span> <span class="s1">&#39;md-effect-9&#39;</span>
-<span class="vi">@FX_3D_SIGN</span><span class="p">:</span> <span class="s1">&#39;md-effect-10&#39;</span>
-<span class="vi">@FX_SUPER_SCALED</span><span class="p">:</span> <span class="s1">&#39;md-effect-11&#39;</span>
-<span class="vi">@FX_JUST_ME</span><span class="p">:</span> <span class="s1">&#39;md-effect-12&#39;</span>
-<span class="vi">@FX_3D_SLIT</span><span class="p">:</span> <span class="s1">&#39;md-effect-13&#39;</span>
-<span class="vi">@FX_3D_ROTATE_BOTTOM</span><span class="p">:</span> <span class="s1">&#39;md-effect-14&#39;</span>
-<span class="vi">@FX_3D_ROTATE_IN_LEFT</span><span class="p">:</span> <span class="s1">&#39;md-effect-15&#39;</span>
-<span class="vi">@FX_BLUR</span><span class="p">:</span> <span class="s1">&#39;md-effect-16&#39;</span>
-<span class="vi">@FX_LET_ME</span><span class="p">:</span> <span class="s1">&#39;md-effect-17&#39;</span>
-<span class="vi">@FX_MAKE_WAY</span><span class="p">:</span> <span class="s1">&#39;md-effect-18&#39;</span>
-<span class="vi">@FX_SLIP_FROM_TOP</span><span class="p">:</span> <span class="s1">&#39;md-effect-19&#39;</span>
-    
-</code></pre></div>
-            </blockquote>
-
     <!-- navigation -->
     <h3 id="navigation">Navigation.coffee</h3>
     <p> Esta classe é responsável por manipular os menus da aplica&ccedil;ão.   </p>
@@ -853,7 +979,7 @@
     <p> <strong> Métodos: </strong> </p>
 
         <blockquote>
-            <strong> openMenu {parâmetro: <code>jQueryElement</code>} </strong>
+            <strong> openMenu {parâmetro: <code>jQueryEvent</code> e} </strong>
             <p> Método responsável por abrir o menu. </p>
         </blockquote>
 
@@ -902,6 +1028,16 @@
             <strong> instance {<code>Joker.Render</code> | default: undefined} </strong>
         </blockquote>
 
+    <!-- construtor do render -->
+    <p> <strong> Construtor do Render </strong> </p>
+    <div class="highlight"><pre><code class="ruby"><span class="ss">constructor</span><span class="p">:</span> <span class="o">-&gt;</span>
+    <span class="k">super</span>
+    <span class="vi">@debug</span> <span class="s2">&quot;Inicializando o Render&quot;</span>
+    <span class="vi">@setDefaults</span><span class="p">()</span>
+    <span class="vi">@setEvents</span><span class="p">()</span>
+    
+</code></pre></div>
+
     <!-- metodos do render -->
     <p> <strong> Métodos: </strong> </p>
 
@@ -921,13 +1057,18 @@
         </blockquote>
 
         <blockquote>
-            <strong> load {parâmetro: <code>object</code> obj, <code>boolean</code> add_push} </strong>
+            <strong> load {parâmetro: <code>object</code> obj, <code>boolean</code> add_push (default: <code>true</code>)} </strong>
             <p> Método que faz o carregamento do conteudo HTML. </p>
         </blockquote>
 
         <blockquote>
             <strong> getRenderContainer </strong>
             <p> Retorna o container padrão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setDefault</strong>
+            <p> Define os valores do motor de renderiza&ccedil;ão padrão. </p>
         </blockquote>
 
         <blockquote>
@@ -967,7 +1108,14 @@
             <p> Parâmetros para a cria&ccedil;ão do RestDelete. </p>
         </blockquote>
 
-    <!-- metodos do restDelete -->
+    <!-- contrutor do restDelete -->
+    <p> <strong> Construtor do RestDelete </strong> </p>
+    <div class="highlight"><pre><code class="ruby"><span class="ss">constructor</span><span class="p">:</span> <span class="o">-&gt;</span>
+    <span class="k">super</span>
+    <span class="vi">@setEvents</span><span class="p">()</span>
+    
+</code></pre></div>
+
     <p> <strong>Métodos:</strong> </p>
 
         <blockquote>
@@ -998,6 +1146,72 @@
         <blockquote>
             <strong>getInstance {retorno: <code>Joker.RestDelete</code>}</strong>
             <p> Retorna uma variável única para a instância do objeto. </p>
+        </blockquote>
+
+    <!-- tab -->
+    <h3 id="tab">Tab.coffee</h3>
+    <p> ... </p>
+
+    <!-- construtor do tab -->
+    <p> <strong> Construtor do Tab </strong> </p>
+    <div class="highlight"><pre><code class="ruby"><span class="ss">constructor</span><span class="p">:</span> <span class="o">-&gt;</span>
+    <span class="k">super</span>
+    <span class="vi">@setEvents</span><span class="p">()</span>
+    
+</code></pre></div>
+
+    <!-- metodos do tab -->
+    <p> <strong> Métodos: </strong> </p>
+
+        <blockquote>
+            <strong> changeTab {parâmetro: <code>JQueryEvent</code> e}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> createTab {parâmetro: <code>DOMElement</code> el}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> createMenu {parâmetros: <code>?</code> elements, <code>?</code> id}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setEvents </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> verifyNewTab {parâmetro: <code>JQueryEvent</code> e}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> getInstance {retorno: <code>Joker_Tab</code>}</strong>
+            <p> Retorna uma variável única para a instância do objeto. </p>
+        </blockquote>
+
+    <!-- typeHead -->
+    <h3 id="typeHead">TypeHead.coffee</h3>
+    <p> ... </p>
+
+    <!-- construtor do typeHead -->
+    <p> Construtor do TypeHead</p>
+    <div class="highlight"><pre><code class="ruby"><span class="ss">constructor</span><span class="p">:</span> <span class="o">-&gt;</span>
+    <span class="k">super</span>
+    <span class="vi">@debug</span> <span class="s2">&quot;Inicializando o Typeahead&quot;</span>
+    <span class="vi">@setEvents</span><span class="p">()</span>
+    
+</code></pre></div>
+
+    <!-- metodos do typeHead -->
+    <p> <strong> Métodos: </strong> </p>
+
+        <blockquote>
+            <strong> configure {parâmetro: <code>JQueryEvent</code> ev}</strong>
+            <p> Configura o elemento do TypeHead. </p>
         </blockquote>
 </div>
 

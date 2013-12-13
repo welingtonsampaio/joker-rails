@@ -13,47 +13,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="RedCloth (v4.2.9, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.4.0.pre.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="classifier (v1.3.3, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.0, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="colorator (v0.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="commander (v4.1.5, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="directory_watcher (v1.4.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="execjs (v2.0.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="fast-stemmer (v1.0.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ffi (v1.9.3, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="formatador (v0.2.4, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="github-pages (v6, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="guard (v1.8.3, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="guard-jekyll-plus (v1.4.10, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="guard-stitch-plus (v1.1.0, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="highline (v1.6.19, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="jekyll (v1.2.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="jekyll-stitch-plus (v1.0.3, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="kramdown (v1.0.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="liquid (v2.5.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="listen (v1.3.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="lumberjack (v1.0.4, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="maruku (v0.6.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="method_source (v0.8.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.8.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="posix-spawn (v0.3.6, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pry (v0.9.12.4, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pygments.rb (v0.5.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.9.3, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.9.2, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rb-kqueue (v0.2.0, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rdiscount (v1.6.8, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="redcarpet (v2.3.0, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="safe_yaml (v0.7.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="slop (v3.4.7, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="stitch-plus (v1.0.9, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="stitch-rb (v0.0.8, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="syntax (v1.0.0, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="thor (v0.18.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.2.1, rbenv: 2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="yajl-ruby (v1.1.0, rbenv: 2.0.0-p0) [gem]" level="application" />
   </component>
 </module>
 

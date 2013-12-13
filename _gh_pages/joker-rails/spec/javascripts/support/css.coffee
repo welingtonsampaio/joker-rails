@@ -1,1 +1,0 @@
-Joker.Core.libSupport('<link debug="false" href="/assets/joker.css" media="screen" rel="stylesheet" />').appendTo 'head'
