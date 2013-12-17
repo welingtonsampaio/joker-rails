@@ -105,6 +105,7 @@
         <li><a href="#restDelete">restDelete.coffee</a></li>
         <li><a href="#tab">tab.coffee</a></li>
         <li><a href="#typeHead">typeHead.coffee</a></li>
+        <li><a href="#window">window.coffee</a></li>
     </ul>
 </li>
 
@@ -114,7 +115,7 @@
         </div>
         <div class="col-md-9" role="main">
           <!-- ====================== Modules ============================ -->
-<div class="bs-docs-section">
+<div class="bs-docs-section" xmlns="http://www.w3.org/1999/html">
     <div class="page-header">
         <h1 id="joker"> Módulos do JokerJS </h1>
     </div>
@@ -322,11 +323,11 @@
     <strong> defaultData {<code>object</code>}</strong>
     <p> Configura&ccedil;ões padrão, caso algum objeto não tenha configurado alguma informa&ccedil;ão. </p>
     <div class="highlight"><pre><code class="ruby">    <span class="vi">@defaultData</span><span class="p">:</span>
-        <span class="n">target</span>     <span class="p">:</span> <span class="n">undefined</span>
-        <span class="ss">enterEffect</span><span class="p">:</span> <span class="no">Animation</span><span class="o">.</span><span class="n">FX_FADEIN</span>
-        <span class="n">autoLeave</span>  <span class="p">:</span> <span class="kp">false</span>
-        <span class="n">delayTime</span>  <span class="p">:</span> <span class="mi">7000</span>
-        <span class="ss">leaveEffect</span><span class="p">:</span> <span class="no">Animation</span><span class="o">.</span><span class="n">FX_FADEOUT</span>
+        <span class="n">target</span>      <span class="p">:</span> <span class="n">undefined</span>
+        <span class="n">enterEffect</span> <span class="p">:</span> <span class="no">Animation</span><span class="o">.</span><span class="n">FX_FADEIN</span>
+        <span class="n">autoLeave</span>   <span class="p">:</span> <span class="kp">false</span>
+        <span class="n">delayTime</span>   <span class="p">:</span> <span class="mi">7000</span>
+        <span class="n">leaveEffect</span> <span class="p">:</span> <span class="no">Animation</span><span class="o">.</span><span class="n">FX_FADEOUT</span>
     
 </code></pre></div>
 
@@ -916,7 +917,7 @@
 
         <blockquote>
             <strong>afterdestroy {parâmetro: <code>Joker.Modal</code> modal | retorno: <code>void</code>}</strong>
-            <p> Método disparado logo após a remo&ccedil; do Modal da tela. </p>
+            <p> Método disparado logo após a remo&ccedil;ão do Modal da tela. </p>
         </blockquote>
 
     <!-- metodos do modal -->
@@ -1197,6 +1198,29 @@
     <h3 id="typeHead">TypeHead.coffee</h3>
     <p> ... </p>
 
+    <!-- configuracoes do typeHead -->
+    <p> <strong> Configura&ccedil;ões: </strong> </p>
+
+        <blockquote>
+            <strong> debugPrefix {<code>?</code> | default: 'Joker_TypeHead'}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> className {<code>?</code> | default: 'Joker_TypeHead'}</strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> callbacks {<code>object</code> | default: new Object}</strong>
+            <p> Armazena as fun&ccedil;ões de callbacks. Todas as chamadas de callbacks devem ser dentro deste objeto. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> instance {<code>Joker.TypeHead</code> | default: undefined}</strong>
+            <p> ... </p>
+        </blockquote>
+
     <!-- construtor do typeHead -->
     <p> Construtor do TypeHead</p>
     <div class="highlight"><pre><code class="ruby"><span class="ss">constructor</span><span class="p">:</span> <span class="o">-&gt;</span>
@@ -1213,6 +1237,346 @@
             <strong> configure {parâmetro: <code>JQueryEvent</code> ev}</strong>
             <p> Configura o elemento do TypeHead. </p>
         </blockquote>
+
+        <blockquote>
+            <strong> selectedClose {parâmetors: <code>JQueryEvent</code> e, <code>object</code> obj} </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> selectedTypeHead {parâmtros: <code>JQueryEvent</code> e, <code>object</code> obj} </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setEvents </strong>
+            <p> Define os eventos a partir dos elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> addCallback {parâmetros: <code>String</code> name, <code>Function</code> func | retorno: <code>Joker.TypeHead</code>} </strong>
+            <p> Adiciona um novo callback à cole&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> getInstance {retorno: <code>Joker.TypeHead</code>} </strong>
+            <p> Retorna uma variávek única para a instância do objeto. </p>
+        </blockquote>
+
+    <!-- window -->
+    <h3 id="window">Window.coffee</h3>
+    <p> ... </p>
+
+    <!-- configuracoes do window -->
+    <p> <strong> Configura&ccedil;ões:</strong> </p>
+
+        <blockquote>
+            <strong> containerX {<code>float</code> | default: undefined} </strong>
+            <p> Contêm a posi&ccedil;ão atual da janela no eixo X no momento da movimenta&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> containerY {<code>float</code> | default: undefined} </strong>
+            <p> Contêm a posi&ccedil;ão atual da janela no eixo Y no momento da movimenta&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> data {<code>object</code> | default: undefined} </strong>
+            <p> Configura&ccedil;ões de entrada do objeto. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> drag {<code>boolean</code> | default: undefined} </strong>
+            <p> Define se a janela está liberada para a modifica&ccedil;ão de lugar. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> mouseX {<code>float</code> | default: undefined} </strong>
+            <p> Contêm a posi&ccedil;ão atual do mouse no eixo X no dispatch do evento. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> mouseY {<code>float</code> | default: undefined} </strong>
+            <p> Contêm a posi&ccedil;ão atual do mouse no eixo Y no dispatch do evento. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> originBodyCss {<code>CSSStyleDeclaration</code> | default: undefined}</strong>
+            <p> Objeto responsável por guardar as classes do corpo do HTML. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> useMaximize {<code>boolean</code> | default: true} </strong>
+            <p> Define se deve ser adicionado o ícone de maximizar a janela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> useMinimize {<code>boolean</code> | default: true} </strong>
+            <p> Define se deve ser adicionado o ícone de minimizar a janela. </p>
+        </blockquote>
+
+    <!-- default params do window -->
+    <p> <strong> Default params </strong> </p>
+    <p> Parâmetros que todas as janelas devem conter. Alguns dos elementos devem ser sobreescritos no método construtor para seu uso correto.</p>
+    <div class="highlight"><pre><code class="ruby"><span class="vi">@defaultParams</span><span class="p">:</span>
+    <span class="n">content</span>    <span class="p">:</span> <span class="n">null</span>
+    <span class="n">title</span>      <span class="p">:</span> <span class="n">null</span>
+    <span class="n">uniqObject</span> <span class="p">:</span> <span class="kp">false</span>
+    
+</code></pre></div>
+
+        <blockquote>
+            <strong> content {<code>String</code> | default: null} </strong>
+            <p> Conteúdo HTML a ser adicionado ao Window (requer sobreescrita). </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> title {<code>String</code> | default: null} </strong>
+            <p> Define qual o título da janela a ser renderizada (requer sobreescrita). </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> uniqObject {<code>boolean</code> | default: false} </strong>
+            <p> Define se esta janela deve ser uma instância única ou se poderá ser criada várias instâncias da mesma janela. </p>
+        </blockquote>
+
+    <!-- margens do window -->
+    <p> <strong> Margens </strong> </p>
+    <p> Margens padrão que limitam a janela de chegar próxima à borda do navegador. </p>
+    <div class="highlight"><pre><code class="ruby"><span class="vi">@margin</span><span class="p">:</span>
+    <span class="n">top</span>    <span class="p">:</span> <span class="mi">0</span>
+    <span class="n">right</span>  <span class="p">:</span> <span class="mi">0</span>
+    <span class="n">bottom</span> <span class="p">:</span> <span class="mi">0</span>
+    <span class="n">left</span>   <span class="p">:</span> <span class="mi">0</span>
+    
+</code></pre></div>
+
+        <blockquote>
+            <strong> top {<code>Integer</code> | default: 0}</strong>
+            <p> Define a margem do topo. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> right {<code>Integer</code> | default: 0} </strong>
+            <p> Define a margem da direita. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> bottom {<code>Integer</code> | default: 0} </strong>
+            <p> Define a margem do rodapé. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> left {<code>Integer</code> | default: 0} </strong>
+            <p> Define a margem da esquerda. </p>
+        </blockquote>
+
+    <!-- constutor do window -->
+    <p> <strong> Construtor do Window </strong> </p>
+    <div class="highlight"><pre><code class="ruby"><span class="ss">constructor</span><span class="p">:</span> <span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">{})</span><span class="o">-&gt;</span>
+    <span class="k">super</span>
+    <span class="vi">@data</span> <span class="o">=</span> <span class="vi">@libSupport</span><span class="o">.</span><span class="n">extend</span> <span class="kp">true</span><span class="p">,</span> <span class="p">{},</span> <span class="vi">@accessor</span><span class="p">(</span><span class="s1">&#39;defaultParams&#39;</span><span class="p">),</span> <span class="n">params</span>
+    <span class="vi">@accessor</span><span class="p">(</span><span class="s1">&#39;createBottomMinimizeContainer&#39;</span><span class="p">)()</span> <span class="k">if</span> <span class="vi">@accessor</span><span class="p">(</span><span class="s1">&#39;useMinimize&#39;</span><span class="p">)</span>
+    <span class="vi">@create</span><span class="p">()</span>
+    <span class="vi">@setEvents</span><span class="p">()</span>
+    <span class="vi">@accessor</span><span class="p">(</span><span class="s2">&quot;addToCollection&quot;</span><span class="p">)(</span><span class="err">@</span><span class="p">)</span>
+    <span class="vi">@defineToActive</span><span class="p">()</span>
+    <span class="vi">@accessor</span><span class="p">(</span><span class="s1">&#39;rebuildMaxSizes&#39;</span><span class="p">)()</span>
+    <span class="vi">@accessor</span><span class="p">(</span><span class="s2">&quot;refreshIndexes&quot;</span> <span class="p">)()</span>
+    <span class="vi">@setCenter</span><span class="p">()</span>
+    <span class="err">@</span>
+    
+</code></pre></div>
+
+    <!-- patterns do window -->
+    <p> <strong> Padrões {<code>object</code>}: </strong></p>
+    <p> Padrões de cria&ccedil;ão do box. Estes padrões contem dados de como deve ser criado o elemento da janela. </p>
+    <div class="highlight"><pre><code class="ruby"><span class="vi">@patterns</span><span class="p">:</span>
+    <span class="ss">container</span><span class="p">:</span> <span class="s2">&quot;</span>
+<span class="s2">        &lt;div id=&#39;{id}&#39; class=&#39;jwindow&#39; style=&#39;position: absolute&#39;&gt;</span>
+<span class="s2">            {title}</span>
+<span class="s2">            {content}</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &quot;</span>
+
+    <span class="ss">title</span><span class="p">:</span> <span class="s2">&quot;</span>
+<span class="s2">        &lt;div class=&#39;jwindow-title&#39;&gt;</span>
+<span class="s2">            &lt;h3&gt;{title}&lt;/h3&gt;</span>
+<span class="s2">            &lt;div class=&#39;controls&#39;&gt;</span>
+<span class="s2">                &lt;span class=&#39;close&#39;&gt;&lt;i class=&#39;iconset1-close-2&#39;&gt;&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">                {minimize}</span>
+<span class="s2">                {maximize}</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &quot;</span>
+
+    <span class="ss">content</span><span class="p">:</span> <span class="s2">&quot;</span>
+<span class="s2">        &lt;div class=&#39;jwindow-content&#39;&gt;</span>
+<span class="s2">            {content}</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &quot;</span>
+
+    <span class="ss">controlMaximize</span><span class="p">:</span> <span class="s2">&quot;</span>
+<span class="s2">        &lt;span class=&#39;maximize&#39;&gt;&lt;i class=&#39;iconset1-expand-3&#39;&gt;&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &quot;</span>
+
+    <span class="ss">controlMinimize</span><span class="p">:</span> <span class="s2">&quot;</span>
+<span class="s2">        &lt;span class=&#39;minimize&#39;&gt;&lt;i class=&#39;iconset1-minus&#39;&gt;&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &quot;</span>
+
+    <span class="ss">bottomMinimizeContainer</span><span class="p">:</span> <span class="s2">&quot;</span>
+<span class="s2">        &lt;div class=&#39;minimize-display&#39;&gt;&lt;/div&gt;</span>
+<span class="s2">    &quot;</span>
+
+    <span class="ss">bottomMinimizeSpan</span><span class="p">:</span> <span class="s2">&quot;</span>
+<span class="s2">        &lt;span data-target=&#39;{id}&#39;&gt;{title}&lt;/span&gt;</span>
+<span class="s2">    &quot;</span>
+    
+</code></pre></div>
+
+        <blockquote>
+            <strong> container {<code>String</code>} </strong>
+            <p> Padrão do container pai dos elementos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> title {<code>String</code>}</strong>
+            <p> Padrão para o título das janelas a serem renderizadas. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> content {<code>String</code>} </strong>
+            <p> Padrão do box de conteúdo da janela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> controlMaximize {<code>String</code>} </strong>
+            <p> Padrão do ícone de maximizar na tela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> controlMinimize {<code>String</code>} </strong>
+            <p> Padrão do ícone de minimizar na tela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> bottomMinimizeContainer {<code>String</code>}</strong>
+            <p> Padrão para quando for minimizado o container. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> bottomMinimizeSpan {<code>String</code>} </strong>
+            <p> Padrão para quando for minimizado o span. </p>
+        </blockquote>
+
+    <!-- metodos do window -->
+    <p> <strong> Métodos: </strong> </p>
+
+        <blockquote>
+            <strong> create </strong>
+            <p> Cria a janela atribuindo o conteúdo (requer título e conteúdo).</p>
+        </blockquote>
+
+        <blockquote>
+            <strong> destroy </strong>
+            <p> Método responsável por remover a janela seguindo o padrão de remover primeiramente os eventos
+                e depois o DOMObject. Após a remo&ccedil;ão, ele executa o método pai. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> defineToActive {retorno: <code>boolean</code> true} </strong>
+            <p> Define a janela para ativo. Automaticamente todas as outars janelas serão desativadas.
+                Faz o gerenciamento de até mil janelas. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> maximize </strong>
+            <p> Responsável por maximizar e restaurar a janela. Quando maximizado define o top e left para
+                as margens padrão. Quando restaurado define o container para o centro da área disponível. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> minimize </strong>
+            <p> Adiciona um efeito de transi&ccedil;ão para esconder a janela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> moveContainer {parâmetro: <code>object</code> e </strong> (e.clientX, e.clientY) <strong>}</strong>
+            <p> Faz as modifica&ccedil;ões de posicionamento da janela. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setCenter </strong>
+            <p> Coloca a janela no centro da área livre. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> setEvents </strong>
+            <p> Define os eventos direcionados aos objetos. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> startDrag {parâmetro: <code>DOMEvent</code> e </strong> (e.clientX, e.clientY)<strong> | retorno: <code>boolean</code> true} </strong>
+            <p> Inicia o evento de movimenta&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> stopDrag {retorno: <code>boolean</code> true} </strong>
+            <p> Para o evento demovimenta&ccedil;ão. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> addToCollection {parâmetro: <code>Joker.Window</code> win} </strong>
+            <p> Adiciona uma nova janela a cole&ccedil;ão de janelas do sistema. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> createBottomMinimizeContainer </strong>
+            <p> Cria o container que recebe os itens de referência das janelas abertas no sistema.
+                Incrementa o valor padrão da barra na margem do rodapé. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> createEventMinimizeClick </strong>
+            <p> Adiciona o evento de clique na barra de itens de referência.
+                Quando clicado em algum filho, da barra é acionado o método que define a janela para ativa.  </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> defineToBiggerIndex {parâmetro: <code>Joker.Window</code> win} </strong>
+            <p> Define o objeto informado para último. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> maximizeLastIndex </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> minimizeLastIndex </strong>
+            <p> ... </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> rebuildMaxSizes </strong>
+            <p> Define a altura e a largura máxima para o Window conforme o tamanho atual da janela do browser, descartando as margens. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> refreshIndexes </strong>
+            <p> Atualiza a lista de janelas, relocando o index conforme a ordem da lista. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> removeLastIndex </strong>
+            <p> Remove a última janela da cole&ccedil;ão de elementos. Ou seja, o elemento com o <code>z-index</code> maior. </p>
+        </blockquote>
+
+        <blockquote>
+            <strong> removeFromId {parâmetro: <code>String</code> id} </strong>
+            <p> Remove da cole&ccedil;ão de elementos o elemento, passando o ID do mesmo como parâmetro. </p>
+        </blockquote>
+
 </div>
 
         </div>
