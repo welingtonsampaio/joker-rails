@@ -6,3 +6,17 @@ br:
       update_success: "{model} atualizado(a) com sucesso"
     models:
       user: usuário
+    form:
+      error:
+        prepare_form: "Ocorreu um erro ao enviar o formulário"
+      success:
+        prepare_form: "Ocorreu um erro ao enviar o formulário"
+    filter:
+      error:
+        form_submit: "Ocorreu um erro no filtro dos dados"
+    restDelete:
+      error:
+        ajax_delete: "Ocorreu um erro ao excluir o registro, por favor verifique o log"
+        create_modal: "Ocorreu um erro ao requisitar as informações, por favor verifique o log"
+      success:
+        ajax_delete: "Reigstro excluído com sucesso"
