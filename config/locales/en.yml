@@ -6,3 +6,17 @@ en:
       update_success: "{model} edited successfully"
     models:
       user: user
+    form:
+      error:
+         prepare_form: "An error occurred on form submission"
+      success:
+         prepare_form: "An error occurred on form submission"
+    filter:
+      error:
+        form_submit: "An error occurred in the data filter"
+    restDelete:
+      error:
+        ajax_delete: "An error occurred in deleting records, please check the log"
+        create_modal: "An error occurred in the information request, please check the log"
+      success:
+        ajax_delete: "Record deleted successfully"
