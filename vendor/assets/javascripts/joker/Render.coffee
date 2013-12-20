@@ -142,6 +142,21 @@ class Joker.Render extends Joker.Core
   pushState: (obj)->
     history.pushState obj, obj.title, obj.url
 
+  renderTo: (target, url)->
+    new Joker.Ajax
+      url: url
+      data: "format=joker"
+      async: false
+      callbacks:
+        success: (data, textStatus, jqXHR)=>
+          @libSupport("[data-yield-for=#{target}]").empty().html(data)
+
+        error: ( jqXHR, textStatus )=>
+          if (jqXHR.status != 403)
+            new Joker.Alert
+              message: "Ocorreu um erro ao solicitar a pagina: #{url}"
+              type: Joker.Alert.TYPE_ERROR
+
   ###
   Sets the values ​​of the standard rendering engine
   ###

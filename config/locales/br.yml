@@ -7,8 +7,8 @@ br:
     models:
       user: usuário
     form:
-      error:
-        prepare_form: "Ocorreu um erro ao enviar o formulário"
+      error:
+        prepare_form: "Ocorreu um erro ao enviar o formulário"
       success:
         prepare_form: "Ocorreu um erro ao enviar o formulário"
     filter:

@@ -8,7 +8,7 @@ en:
       user: user
     form:
       error:
-         prepare_form: "An error occurred on form submission"
+        prepare_form: "An error occurred on form submission"
       success:
          prepare_form: "An error occurred on form submission"
     filter:

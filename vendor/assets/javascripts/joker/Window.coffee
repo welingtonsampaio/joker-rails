@@ -123,6 +123,7 @@ class Joker.Window extends Joker.Core
   @returns Boolean true
   ###
   defineToActive: ->
+    return false unless @accessor('hasWindowWithTitle')(@data.title)
     if @container.data 'minimized'
       new Joker.Animation
         target: @container
