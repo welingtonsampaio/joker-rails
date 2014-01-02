@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="<%= '<%=' %> yield :class_body %>">
+<html class="<%= '<%=' %> yield :class_body %> <%= '<%=' %> controller_name %> <%= '<%=' %> action_name %>">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= '<%=' %> content_for?(:title) ? yield(:title) : '<%= Rails.application.class.parent_name.titleize %>' %></title>

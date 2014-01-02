@@ -37,7 +37,9 @@ class Joker.Filter extends Joker.Core
       dataType: 'html'
       callbacks:
         error: ->
-
+          new Joker.Alert
+            type: Joker.Alert.ALERT_ERROR
+            message: Joker.I18n.t('joker.filter.error.form_submit')
         success: (html)=>
           t = @libSupport html
           content = t.find("[data-yield-for=#{form.data 'target'}] > table")

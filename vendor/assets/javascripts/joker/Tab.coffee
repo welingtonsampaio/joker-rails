@@ -48,12 +48,15 @@ class Joker.Tab extends Joker.Core
   createTabMenu: (elements, id) ->
     string_content = ""
     elements.each (index, el) =>
+      width = Math.round(100/elements.length)
+      width = width+100-width*elements.length if (index+1) == elements.length
       el.id = JokerUtils.uniqid()
       string_content += Object.clone(@accessor("patterns").link).assign
         target: el.id
         ref: id
         icon: el.dataset.tabIcon
         text: el.dataset.tabText
+        width: width
     Object.clone(@accessor("patterns").container).assign
       ref: id
       content: string_content
@@ -82,7 +85,7 @@ class Joker.Tab extends Joker.Core
     </div>
     """
     link: """
-    <li><a href="#" data-tab-target="{target}" data-tab-reference="{ref}"><i class="{icon}"></i>{text}</a></li>
+    <li style="width:{width}%;"><a href="#" data-tab-target="{target}" data-tab-reference="{ref}"><i class="{icon}"></i>{text}</a></li>
     """
 
   ###

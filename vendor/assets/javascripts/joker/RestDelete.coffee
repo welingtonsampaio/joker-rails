@@ -48,13 +48,13 @@ class Joker.RestDelete extends Joker.Core
           console.log error
           new Joker.Alert
             type: Joker.Alert.TYPE_ERROR
-            message: 'Ocorreu um erro ao excluir o registro, por favor verifique o log.'
+            message: Joker.I18n.t('joker.restDelete.error.ajax_delete')
         success: =>
           modal.destroy()
           @libSupport(document.getElementById el.dataset.reference ).remove()
           new Joker.Alert
             type: Joker.Alert.TYPE_SUCCESS
-            message: 'Registro excluído com sucesso.'
+            message: Joker.I18n.t('joker.restDelete.successf.ajax_delete')
 
   ###
   Responsavel por criar os elementos do
@@ -68,7 +68,7 @@ class Joker.RestDelete extends Joker.Core
           console.log error
           new Joker.Alert
             type: Joker.Alert.TYPE_ERROR
-            message: 'Ocorreu um erro ao requisitar as informações, por favor verifique o log.'
+            message: Joker.I18n.t('joker.restDelete.error.create_modal')
         success: (data)=>
           @debug 'Gerando o Modal de confirmação, com a configuração: ', data
           modal = new Joker.Modal

@@ -45,15 +45,15 @@ class Joker.Form extends Joker.Core
         error: ->
           new Joker.Alert
             type: Joker.Alert.ALERT_ERROR
-            message: 'Ocorreu um erro ao enviar o formulário'
+            message: Joker.I18n.t('joker.form.error.prepare_form')
         success: (data)=>
           if data.status == 'OK'
-            eval "#{data.callback_name}(form,data)" if data.callback_name?
+            eval "#{data.callback_name}(form, data)" if data.callback_name?
           else
             @printErrorMessages data.errors, form.find('.error-messages')
             new Joker.Alert
               type: Joker.Alert.ALERT_WARNING
-              message: 'Ocorreu um erro ao enviar o formulário'
+              message: Joker.I18n.t('joker.form.success.prepare_form')
     false
 
   printErrorMessages: (errors,container)->

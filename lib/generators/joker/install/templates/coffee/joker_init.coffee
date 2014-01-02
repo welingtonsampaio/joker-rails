@@ -32,17 +32,20 @@ window.Joker.bootstrap = ->
   # Joker.RestDelete.patternDestroyContainer = '' # see documentation
   # Joker.RestDelete.patternDestroyItens     = '' # see documentation
 
-  # Joker.Window.defaultIndex  = 1009
-  # Joker.Window.margin.top    = 0
-  # Joker.Window.margin.right  = 0
-  # Joker.Window.margin.left   = 0
-  # Joker.Window.margin.bottom = 0
+  # Joker.Window.defaultIndex   = 1009
+  # Joker.Window.margin.top     = 0
+  # Joker.Window.margin.right   = 0
+  # Joker.Window.margin.left    = 0
+  # Joker.Window.margin.bottom  = 0
+  # Joker.Window.useMaximize    = true
+  # Joker.Window.useMinimize    = true
+  # Joker.Window.useUniqWindows = true
 
   Joker.Render.getInstance()
   Joker.Form.getInstance()
-  #Joker.RestDelete.getInstance()
-  #Joker.Typeahead.getInstance()
-  #Joker.KeyboardShortcut.getInstance()
-  #Joker.Filter.getInstance()
-  #Joker.Tab.getInstance()
+  Joker.RestDelete.getInstance()
+  Joker.Typeahead.getInstance()
+  Joker.KeyboardShortcut.getInstance()
+  Joker.Filter.getInstance()
+  Joker.Tab.getInstance()
   Joker.Navigation.init()

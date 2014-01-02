@@ -76,6 +76,9 @@ class Joker.Window extends Joker.Core
     @data = @libSupport.extend true, {}, @accessor('defaultParams'), params
     @accessor('createBottomMinimizeContainer')() if @accessor('useMinimize')
     @create()
+    if @accessor('useUniqWindows') and @accessor('hasWindowWithTitle')(@data.title)
+      @accessor('defineToBiggerIndexByTitle')(@data.title)
+      return @destroy() 
     @setEvents()
     @accessor("addToCollection")(@)
     @defineToActive()
@@ -105,7 +108,8 @@ class Joker.Window extends Joker.Core
   executa o metodo pai
   ###
   destroy: ->
-    @container.off ".widget"
+    @container.off ".#{@objectId}"
+    @libSupport(document).off ".#{@objectId}"
     @container.remove()
     @accessor("removeFromId")( @objectId )
     @accessor("refreshIndexes")( )
@@ -119,6 +123,7 @@ class Joker.Window extends Joker.Core
   @returns Boolean true
   ###
   defineToActive: ->
+    return false unless @accessor('hasWindowWithTitle')(@data.title)
     if @container.data 'minimized'
       new Joker.Animation
         target: @container
@@ -203,16 +208,20 @@ class Joker.Window extends Joker.Core
   Seta os eventos direcionados aos  objetos
   ###
   setEvents: ->
-    @libSupport(@container).on "mousedown.jwindow", "div.jwindow-title",  @libSupport.proxy( @startDrag, @ )
-    @libSupport(@container).on "mouseup.jwindow",   "div.jwindow-title",  @libSupport.proxy( @stopDrag, @ )
-    @libSupport( document ).on "mousemove.jwindow",                       @libSupport.proxy( @moveContainer, @ )
-    @libSupport(@container).on "click.jwindow",     "span.close",         @libSupport.proxy( @destroy, @ )
-    @libSupport(@container).on "click.jwindow",                           @libSupport.proxy( @defineToActive, @ )
+    @libSupport(@container).on "mousedown.#{@objectId}", "div.jwindow-title",  @libSupport.proxy( @startDrag, @ )
+    @libSupport(@container).on "mouseup.#{@objectId}",   "div.jwindow-title",  @libSupport.proxy( @stopDrag, @ )
+    @libSupport( document ).on "mousemove.#{@objectId}",                       @libSupport.proxy( @moveContainer, @ )
+    @libSupport(@container).on "click.#{@objectId}",     ">*:not(.close)",     @libSupport.proxy( @defineToActive, @ )
 
-    @libSupport(@container).on "click.jwindow",     "span.maximize",      @libSupport.proxy( @maximize, @ )
-    @libSupport(@container).on "click.jwindow",     "span.minimize",      @libSupport.proxy( @minimize, @ )
+    @libSupport(@container).on "click.#{@objectId}",     "span.close",         @libSupport.proxy( @destroy, @ )
+    @libSupport(@container).on "click.#{@objectId}",     "span.maximize",      @libSupport.proxy( @maximize, @ )
+    @libSupport(@container).on "click.#{@objectId}",     "span.minimize",      @libSupport.proxy( @minimize, @ )
     @windowEventResize()
 
+  ###
+  ###
+  setScroll: ->
+    
 
   ###
   Inicia o evento de movimentacao
@@ -289,14 +298,6 @@ class Joker.Window extends Joker.Core
     @type String
     ###
     title: null
-    ###
-    Informa se esta janela deve ser uma instância unica
-    ou se poderá ser criado várias instancias da mesma
-    janela
-    @default FALSE
-    @type Boolean
-    ###
-    uniqObject: false
 
 
   ###
@@ -405,6 +406,22 @@ class Joker.Window extends Joker.Core
   @useMinimize: true
 
   ###
+  Define se deve adicionado o scroll
+  para o controle interno do conteudo
+  da jenela
+  @type Boolean
+  ###
+  @useScroll: true
+  
+  ###
+  Define se deve ser verificado se existe
+  uma janela com este titulo, caso sim nao
+  deve permitir a criação
+  @type Boolean
+  ###
+  @useUniqWindows: true
+
+  ###
   Adiciona uma nova janela a colecao de
   janelas do sistema
   @param Joker.Window win
@@ -412,6 +429,7 @@ class Joker.Window extends Joker.Core
   @addToCollection: (win)->
     Window.indexes.push
       id: win.objectId
+      title: win.data.title
       object: win
 
   ###
@@ -448,9 +466,42 @@ class Joker.Window extends Joker.Core
     Window.addToCollection win
     Window.refreshIndexes()
 
+  ###
+  Define o objeto informado para maior 
+  index através do titulo informado
+  @param String title
+  ###
+  @defineToBiggerIndexByTitle: (title)->
+    win = Window.hasWindowWithTitle title
+    # O metodo defineToActiveexecuta automaticamente
+    # o metedo defineToBiggerIndex que deixará a
+    # janela em nivel mais alto
+    win.defineToActive() if win
+    
+  ###
+  Verifica se existe uma janela criada com
+  o titulo especificado, é utilizado para 
+  nao ter duplicidade de janelas no sistema
+  @param String title
+    Titulo a ser pesquisado
+  @return Boolean | Joker.Window
+  ###
+  @hasWindowWithTitle: (title)->
+    exists = false
+    Window.indexes.each (win)-> exists = win.object if win.title == title
+    exists
+  
+  ###
+  Utilizado para maximizar a ultima
+  janela utilizada
+  ###
   @maximizeLastIndex: ->
     Window.indexes[Window.indexes.length-1].object.maximize()
 
+  ###
+  utilizado para minimizar a ultima
+  janela ativa
+  ###
   @minimizeLastIndex: ->
     Window.indexes[Window.indexes.length-1].object.minimize()
 
@@ -486,5 +537,5 @@ class Joker.Window extends Joker.Core
   @param String id
   ###
   @removeFromId: (id)->
-    Window.indexes=Window.indexes.exclude (n)-> n.id == id
+    Window.indexes=Window.indexes.exclude (win)-> win.id == id
     Window.indexes.compact()
