@@ -168,6 +168,26 @@ module Joker::Rails
 
       #
       #
+      def joker_upload(wrapper, id, options = {} )
+        options = {
+            type: 'filelist',
+            select_text: 'Selecione seus arquivos',
+        }.deep_merge! options
+        content_tag :div, { :class => "#{wrapper} joker-uploader", :id => id, :data => {
+            :upload => options
+        }} do
+         case options[:type]
+           when 'filelist'
+             # Renderizar div que conterá a tabela para listagem dos arquivos
+             # texto de enviar arquivos e se usar botão, renderizar o botão
+           when 'avatar'
+             # Renderizar icone de avatar, eu acho... não sei.
+         end
+        end
+      end
+
+      #
+      #
       def translate_attribute(model, attribute)
         model.human_attribute_name(attribute)
       end

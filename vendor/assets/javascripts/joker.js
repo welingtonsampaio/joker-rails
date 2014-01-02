@@ -18,6 +18,7 @@
  *= require joker/Filter
  *= require joker/Tab
  *= require joker/MultipleFields
+ *= require joker/Uploader
  *= require_self
  */
 
@@ -30,6 +31,7 @@ window.Joker.bootstrap = function() {
   Joker.Filter.getInstance();
   Joker.Tab.getInstance();
   Joker.MultipleFields.getInstance();
+  Joker.Uploader.getInstance();
   Joker.I18n.getInstance();
   Joker.Navigation.init();
 };

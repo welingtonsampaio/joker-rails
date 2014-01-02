@@ -6,3 +6,5 @@ br:
       update_success: "{model} atualizado(a) com sucesso"
     models:
       user: usuário
+    views:
+      error: "Os seguintes erros impediram esta ação em %{model}"

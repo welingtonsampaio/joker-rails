@@ -6,3 +6,5 @@ en:
       update_success: "{model} edited successfully"
     models:
       user: user
+    views:
+      error: "The following errors prevented this action in %{model}"

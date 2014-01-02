@@ -48,7 +48,7 @@ class Joker.Form extends Joker.Core
             message: 'Ocorreu um erro ao enviar o formulário'
         success: (data)=>
           if data.status == 'OK'
-            eval "#{data.callback_name}(form)" if data.callback_name?
+            eval "#{data.callback_name}(form,data)" if data.callback_name?
           else
             @printErrorMessages data.errors, form.find('.error-messages')
             new Joker.Alert

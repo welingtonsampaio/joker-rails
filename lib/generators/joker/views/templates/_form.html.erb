@@ -2,7 +2,7 @@
   <%= '<%=' %> form_for @<%= singular_table_name %>, html: {class: 'ajaxsend'} do |f| %>
     <div class="row-fluid error-messages hide">
       <div class="span12">
-        <h2>Os seguintes erros proibiram este <%= singular_table_name %> de ser cadastrado:</h2>
+        <h2><%= '<%=' %> t("joker.views.error", model: t("activerecord.models.<%= singular_table_name %>").capitalize) %></h2>
       </div>
     </div>
 

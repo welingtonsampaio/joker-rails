@@ -37,6 +37,12 @@ class Joker.Render extends Joker.Core
     @setDefaults()
     @setEvents()
 
+  executeScript: (val) ->
+    regex = /<script\b[^>]*>([\s\S]*?)<\/script>/gmi
+    scripts = regex.exec val
+    for match in scripts
+      console.log match
+
 
   formatTitle: (title)->
     title = "#{title} | #{Joker.appName}" if Joker.appName?
