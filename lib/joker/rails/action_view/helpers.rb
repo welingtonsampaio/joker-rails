@@ -168,21 +168,23 @@ module Joker::Rails
 
       #
       #
-      def joker_upload(wrapper, id, options = {} )
-        options = {
-            type: 'filelist',
-            select_text: 'Selecione seus arquivos',
-        }.deep_merge! options
-        content_tag :div, { :class => "#{wrapper} joker-uploader", :id => id, :data => {
-            :upload => options
-        }} do
-         case options[:type]
-           when 'filelist'
-             # Renderizar div que conterá a tabela para listagem dos arquivos
-             # texto de enviar arquivos e se usar botão, renderizar o botão
-           when 'avatar'
-             # Renderizar icone de avatar, eu acho... não sei.
-         end
+      def joker_upload( upload )
+        id = SecureRandom.hex
+        content_tag :div, {id: id} do
+          javascript_tag do
+"new Joker.Uploader({
+  container: '#{id}',
+  url: '#{upload.url}',
+  filters: {
+    mime_types: #{upload.filters.to_s}
+  },
+  multipart_params: {
+    '#{ request_forgery_protection_token }': '#{ form_authenticity_token }',
+    '#{ Rails.application.config.session_options[:key] }': '#{ request.session_options[:id] }'
+  },
+  callbacks: #{upload.callbacks.to_json}
+});".html_safe
+          end
         end
       end
 

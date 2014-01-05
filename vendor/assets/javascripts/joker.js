@@ -19,6 +19,7 @@
  *= require joker/Tab
  *= require joker/MultipleFields
  *= require joker/Uploader
+ *= require joker/Icon
  *= require_self
  */
 

@@ -18,69 +18,73 @@ or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
 For details please refer to: http://jokerjs.zaez.net
 ###
 
+#= require './plupload/moxie'
+#= require './plupload/plupload'
+#= require './plupload/jquery.plupload.queue'
+
 ###
 
 ###
 class Joker.Uploader extends Joker.Core
 
-  constructor: ->
+  callbacks: undefined
+  uploader : undefined
+
+  constructor: (config={})->
     super
-    @setEvents()
+    @settings = @libSupport.extend true, new Object,
+                                         @accessor('defaultSettings'),
+                                         {headers: {"X-CSRF-Token": @libSupport("meta[name='csrf-token']").attr("content")}},
+                                         config
+    @debug "Inicializando o Uploader", @objectId
+    @createUploader()
 
   addNewFiles: (up, files) ->
+
     @libSupport.each files, =>
+      true
+    @callbacks.FilesAdded(up, files)
 
-  ###
-  # Types:
-  #   filelist: cria uma tabela que lista os arquivos enviados
-  #   filename: cria um campo com o nome do arquivo (somente para arquivos unicos)
-  #   avatar
-  ###
-  createUploaderElements: (params = {}) ->
-    defaultParams =
-      type: 'filelist'
-    params = @libSupport.extend true, {}, defaultParams, params
+  callbackFileUploaded: (up, file, info)->
+    @settings.callbacks.FileUploaded(up, file, info)            if Object.isFunction(@settings.callbacks.FileUploaded)
+    eval("#{@settings.callbacks.FileUploaded}(up, file, info)") if Object.isString(@settings.callbacks.FileUploaded)
 
-  setEvents: ->
-    @libSupport(document).on 'ajaxComplete', @libSupport.proxy(@verifyUploader, @)
-
-  setUploader: (el) ->
-    window.el = el
-#    options = @libSupport(el.dataset.upload
-#    console.log options
-#    uploader = new plupload.Uploader
-#      runtimes: 'html5'
-#      url: el.dataset.uploadUrl
-#      container: el.getAttribute("id")
-#      browse_button: 'pickfiles'
-#      max_file_soze: '10mb'
-#      multi_selection: if el.dataset.uploadMultiple == "true" then true else false
-#      filters: [
-#        {title : "Image  files", extensions : "jpg,gif,png"},
-#        {title : "Zip files", extensions : "zip"}
-#      ]
-#    uploader.init()
-#    uploader.on 'FilesAdded', (up, files) => @addNewFiles(up, files)
-    el.dataset.uploader = true
-
-  verifyUploader: (e) ->
-    @libSupport(".joker-uploader:not([data-uploader])").each (index, el) => @setUploader el
+  createUploader: ->
+    @uploader = @libSupport("##{@settings.container}").pluploadQueue
+      runtimes:         @settings.runtimes
+      url:              @settings.url
+      multi_selection:  @settings.multi_selection
+      filters:          @settings.filters
+      headers:          @settings.headers
+      multipart_params: @settings.multipart_params
+      unique_names:     @settings.unique_names
+      init:
+        FileUploaded: @libSupport.proxy(@callbackFileUploaded, @)
 
 
   @debugPrefix: "Joker_Uploader"
   @className  : "Joker_Uploader"
 
-  ###
-  @type [Joker.Uploader]
-  ###
-  @instance  : undefined
-  @patterns:
-    link: """<a href="#" class="remove-item"><i class="{icon}" data-target="{ref}"></i></a>"""
+  @defaultSettings:
+    container: null
+    url: null
+    filters:
+      mime_types: []
+      prevent_duplicates: true
+    multipart_params: {}
+    runtimes: 'html5'
+    multi_selection: true
+    unique_names: false
+    callbacks:
+      Refresh:        (up)->
+      StateChanged:   (up)->
+      QueueChanged:   (up)->
+      UploadProgress: (up, file)->
+      FilesAdded:     (up, files)->
+      FilesRemoved:   (up, files)->
+      FileUploaded:   (up, file, info)->
+      ChunkUploaded:  (up, file, info)->
+      Error:          (up, args)->
 
-  ###
-  Retorna a variavel unica para a instacia do objeto
-  @return [Joker.Uploader]
-  ###
-  @getInstance: ->
-    Joker.Uploader.instance =  new Joker.Uploader() unless Joker.Uploader.instance?
-    Joker.Uploader.instance
+Joker.Core.libSupport ->
+  plupload.addI18n Joker.I18n.translations.uploader

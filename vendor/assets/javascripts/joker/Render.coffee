@@ -37,12 +37,26 @@ class Joker.Render extends Joker.Core
     @setDefaults()
     @setEvents()
 
-  executeScript: (val) ->
-    regex = /<script\b[^>]*>([\s\S]*?)<\/script>/gmi
-    scripts = regex.exec val
-    for match in scripts
-      console.log match
+  executeScript: (scripts)->
+    if Object.isArray(scripts)
+      for script in scripts
+        eval script
+    else if Object.isString(scripts)
+      eval script
+    else
+      throw 'Formato enviado não é vealido. Deve ser Array ou String.'
 
+  separateScript: (val) ->
+    regex = /<script\b[^>]*>([\s\S]*?)<\/script>/gmi
+    result = while scripts = regex.exec val
+      scripts
+    result2 = for script in result
+      val = val.replace script[0], ''
+      script[1]
+    [
+      val,
+      result2
+    ]
 
   formatTitle: (title)->
     title = "#{title} | #{Joker.appName}" if Joker.appName?
@@ -72,7 +86,10 @@ class Joker.Render extends Joker.Core
                 async: false,
                 callbacks: {
                   success: function (data, textStatus, jqXHR) {
-                    _this.libSupport("[data-yield-for=#{el.dataset.jrender}]").empty().html(data);
+                    var newData;
+                    newData = _this.separateScript(data)
+                    _this.libSupport("[data-yield-for=#{el.dataset.jrender}]").empty().html(newData[0]);
+                    _this.executeScript(newData[1]);
                   },
                   error: function ( jqXHR, textStatus ) {
                     add_push = false;

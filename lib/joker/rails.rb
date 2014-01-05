@@ -25,6 +25,7 @@ module Joker
     module Concerns
       autoload :DefaultValue, 'joker/rails/concerns/default_value'
       autoload :Filter,       'joker/rails/concerns/filter'
+      autoload :Upload,       'joker/rails/concerns/upload'
     end
   end
 end

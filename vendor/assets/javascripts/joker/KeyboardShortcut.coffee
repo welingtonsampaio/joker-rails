@@ -51,6 +51,27 @@ class Joker.KeyboardShortcut extends Joker.Core
     @elements = @libSupport('a[data-shortcut]')
 
   ###
+  Recarrega todas as instancias de
+  javascripts em ordem atraves de
+  requisições ajax sincronas,
+  menos arquivos que comtenham jquery
+  ou support na url
+  @sortcut r r s
+  ###
+  reloadScripts: ->
+    @libSupport('script').each (i, obj)=>
+      old_src = @libSupport(obj).attr('src')
+      unless /jquery|support/.test(old_src) or Object.isEmpty(old_src)
+        old_src = old_src.replace('?body=1', '')
+        new Joker.Ajax
+          async: false
+          url: old_src
+          callback:
+            success: (data)->
+              eval data
+
+
+  ###
   Responsável por criar os eventos quando os
   shortcut são executados
   ###
@@ -63,6 +84,9 @@ class Joker.KeyboardShortcut extends Joker.Core
     Mousetrap.bind "ctrl+alt+m", -> Joker.Window.maximizeLastIndex()
     # Minimiza a ultima janela
     Mousetrap.bind "ctrl+alt+n", -> Joker.Window.minimizeLastIndex()
+    # Recarrega todos os arquivos javascript
+    Mousetrap.bind "r r s", =>
+      @reloadScripts()
 
     # trigger menu link shortcuts
     @elements.each (i, el)=>

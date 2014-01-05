@@ -22,3 +22,12 @@ en:
         create_modal: "An error occurred in the information request, please check the log"
       success:
         ajax_delete: "Record deleted successfully"
+
+    # Modules
+    date_field:
+      today: today
+      clear: clear
+      format: d mmmm, yyyy
+    icon:
+      filename: Filename
+      mimetype: Mimetype

@@ -1,7 +1,7 @@
 ###
 @summary     Joker
 @description Framework of RIAs applications
-@version     1.0.0
+@version     1.1.0
 @file        I18n.js
 @author      Welington Sampaio (http://welington.zaez.net/)
 @contact     http://jokerjs.zaez.net/contato
@@ -62,5 +62,6 @@ class Joker.I18n
     _t9n = Joker.I18n.translations
     key.split('.').each (value)->
       _t9n = _t9n[value] if Object.has(_t9n, value)
-    throw "Key not found in translations: #{key}" unless Object.isString(_t9n)
-    _t9n.assign assigns
+    throw "Key not found in translations: #{key}" unless Object.isString(_t9n) or Object.isArray(_t9n)
+    _t9n = _t9n.assign assigns if Object.isString(_t9n)
+    _t9n
