@@ -40,7 +40,15 @@ class Joker.DateField extends Joker.Core
       },
       config
     @debug "Inicializando o DateField", @objectId
-    @setEvents
+    @setEvents()
+
+  setDateField: (e)->
+    el = @libSupport e.currentTarget
+    settings = @libSupport.extend true, new Object, @settings, el.data('dateField')
+    el.pickadate settings
+
+  setEvents: ->
+    @libSupport( document ).on( 'focus', '.date-field', @libSupport.proxy( @setDateField, @ ))
 
 
   @debugPrefix: "Joker_DateField"

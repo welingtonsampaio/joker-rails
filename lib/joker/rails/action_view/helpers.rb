@@ -228,6 +228,18 @@ module Joker::Rails
           ::ActionView::Helpers::Tags::TextField.new(:typehead, method, self, options).render +
           ::ActionView::Helpers::Tags::HiddenField.new(@object_name, method, self, original_options).render
         end
+
+        def joker_date( method, options={} )
+          klasses = options[:class] || options['class'] || ''
+          options = {
+              data: {
+                  date_field: {}
+              },
+              class: klasses.concat( ' date-field' )
+          }.deep_merge options
+          ::ActionView::Helpers::Tags::TextField.new(@object_name, method, self, options).render
+        end
+
       end
     end
 

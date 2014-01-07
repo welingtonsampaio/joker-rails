@@ -20,6 +20,7 @@
  *= require joker/MultipleFields
  *= require joker/Uploader
  *= require joker/Icon
+ *= require joker/DateField
  *= require_self
  */
 
@@ -34,5 +35,7 @@ window.Joker.bootstrap = function() {
   Joker.MultipleFields.getInstance();
   Joker.Uploader.getInstance();
   Joker.I18n.getInstance();
+  Joker.MultipleFields.getInstance();
+  Joker.DateField.getInstance();
   Joker.Navigation.init();
 };

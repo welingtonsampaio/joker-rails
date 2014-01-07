@@ -6,12 +6,12 @@
  * more than what’s here. Style the `.picker__holder` instead.
  */
 .picker {
-  font-size: 16px;
+  font-size: 12px;
   text-align: left;
   line-height: 1.2;
   color: #000000;
   position: absolute;
-  z-index: 10000;
+  z-index: 13000;
 }
 /**
  * The picker input element.
@@ -55,8 +55,8 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  min-width: 176px;
-  max-width: 466px;
+  min-width: 110px;
+  max-width: 215px;
   -webkit-border-radius: 0 0 5px 5px;
   -moz-border-radius: 0 0 5px 5px;
   border-radius: 0 0 5px 5px;
@@ -99,7 +99,7 @@
  * The picker box.
  */
 .picker__box {
-  padding: 0 1em;
+  padding: 0 0.5em;
 }
 /**
  * The header containing the month and year stuff.
@@ -239,7 +239,7 @@
  * The days on the calendar
  */
 .picker__day {
-  padding: .3125em 0;
+  padding: .23em 0;
   font-weight: 200;
   border: 1px solid transparent;
 }
@@ -303,7 +303,7 @@
   border: 1px solid #ffffff;
   background: #ffffff;
   font-size: .8em;
-  padding: .66em 0;
+  padding: .36em 0;
   font-weight: bold;
   width: 50%;
   display: inline-block;

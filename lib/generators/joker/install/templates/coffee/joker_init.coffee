@@ -48,4 +48,7 @@ window.Joker.bootstrap = ->
   Joker.KeyboardShortcut.getInstance()
   Joker.Filter.getInstance()
   Joker.Tab.getInstance()
+  Joker.I18n.getInstance()
+  Joker.MultipleFields.getInstance()
+  Joker.DateField.getInstance()
   Joker.Navigation.init()
