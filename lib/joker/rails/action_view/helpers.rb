@@ -13,9 +13,9 @@ module Joker::Rails
             }
         }
         if block_given?
-          uri = default.merge uri || {}
+          uri = default.deep_merge uri || {}
         else
-          html_options = default.merge html_options || {}
+          html_options = default.deep_merge html_options || {}
         end
         link_to name, uri, html_options, &block
       end
@@ -30,9 +30,9 @@ module Joker::Rails
             }
         }
         if block_given?
-          uri = default.merge uri || {}
+          uri = default.deep_merge uri || {}
         else
-          html_options = default.merge html_options || {}
+          html_options = default.deep_merge html_options || {}
         end
         link_to name, uri, html_options, &block
       end
@@ -144,7 +144,7 @@ module Joker::Rails
             need_replace = str.scan /\{entry.(\w*)\}/i
             need_replace.each{|s| str_dup.gsub!("{entry.#{s[0]}}", entry.send(s[0]).to_s)}
             options[:selections].each do |key,value|
-              str_dup.gsub!( "#{key}value='#{entry.send("#{key}_#{entry.send(key).class.send :primary_key}")}'", "#{key}value='#{entry.send("#{key}_#{entry.send(key).class.send :primary_key}")}' selected" )
+              str_dup.gsub!( "#{key}value='#{entry.send(entry.class.send :primary_key)}'", "#{key}value='#{entry.send(entry.class.send :primary_key)}' selected" )
               str_dup.gsub!( "#{key}value", "value" )
             end
             str_dup.gsub!(/{remove_tag\[(...*)\]}/im) {"<a href='#' class='remove-item'><i class='#{$1}' data-target='#{uniq_reference}'></i></a>"}

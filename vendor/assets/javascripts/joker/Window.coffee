@@ -85,6 +85,7 @@ class Joker.Window extends Joker.Core
     @accessor('rebuildMaxSizes')()
     @accessor("refreshIndexes" )()
     @setCenter()
+    @data.callbacks.onCreate(@)
     @
 
   ###
@@ -298,6 +299,8 @@ class Joker.Window extends Joker.Core
     @type String
     ###
     title: null
+    callbacks:
+      onCreate: (w) ->
 
 
   ###

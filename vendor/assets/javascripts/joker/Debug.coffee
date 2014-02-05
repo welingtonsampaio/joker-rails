@@ -45,7 +45,7 @@ Joker.Debug =
   prints everything in the browser console
   ###
   print: ( params )->
-    params = $.extend true, {}, @paramsDefault, params
+    params = jQuery.extend true, {}, @paramsDefault, params
     if (params.debug or Joker.debug) and @console?
       message = ["#{params.prefix} #{params.objectId} - #{params.index}"]
       message.push params.messages[value] for value of params.messages
