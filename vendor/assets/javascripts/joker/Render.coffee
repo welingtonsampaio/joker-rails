@@ -115,6 +115,9 @@ class Joker.Render extends Joker.Core
   ###
   linkClickWindow: (e)->
     el = @libSupport e.currentTarget
+    callback = ""
+    if el.data "jrender-callback"
+      callback = ", callbacks: { onCreate: function(w){eval('#{el.data "jrender-callback"}(w)') } }"
     @load(
       script: """
               _this = this;
@@ -126,7 +129,7 @@ class Joker.Render extends Joker.Core
                   success: function (data, textStatus, jqXHR) {
                     new Joker.Window({
                       content: data,
-                      title: "#{el.data "jrender-title"}"
+                      title: "#{el.data "jrender-title"}"#{callback}
                     });
                   },
                   error: function ( jqXHR, textStatus ) {

@@ -35,10 +35,10 @@ class Joker.Form extends Joker.Core
   prepareForm: (e)->
     form   = @libSupport(e.currentTarget)
     method = form.find('[name=_method]').first().val() || e.currentTarget.method
-    data   = form.serializeObject()
-    data.format = 'json'
+    data   = form.serialize()
+#    data.format = 'json'
     new Joker.Ajax
-      url   : e.currentTarget.action
+      url   : "#{e.currentTarget.action}?format=json"
       method: method
       data  : data
       callbacks:

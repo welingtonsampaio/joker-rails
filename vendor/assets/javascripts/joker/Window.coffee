@@ -86,6 +86,7 @@ class Joker.Window extends Joker.Core
     @accessor("refreshIndexes" )()
     @setCenter()
     @setScroll()
+    @data.callbacks.onCreate(@)
     @
 
   ###
@@ -300,6 +301,8 @@ class Joker.Window extends Joker.Core
     @type String
     ###
     title: null
+    callbacks:
+      onCreate: (w) ->
 
 
   ###
