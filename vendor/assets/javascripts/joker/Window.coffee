@@ -85,6 +85,7 @@ class Joker.Window extends Joker.Core
     @accessor('rebuildMaxSizes')()
     @accessor("refreshIndexes" )()
     @setCenter()
+    @setScroll()
     @
 
   ###
@@ -209,7 +210,7 @@ class Joker.Window extends Joker.Core
   ###
   setEvents: ->
     @libSupport(@container).on "mousedown.#{@objectId}", "div.jwindow-title",  @libSupport.proxy( @startDrag, @ )
-    @libSupport(@container).on "mouseup.#{@objectId}",   "div.jwindow-title",  @libSupport.proxy( @stopDrag, @ )
+    @libSupport(@container).on "mousedown.#{@objectId}", "div.jwindow-title",  @libSupport.proxy( @startDrag, @ )
     @libSupport( document ).on "mousemove.#{@objectId}",                       @libSupport.proxy( @moveContainer, @ )
     @libSupport(@container).on "click.#{@objectId}",     ">*:not(.close)",     @libSupport.proxy( @defineToActive, @ )
 
@@ -221,7 +222,22 @@ class Joker.Window extends Joker.Core
   ###
   ###
   setScroll: ->
-    
+    @container.find('[data-height]').each (indice,obj)=>
+      obj = @libSupport(obj)
+      unless obj.data('target')?
+        id = JokerUtils.uniqid()
+        receptor = """<div id="#{id}" style="display: block;">"""
+        obj.data 'target', id
+        obj.wrap receptor
+
+      receptor = @libSupport "##{obj.data('target')}"
+      height = obj.data('height')
+      height = 100 if height > 100
+      height = 1 if height < 1
+      receptor.css
+        maxHeight: ((@container.height() - (obj.offset().top - @container.offset().top)) * (height/100))
+      obj.niceScroll()
+
 
   ###
   Inicia o evento de movimentacao
@@ -248,27 +264,13 @@ class Joker.Window extends Joker.Core
     true
 
   ###
-  Para o evento de movimentacao
-  @returns Boolean true
-  ###
-  stopDrag: ->
-    @drag = false
-    @libSupport('body').css({
-      '-moz-user-select' : 'inherit',
-      '-khtml-user-select' : 'inherit',
-      '-webkit-user-select' : 'inherit',
-      '-o-user-select' : 'inherit',
-      'user-select' : 'inherit'
-    });
-    @container.removeClass 'alpha'
-    true
-
-  ###
   Define evento de resize na janela do browser
   apenas uma unica vez
   ###
   windowEventResize: ->
-    @libSupport(window).on "resize.jwindow", @libSupport.proxy( @accessor('rebuildMaxSizes'), @ ) unless window.jwindowEvent?
+    unless window.jwindowEvent?
+      @libSupport(window).on "resize.jwindow", @libSupport.proxy( @accessor('rebuildMaxSizes'), @ )
+      @libSupport(document).on "mouseup.jwindow", @libSupport.proxy( @accessor('stopDrag'), @ )
     window.jwindowEvent = true
 
 
@@ -344,6 +346,7 @@ class Joker.Window extends Joker.Core
                <div id="{id}" class="jwindow" style="position: absolute">
                {title}
                {content}
+               <span></span>
                </div>
                """
     ###
@@ -516,6 +519,7 @@ class Joker.Window extends Joker.Core
         maxWidth : window.innerWidth - Window.margin.left - Window.margin.right
         maxHeight: window.innerHeight - Window.margin.top - Window.margin.bottom
 
+
   ###
   Atualiza a lista de janelas, recolocando o
   index conforme a ordem da lista
@@ -539,3 +543,21 @@ class Joker.Window extends Joker.Core
   @removeFromId: (id)->
     Window.indexes=Window.indexes.exclude (win)-> win.id == id
     Window.indexes.compact()
+
+  ###
+  Para o evento de movimentacao
+  @returns Boolean true
+  ###
+  @stopDrag: ->
+    Joker.Core.libSupport('.jwindow.alpha.active').each ->
+      win = JokerUtils.getObject @id
+      win.drag = false
+      win.libSupport('body').css({
+        '-moz-user-select' : 'inherit',
+        '-khtml-user-select' : 'inherit',
+        '-webkit-user-select' : 'inherit',
+        '-o-user-select' : 'inherit',
+        'user-select' : 'inherit'
+      });
+      win.container.removeClass 'alpha'
+    true

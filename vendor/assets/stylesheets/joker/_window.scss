@@ -112,6 +112,11 @@ div.jwindow {
         }
       }
     }
+
+
+    [data-height] {
+      max-height: inherit !important;
+    }
   }
 
 }

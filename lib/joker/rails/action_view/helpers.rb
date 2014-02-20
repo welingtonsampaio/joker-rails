@@ -205,6 +205,9 @@ module Joker::Rails
         joker_translations.deep_merge! locale_translate[:joker] if locale_translate[:joker].present?
         joker_translations.deep_merge! locale_translate[:zerp] if locale_translate[:zerp].present?
         javascript_tag " Joker.I18n.translations = #{joker_translations.to_json}"
+      rescue
+        I18n.t :date
+        translate_joker
       end
 
       module FormBuilder

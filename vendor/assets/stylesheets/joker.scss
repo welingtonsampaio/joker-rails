@@ -3,8 +3,8 @@
 //      Requireds files
 //
 // ============================================
-@import "joker/mixins";
-@import "joker/variables";
+@import "joker/joker_mixins";
+@import "joker/joker_variables";
 
 // ============================================
 //
@@ -55,7 +55,7 @@
 @import "joker/navigation";
 
 // Alerts and Notices objects
-@import "joker/alerts";
+@import "joker/joker_alerts";
 
 // Autocomplete styling
 @import "joker/typeahead";
