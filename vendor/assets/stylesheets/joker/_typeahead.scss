@@ -1,23 +1,58 @@
 // Typhead Styling
-
-.twitter-typeahead{
-  input.tt-query{
-    background: white !important;
-    margin-top: 0px !important;
-  }
+$typeahead-bg: #f9f9f9;
+.twitter-typeahead {
   width: 100%;
+  background: $typeahead-bg;
+  input {
+    margin-bottom: 0;
+  }
 }
 
-.tt-dropdown-menu{
-  width: 100%;
-  background: white !important;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  .tt-suggestion p{
-    margin: 0px !important;
-    line-height: 30px;
-    padding-left: 8px;
+input.typeahead {
+  margin-top: 0px !important;
+  background: $typeahead-bg;
+  border: 1px solid #ccc;
+
+  &:focus {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
   }
-  .tt-is-under-cursor{
-    background: #2ec673;
+}
+
+.tt-dropdown-menu {
+  width: 100%;
+  background: $typeahead-bg !important;
+  margin-top: -4px;
+  z-index: 9999 !important;
+  box-sizing: border-box;
+  border-radius: 0 0 4px 4px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+
+  .tt-suggestion {
+    border-top: 2px solid white;
+
+    &:before {
+      border-top: 1px solid #eee;
+      margin-top: -3px;
+      width: 100%;
+      display: block;
+      content: " ";
+      line-height: 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+
+    p {
+      margin: 0px !important;
+      line-height: 30px;
+      padding-left: 8px;
+    }
+  }
+  .tt-is-under-cursor {
+    background: #60c0a6;
   }
 }

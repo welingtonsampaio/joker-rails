@@ -40,19 +40,45 @@ class Joker.Typeahead extends Joker.Core
     el = @libSupport ev.target
     unless el.data "typeheaded"
       console.log "Configurando os novos Typeaheads"
+
+
       url = el.data('autocomplete')
       url = App.Routes[url]() unless url.has('.json')
-      el.typeahead
-        name: el.attr('id')
+
+      console.log """
+                  var storage;
+
+                    storage = new Bloodhound({
+                      datumTokenizer: function(d) {
+                        console.log(d);
+                        return Bloodhound.tokenizers.whitespace(d.name);
+                      },
+                      queryTokenizer: Bloodhound.tokenizers.whitespace,
+                      limit: 5,
+                      remote: "#{url}?q=%QUERY&limit=5"
+                    });
+                  """
+
+      console.log storage = new Bloodhound
+        datumTokenizer: (d)->
+          Bloodhound.tokenizers.whitespace d
+        queryTokenizer: Bloodhound.tokenizers.whitespace
         remote: "#{url}?q=%QUERY&limit=5"
-        engine: Hogan
-        valueKey: el.data('valuekey')
-        template: if el.data('template')? then el.data('template') else """<p>{{name}}</p>"""
+
+      console.log storage.initialize()
+
+      console.log el.typeahead
+        name: el.attr('id')
+        source: storage.ttAdapter()
+        displayKey: el.data('valuekey')
+#        highlight: true
+        templates:
+          suggestion: Handlebars.compile(if el.data('template')? then el.data('template') else """<p>{{name}}</p>""")
       el.data("typeheaded", true).focus()
-      el.on 'typeahead:selected', @libSupport.proxy( @selectedTypeahead, @ )
-      el.on 'typeahead:closed',   @libSupport.proxy( @selectedClose, @ )
-      if el.data('callback')?
-        @accessor('callbacks')[el.data('callback')](ev.target)
+#      el.on 'typeahead:selected', @libSupport.proxy( @selectedTypeahead, @ )
+#      el.on 'typeahead:closed',   @libSupport.proxy( @selectedClose, @ )
+#      if el.data('callback')?
+#        @accessor('callbacks')[el.data('callback')](ev.target)
 
   ###
 

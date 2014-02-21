@@ -46,6 +46,8 @@ class Joker.DateField extends Joker.Core
     el = @libSupport e.currentTarget
     settings = @libSupport.extend true, new Object, @settings, el.data('dateField')
     el.pickadate settings
+    console.log el
+    el.attr 'name', ''
 
   setEvents: ->
     @libSupport( document ).on( 'focus', '.date-field', @libSupport.proxy( @setDateField, @ ))
@@ -80,6 +82,7 @@ class Joker.DateField extends Joker.Core
     disable: undefined
     # Root container
     container: undefined
+    hiddenSuffix: ''
 
 
 

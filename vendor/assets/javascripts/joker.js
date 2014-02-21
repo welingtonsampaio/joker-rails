@@ -1,5 +1,5 @@
 /**
- *= require_tree ./joker/support
+ *= require_directory ./joker/support
  *= require joker/JokerUtils
  *= require joker/Debug
  *= require joker/I18n

@@ -86,10 +86,14 @@ class Joker.Render extends Joker.Core
                 async: false,
                 callbacks: {
                   success: function (data, textStatus, jqXHR) {
-                    var newData;
+                    var newData, target, jwindow;
                     newData = _this.separateScript(data)
-                    _this.libSupport("[data-yield-for=#{el.dataset.jrender}]").empty().html(newData[0]);
+                    target = _this.libSupport("[data-yield-for=#{el.dataset.jrender}]");
+                    target.empty().html(newData[0]);
                     _this.executeScript(newData[1]);
+                    jwindow = JokerUtils.getObject(target.closest('.jwindow').attr('id'));
+                    jwindow.setCenter();
+                    jwindow.setScroll();
                   },
                   error: function ( jqXHR, textStatus ) {
                     add_push = false;
