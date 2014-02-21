@@ -29,6 +29,7 @@ input.typeahead {
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   border-left: 1px solid #ccc;
+  padding-top: 9px;
 
   .tt-suggestion {
     border-top: 2px solid white;
@@ -50,9 +51,17 @@ input.typeahead {
       margin: 0px !important;
       line-height: 30px;
       padding-left: 8px;
+      color: rgba(#333, 0.5);
+      font-size: 12px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      strong {
+        color: #333;
+      }
     }
-  }
-  .tt-is-under-cursor {
-    background: #60c0a6;
+
+    &.tt-cursor{
+      background: #60c0a6;
+    }
   }
 }

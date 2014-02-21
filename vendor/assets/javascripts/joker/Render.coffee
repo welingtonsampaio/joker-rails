@@ -92,8 +92,12 @@ class Joker.Render extends Joker.Core
                     target.empty().html(newData[0]);
                     _this.executeScript(newData[1]);
                     jwindow = JokerUtils.getObject(target.closest('.jwindow').attr('id'));
-                    jwindow.setCenter();
-                    jwindow.setScroll();
+                    setTimeout(10, function(){
+                      jwindow.setCenter();
+                      jwindow.setScroll();
+                    });
+
+
                   },
                   error: function ( jqXHR, textStatus ) {
                     add_push = false;

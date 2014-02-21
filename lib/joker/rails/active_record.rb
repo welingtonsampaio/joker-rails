@@ -15,8 +15,15 @@ module Joker::Rails
 
         if params[:filter]
           current_joker_scoped = current_joker_scoped.unscoped
+
           self.get_filters.each do |item|
             current_joker_scoped = current_joker_scoped.send "by_#{item.name}", params[:filter][item.name] unless params[:filter][item.name].blank?
+
+          end
+
+          unless params[:filter][:all].blank?
+            _where = self.get_filters.collect{|i| "#{table_name}.#{i.name} LIKE :like"}.join(' OR ')
+            current_joker_scoped = current_joker_scoped.where( _where, like: "%#{params[:filter][:all]}%" )
           end
         end
         current_joker_scoped
