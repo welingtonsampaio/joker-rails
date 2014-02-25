@@ -5,6 +5,7 @@ module Joker::Rails
 
       STORAGE_LOCALPATH = :localpath
       STORAGE_S3        = :s3
+      STORAGE_OPENSTACK = :openstack
 
       attr_accessor :storage,
                     :bucket,
@@ -12,6 +13,10 @@ module Joker::Rails
                     :s3_permission,
                     :url,
                     :params,
+                    :openstack_api_key ,
+                    :openstack_username,
+                    :openstack_auth_url,
+                    :openstack_tenant,
                     :data
 
       def base_path
@@ -44,6 +49,8 @@ module Joker::Rails
             save_localpath params
           when STORAGE_S3
             save_s3 params
+          when STORAGE_OPENSTACK
+            save_openstack params
           else
             throw "Armazenamento nao especificado"
         end
@@ -60,6 +67,18 @@ module Joker::Rails
 
       def save_s3 params
         throw "Voce precisa adicionar a gem 'aws-s3'" unless AWS
+        AWS::S3::DEFAULT_HOST.replace "s3-#{region}.amazonaws.com"
+
+        AWS::S3::S3Object.store get_save_name,
+                                params[:file],
+                                bucket,
+                                :access => s3_permission
+        save_success
+      end
+
+      def save_s3 params
+        throw "Voce precisa adicionar a gem 'fog'" unless Fog
+
         AWS::S3::DEFAULT_HOST.replace "s3-#{region}.amazonaws.com"
 
         AWS::S3::S3Object.store get_save_name,

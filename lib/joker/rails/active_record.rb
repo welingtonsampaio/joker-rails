@@ -23,7 +23,7 @@ module Joker::Rails
 
           unless params[:filter][:all].blank?
             _where = self.get_filters.collect{|i| "#{table_name}.#{i.name} LIKE :like"}.join(' OR ')
-            current_joker_scoped = current_joker_scoped.where( _where, like: "%#{params[:filter][:all]}%" )
+            current_joker_scoped = current_joker_scoped.where( _where, like: "#{params[:filter][:all]}%" )
           end
         end
         current_joker_scoped

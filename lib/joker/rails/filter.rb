@@ -9,7 +9,7 @@ module Joker::Rails
     end
 
     def def_eval
-      @def_eval ||= %[where('#{model.table_name}.#{name} LIKE ?', "%\#{value}%")] if type == :text
+      @def_eval ||= %[where('#{model.table_name}.#{name} LIKE ?', "\#{value}%")] if type == :text
       @def_eval ||= %[where #{name}: value ] if type == :select
       @def_eval
     end
