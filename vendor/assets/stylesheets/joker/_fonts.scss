@@ -2,13 +2,13 @@
 
   @font-face {
     font-family: 'SantaFeLET';
-    src: url('/assets/SantaFeLETFonts.eot');
+    src: url('/assets/fonts/SantaFeLETFonts.eot');
   }
 
   @font-face {
     font-family: 'SantaFeLET';
-    src: url('/assets/SantaFeLETFonts.woff') format('woff'),
-    url('/assets/SantaFeLETFonts.svg#SantaFeLetPlain') format('svg');
+    src: url('/assets/fonts/SantaFeLETFonts.woff') format('woff'),
+    url('/assets/fonts/SantaFeLETFonts.svg#SantaFeLetPlain') format('svg');
   }
 
 }
