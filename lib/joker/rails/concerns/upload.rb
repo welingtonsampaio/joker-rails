@@ -4,19 +4,18 @@ module Joker::Rails
     module Upload
 
       STORAGE_LOCALPATH = :localpath
-      STORAGE_S3        = :s3
+      STORAGE_S3 = :s3
       STORAGE_OPENSTACK = :openstack
 
       attr_accessor :storage,
-                    :bucket,
+                    :directory,
                     :multiple,
                     :s3_permission,
                     :url,
                     :params,
-                    :openstack_api_key ,
+                    :openstack_api_key,
                     :openstack_username,
                     :openstack_auth_url,
-                    :openstack_tenant,
                     :data
 
       def base_path
@@ -32,9 +31,8 @@ module Joker::Rails
       end
 
 
-
       def setup(&block)
-        self.storage  = STORAGE_LOCALPATH
+        self.storage = STORAGE_LOCALPATH
         self.multiple = true
         self.s3_permission = :private
 
@@ -65,25 +63,28 @@ module Joker::Rails
 
       end
 
-      def save_s3 params
-        throw "Voce precisa adicionar a gem 'aws-s3'" unless AWS
-        AWS::S3::DEFAULT_HOST.replace "s3-#{region}.amazonaws.com"
+      def save_openstack params
+        raise "Voce precisa adicionar a gem 'fog'" unless Fog
 
-        AWS::S3::S3Object.store get_save_name,
-                                params[:file],
-                                bucket,
-                                :access => s3_permission
+        service = Fog::Storage.new :provider => 'OpenStack',                  # OpenStack Fog provider
+                                   :openstack_username => openstack_username, # Your OpenStack Username
+                                   :openstack_api_key  => openstack_api_key,  # Your OpenStack Password
+                                   :openstack_auth_url => openstack_auth_url
+
+        dir = service.directories.get directory
+        dir.files.create :key => get_save_name,
+                         :body => params[:file]
         save_success
       end
 
       def save_s3 params
-        throw "Voce precisa adicionar a gem 'fog'" unless Fog
+        raise "Voce precisa adicionar a gem 'aws-s3'" unless AWS
 
         AWS::S3::DEFAULT_HOST.replace "s3-#{region}.amazonaws.com"
 
         AWS::S3::S3Object.store get_save_name,
                                 params[:file],
-                                bucket,
+                                directory,
                                 :access => s3_permission
         save_success
       end
