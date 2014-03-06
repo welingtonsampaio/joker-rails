@@ -225,8 +225,13 @@ module Joker::Rails
             class: ''
           }.deep_merge options
           options[:class] += ' typeahead'
-          options[:value] = @object.send(method[0..-4]).send options[:data][:valuekey] if @object.persisted?
-          original_options[:value] = @object.send(method) if @object.persisted?
+          if @object.persisted?
+            parent = @object.send(method[0..-4])
+            unless parent.nil?
+              options[:value] = parent.send options[:data][:valuekey]
+              original_options[:value] = @object.send(method)
+            end
+          end
 
           ::ActionView::Helpers::Tags::TextField.new(:typehead, method, self, options).render +
           ::ActionView::Helpers::Tags::HiddenField.new(@object_name, method, self, original_options).render

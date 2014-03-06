@@ -2,7 +2,7 @@ header{
   background: $navigation-background;
   .#{$navigation-class-container} {
     font-size: $navigation-font-size;
-    z-index: 9000;
+    z-index: $window-index +1000;
     position: relative;
     ul {
       margin: 0;

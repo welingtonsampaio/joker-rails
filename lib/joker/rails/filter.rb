@@ -1,6 +1,6 @@
 module Joker::Rails
   class Filter
-    attr_accessor :name, :type, :collection, :url, :def_eval, :only_filter,
+    attr_accessor :name, :type, :collection, :url, :def_eval, :only_filter, :filter_all,
                   :callback, :indicekey, :template, :valuekey, :model
 
     # @param args Hash

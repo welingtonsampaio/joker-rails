@@ -3,6 +3,7 @@
   position: absolute;
   top: $alert-top;
   right: $alert-right;
+  z-index: $modal-zindex + 1000;
 
   .alert {
 

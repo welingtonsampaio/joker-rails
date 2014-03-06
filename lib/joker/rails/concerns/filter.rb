@@ -14,11 +14,14 @@ module Joker::Rails
 
         def filter attribute, args, &block
           @filter_fields ||= Array.new
+          @filter_all_fields ||= Array.new
+          args[:filter_all] = true
           args[:name]       = attribute
           args[:model]      = self
           args[:collection] = args[:collection].call if args[:collection].is_a?(Proc)
           filter = Joker::Rails::Filter.new args
           generate_method_filter filter unless filter.only_filter
+          @filter_all_fields << filter if filter.filter_all
           @filter_fields << filter
         end
 
@@ -33,6 +36,10 @@ EOT
 
         def get_filters
           @filter_fields
+        end
+
+        def get_filter_all
+          @filter_all_fields
         end
 
         protected :generate_method_filter

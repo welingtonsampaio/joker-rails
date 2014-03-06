@@ -48,8 +48,9 @@ class Joker.Typeahead extends Joker.Core
       storage = new Bloodhound
         datumTokenizer: (d)->
           Bloodhound.tokenizers.whitespace d
+        limit: 10
         queryTokenizer: Bloodhound.tokenizers.whitespace
-        remote: "#{url}?filter[all]=%QUERY&limit=5"
+        remote: "#{url}?filter[all]=%QUERY"
 
       storage.initialize()
 
@@ -57,7 +58,6 @@ class Joker.Typeahead extends Joker.Core
         name: el.attr('id')
         source: storage.ttAdapter()
         displayKey: el.data('valuekey')
-
         templates:
           suggestion: Handlebars.compile(if el.data('template')? then el.data('template') else """<p>{{name}}</p>""")
       )

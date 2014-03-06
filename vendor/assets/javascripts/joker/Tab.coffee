@@ -35,6 +35,8 @@ class Joker.Tab extends Joker.Core
     container.find(".tab.active").removeClass "active"
     @libSupport(e.currentTarget).addClass "active"
     @libSupport("##{e.currentTarget.dataset.tabTarget}").addClass "active"
+    jwindow = @libSupport(e.currentTarget).closest '.jwindow'
+    JokerUtils.getObject(jwindow.attr 'id').setScroll()
 
   createTab: (el) ->
     el.dataset.tab = JokerUtils.uniqid()
