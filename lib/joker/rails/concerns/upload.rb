@@ -4,7 +4,8 @@ module Joker::Rails
     module Upload
 
       STORAGE_LOCALPATH = :localpath
-      STORAGE_S3        = :s3
+      STORAGE_S3 = :s3
+      STORAGE_GCS = :gcs
 
       attr_accessor :storage,
                     :bucket,
@@ -12,6 +13,9 @@ module Joker::Rails
                     :s3_permission,
                     :url,
                     :params,
+                    :google_storage_access_key_id,
+                    :google_storage_secret_access_key,
+                    :google_storage_permission,
                     :data
 
       def base_path
@@ -27,9 +31,8 @@ module Joker::Rails
       end
 
 
-
       def setup(&block)
-        self.storage  = STORAGE_LOCALPATH
+        self.storage = STORAGE_LOCALPATH
         self.multiple = true
         self.s3_permission = :private
 
@@ -44,6 +47,8 @@ module Joker::Rails
             save_localpath params
           when STORAGE_S3
             save_s3 params
+          when STORAGE_GCS
+            save_gcs params
           else
             throw "Armazenamento nao especificado"
         end
@@ -59,13 +64,26 @@ module Joker::Rails
       end
 
       def save_s3 params
-        throw "Voce precisa adicionar a gem 'aws-s3'" unless AWS
+        raise "Voce precisa adicionar a gem 'aws-s3'" unless AWS
         AWS::S3::DEFAULT_HOST.replace "s3-#{region}.amazonaws.com"
 
         AWS::S3::S3Object.store get_save_name,
                                 params[:file],
                                 bucket,
                                 :access => s3_permission
+        save_success
+      end
+
+      def save_gcs params
+        raise "Voce precisa adicionar a gem 'fog'" unless Fog
+
+        @conn = Fog::Storage::Google.new google_storage_access_key_id: google_storage_access_key_id,
+                                         google_storage_secret_access_key: google_storage_secret_access_key
+        @conn.put_object bucket,
+                         get_save_name,
+                         params[:file],
+                         'x-goog-acl' => google_storage_permission || 'public'
+
         save_success
       end
 
