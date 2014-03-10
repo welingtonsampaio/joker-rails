@@ -92,10 +92,10 @@ class Joker.Render extends Joker.Core
                     target.empty().html(newData[0]);
                     _this.executeScript(newData[1]);
                     jwindow = JokerUtils.getObject(target.closest('.jwindow').attr('id'));
-                    setTimeout(10, function(){
+                    setTimeout(function(){
                       jwindow.setCenter();
                       jwindow.setScroll();
-                    });
+                    }, 10);
 
 
                   },
